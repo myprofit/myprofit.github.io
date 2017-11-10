@@ -86,34 +86,41 @@ h3{   margin: auto;
       <!-- Possibility to choose the FIAT currency and add it to the final value
             FIAT currency:<br>      <input id="FIATc" value="" type="text"> - display in € $...<br> -->
       <!-- Option to select and add the COIN and EXCHANGE market you are using for calculating to give you the output of the current price of coin your choice
-   Exchange market:<br>
-<input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
-      <b>Investing money:</b><br>(Your invested money in FIAT)<br>
+   Exchange market:<br><input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
+      <b>Investing money</b><br>
+      Your invested money in FIAT<br>
       <input id="INV" value="" type="number"><br>
-      <b>Purchasing price:</b><br>(What is the price when you buy in FIAT)<br>
+      <b>Purchasing price</b><br>
+      What is the price when you buy in FIAT<br>
       <input id="PURCP" value="" type="number"><br>
-      <b>Current price:</b><br>(What is new price when you like to sell in FIAT)<br>
+      <b>Current price</b><br>
+      What is new price when you like to sell in FIAT<br>
       <input id="CURP" value="" type="number"><br>
-      <b>Difference in price:</b><br>(The difference between in price in FIAT)<br>
+      <b>Difference in price</b><br>
+      The difference between in price in FIAT<br>
       <input id="DIFF" readonly="true" type="text"><br>
-      <b>Quantity:</b><br>(Purchased quantity)<br>
+      <b>Quantity</b><br>
+      Purchased quantity<br>
       <input id="QUA" readonly="true" type="text"><br>
-      <b>Bonus:</b><br>(Current amount of money you earned or lost in FIAT)<br>
+      <b>Bonus</b><br>
+      Current amount of money you earned or lost in FIAT<br>
       <input id="BO" readonly="true" type="text"><br>
-      <b>Income:</b><br>(The final earnings at the point of sale at the current price)<br>
+      <b>Income</b><br>
+      The final earnings at the point of sale at the current price<br>
       <input id="INCO" readonly="true" type="text"><br>
-      <b>Percentage:</b> <br>(Earnings in percentag)<br>
+      <b>Percentage</b> <br>
+      Earnings in percentage<br>
       <input id="PERC" readonly="true" type="text"></div>
     <br>
     <div class="cont1" onkeyup="updateResult()" align="justify"> <b>The
-        quantity I already have:</b><br>
-      (Quantity of a coin you already have)<br>
+        quantity I already have</b><br>
+      Quantity of a coin you already have<br>
       <input id="QUANI" value="0" type="number"><br>
-      <b>My quantity plus new quantity:</b> <br>
-      (The sum of total quantity)<br>
+      <b>My quantity plus new quantity</b> <br>
+      The sum of total quantity<br>
       <input id="QUANP" readonly="true" type="text"> <br>
-      <b>The total value in FIAT:</b> <br>
-      (The value in the FIAT currency)<br>
+      <b>The total value in FIAT</b> <br>
+      The value in the FIAT currency<br>
       <input id="FIAT" readonly="true" type="text"></div>
     <!--Posibility to add your quantity plus new quantity and to get what is the curent price of it in FIAT-->
     <h3> Profit from my current quantity </h3>
@@ -122,8 +129,7 @@ h3{   margin: auto;
       New quantity<br>
       <input id="NEWQ" value="" type="number"><br>
       <!-- Do not work corretly in formula when 
-INCOF = (YQUA + NEWQ)  *   (CURPR - PURCPR)
-Purchasing price:<br>      <input id="PURCPR" value="" type="text"> - What is the price when you buy in FIAT<br> -->
+INCOF = (YQUA + NEWQ)  *   (CURPR - PURCPR)Purchasing price:<br>      <input id="PURCPR" value="" type="text"> - What is the price when you buy in FIAT<br> -->
       Current price<br>
       <input id="CURPR" value="" type="number"><br>
       <b>Income in fiat</b><br>
