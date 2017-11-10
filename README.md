@@ -1,7 +1,5 @@
-Fast simple and easy 
-
-#Crypto profit calculator
-
+Fast simple and easy
+# Crypto profit calculator
 help you calculate your cryptocurrency profit
 
 <b>What it calculate:</b>
