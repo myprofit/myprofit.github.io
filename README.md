@@ -1,4 +1,3 @@
-# myprofit.github.io
 Fast and easy to use crypto profit calculator
 
 # Crypto profit calculator
@@ -19,5 +18,5 @@ Is posible to make predictions of:
 2.  Quantity of coin you get
 
 <b>Setting up</b>
-1.  Download [index.html](index.html)
+1.  Download [index.html](https://myprofit.github.io/index.html)
 2.  Open it in your web browser and use it
