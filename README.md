@@ -17,6 +17,5 @@ Is posible to make predictions of:
 1.  Income profit
 2.  Quantity of coin you get
 
-<b>Setting up</b>
-1.  Download [index.html](https://myprofit.github.io/index.html)
-2.  Open it in your web browser and use it
+<b>Web page is for free use</b><br>
+Visit at: [https://myprofit.github.io/index.html](https://myprofit.github.io/index.html)
