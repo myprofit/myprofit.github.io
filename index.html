@@ -107,27 +107,27 @@ h3{   margin: auto;
     <br>
     <div class="cont1" onkeyup="updateResult()" align="justify"> <b>The
         quantity I already have:</b><br>
-      (Quantity you already have)<br>
-      <input id="QUANI" value="0" type="text"><br>
+      (Quantity of a coin you already have)<br>
+      <input id="QUANI" value="0" type="number"><br>
       <b>My quantity plus new quantity:</b> <br>
       (The sum of total quantity)<br>
-      <input id="QUANP" readonly="true" type="text"> <br>
+      <input id="QUANP" readonly="true" type="number"> <br>
       <b>The total value in FIAT:</b> <br>
       (The value in the FIAT currency)<br>
-      <input id="FIAT" readonly="true" type="text"></div>
+      <input id="FIAT" readonly="true" type="number"></div>
     <!--Posibility to add your quantity plus new quantity and to get what is the curent price of it in FIAT-->
     <h3> Profit from my current quantity </h3>
     <div class="cont2" onkeyup="updateResult()" align="justify"> Your quantity<br>
-      <input id="YQUA" value="" type="text"><br>
+      <input id="YQUA" value="" type="number"><br>
       New quantity<br>
-      <input id="NEWQ" value="" type="text"><br>
+      <input id="NEWQ" value="" type="number"><br>
       <!-- Do not work corretly in formula when 
 INCOF = (YQUA + NEWQ)  *   (CURPR - PURCPR)
 Purchasing price:<br>      <input id="PURCPR" value="" type="text"> - What is the price when you buy in FIAT<br> -->
       Current price<br>
-      <input id="CURPR" value="" type="text"><br>
+      <input id="CURPR" value="" type="number"><br>
       <b>Income in fiat</b><br>
-      <input id="INCOF" value="" type="text"><br>
+      <input id="INCOF" value="" type="number"><br>
     </div>
     <!-- My quantitiy value acording to price change -->
   </body>
