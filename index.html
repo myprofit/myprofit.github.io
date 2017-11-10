@@ -89,11 +89,11 @@ h3{   margin: auto;
    Exchange market:<br>
 <input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
       <b>Investing money:</b><br>(Your invested money in FIAT)<br>
-      <input id="INV" value="" type="text"><br>
+      <input id="INV" value="" type="number"><br>
       <b>Purchasing price:</b><br>(What is the price when you buy in FIAT)<br>
-      <input id="PURCP" value="" type="text"><br>
+      <input id="PURCP" value="" type="number"><br>
       <b>Current price:</b><br>(What is new price when you like to sell in FIAT)<br>
-      <input id="CURP" value="" type="text"><br>
+      <input id="CURP" value="" type="number"><br>
       <b>Difference in price:</b><br>(The difference between in price in FIAT)<br>
       <input id="DIFF" readonly="true" type="text"><br>
       <b>Quantity:</b><br>(Purchased quantity)<br>
@@ -111,10 +111,10 @@ h3{   margin: auto;
       <input id="QUANI" value="0" type="number"><br>
       <b>My quantity plus new quantity:</b> <br>
       (The sum of total quantity)<br>
-      <input id="QUANP" readonly="true" type="number"> <br>
+      <input id="QUANP" readonly="true" type="text"> <br>
       <b>The total value in FIAT:</b> <br>
       (The value in the FIAT currency)<br>
-      <input id="FIAT" readonly="true" type="number"></div>
+      <input id="FIAT" readonly="true" type="text"></div>
     <!--Posibility to add your quantity plus new quantity and to get what is the curent price of it in FIAT-->
     <h3> Profit from my current quantity </h3>
     <div class="cont2" onkeyup="updateResult()" align="justify"> Your quantity<br>
@@ -127,7 +127,7 @@ Purchasing price:<br>      <input id="PURCPR" value="" type="text"> - What is th
       Current price<br>
       <input id="CURPR" value="" type="number"><br>
       <b>Income in fiat</b><br>
-      <input id="INCOF" value="" type="number"><br>
+      <input id="INCOF" value="" type="text"><br>
     </div>
     <!-- My quantitiy value acording to price change -->
   </body>
