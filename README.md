@@ -17,4 +17,4 @@ Is posible to make predictions of:
 2.  Quantity of coin you get
 
 <b>Web page is for free use</b><br>
-Visit at: [https://myprofit.github.io/index.html](https://myprofit.github.io/index.html)
+Visit at: [https://myprofit.github.io/](https://myprofit.github.io/)
