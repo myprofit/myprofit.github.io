@@ -14,9 +14,8 @@ div {
     border: 3px solid green;
     padding: 6px;
     border-radius:6px;
-    position:relative;
+    position:center;
     top:1px;
-    bottom:6px;
     text-align: center;
     background-color: #FFD700;
  } 
@@ -102,19 +101,20 @@ h4{	margin: auto;
 
            e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR") );
            
-           e("CURR").value = (f("PURC") * f("PERid")) / f("PURC") + f("PURC");
+           e("CURR").value = ((f("PURC") * f("PERid")) / 100) + f("PURC");
            
            e("DIFFP").value = f("CURR") - f("PURC");
+           
+           e("MQUA").value = f("MPRC") / f("BYP");
            
          }      
       </script>
   </head>
-  <body>
-    <!-- Possibility to choose the FIAT currency and add it to the final value
+  <body> <!-- Possibility to choose the FIAT currency and add it to the final value
             FIAT currency:<br>      <input id="FIATc" value="" type="text"> - display in € $...<br> -->
     <!-- Option to select and add the COIN and EXCHANGE market you are using for calculating to give you the output of the current price of coin your choice
    Exchange market:<br><input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
-    <div onkeyup="updateResult()" style="width: 350px" ;="" align="justify">
+    <div onkeyup="updateResult()" style="width: 350px" align="justify">
       <h1>Crypto profit calculator</h1>
       <b>Investing money</b><br>
       Your invested money in FIAT<br>
@@ -141,7 +141,7 @@ h4{	margin: auto;
       Earnings in percentage<br>
       <input id="PERC" readonly="true" type="text"></div>
     <br>
-    <div class="cont1" style="width: 250px" ;="" onkeyup="updateResult()" align="justify">
+    <div class="cont1" style="width: 250px" onkeyup="updateResult()" align="justify">
       <h3>Add your existing quantity to new quantity</h3>
       <b>The quantity I already have</b><br>
       Quantity of a coin you already have<br>
@@ -153,7 +153,7 @@ h4{	margin: auto;
       The income in the FIAT currency<br>
       <input id="FIAT" readonly="true" type="text"></div>
     <br>
-    <div class="cont2" style="width: 200px" ;="" onkeyup="updateResult()" align="justify">
+    <div class="cont2" style="width: 200px" onkeyup="updateResult()" align="justify">
       <h3>Profit from my current quantity</h3>
       Your quantity<br>
       <input id="YQUA" value="" type="number"><br>
@@ -176,14 +176,21 @@ h4{	margin: auto;
       <input id="CURR" value="" type="text"><br>
       <b>Difference in price</b><br>
       <input id="DIFFP" value="" type="text"><br>
-    </div>
-    <!-- My quantitiy value acording to price change -->
+    </div><br>
+   <div class="cont3" style="width: 150px" onkeyup="updateResult()" align="justify">
+      <h3>Quantitiy you get acording to price</h3>
+      My investment<br>
+      <input id="MPRC" value="" type="number"><br>
+      Purchasing price<br>
+      <input id="BYP" value="" type="number"><br>
+      <b>My Quantitiy</b><br>
+      <input id="MQUA" value="" type="text"><br>     
+    </div><br>     
     <h3>Support me by CPU mining on your browser for the time you visit the site</h3>
     <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
-    <div class="coinhive-miner" style="width: 270px;" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-      data-autostart="true" data-threads="1"> <samp>Loading...<br>
-        Miner is not loaded because you have ad block. <br>
-        You can share link and support like this. <br>
+    <div class="coinhive-miner" style="width: 270px;" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="true" data-threads="1"> <samp>Loading...<br>
+        Miner is not loaded because you have Adblock.<br>
+        You can share link and support me like this.<br>
         https://myprofit.github.io </samp></div>
     <br>
     <div class="qr" style="text-align:center; width: 270px">
