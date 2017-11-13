@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Crypto profit calculator</title>
     <style>
 body  {
@@ -36,6 +37,19 @@ div {
     text-align:center;
     background-color: GoldenRod ;  
  }
+.cont3 {
+    position: center;
+    width: 50%;
+    border: 3px solid green;
+    padding: 6px;
+    text-align:center;
+    background-color: #FFA500 ;  
+ }     
+      
+.coinhive-miner{
+  padding: 6px;
+  text-align: left;
+}
       
 h1{   margin: auto;
       position:relative;
@@ -74,20 +88,22 @@ h3{   margin: auto;
            
            e("FIAT").value = f("QUANP") * (f("CURP"));
 
-           e("PERC").value = f("INCO") / f("INV") * 100;
+           e("PERC").value = (f("INCO") / f("INV") -1 ) *100;
 
-           e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR") )  ;
+           e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR") );
+           
+           e("CURR").value = (f("PURC") * f("PERid")) / f("PURC") + f("PURC");
          }      
       </script>
   </head>
   <body>
     <h1>My Crypto profit calculator</h1>
-    <div onkeyup="updateResult()" align="justify">
-      <!-- Possibility to choose the FIAT currency and add it to the final value
+ <!-- Possibility to choose the FIAT currency and add it to the final value
             FIAT currency:<br>      <input id="FIATc" value="" type="text"> - display in € $...<br> -->
       <!-- Option to select and add the COIN and EXCHANGE market you are using for calculating to give you the output of the current price of coin your choice
    Exchange market:<br><input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
-      <b>Investing money</b><br>
+    <div onkeyup="updateResult()" style="width: 350px"; align="justify">
+    	<b>Investing money</b><br>
       Your invested money in FIAT<br>
       <input id="INV" value="" type="number"><br>
       <b>Purchasing price</b><br>
@@ -97,7 +113,7 @@ h3{   margin: auto;
       What is new price when you like to sell in FIAT<br>
       <input id="CURP" value="" type="number"><br>
       <b>Difference in price</b><br>
-      The difference between in price in FIAT<br>
+      The difference between price in FIAT<br>
       <input id="DIFF" readonly="true" type="text"><br>
       <b>Quantity</b><br>
       Purchased quantity<br>
@@ -111,9 +127,10 @@ h3{   margin: auto;
       <b>Percentage</b> <br>
       Earnings in percentage<br>
       <input id="PERC" readonly="true" type="text"></div>
-    <br>
-    <div class="cont1" onkeyup="updateResult()" align="justify"> <b>The
-        quantity I already have</b><br>
+    
+    <h3>Add your existing quantity to new quantity</h3>
+    <div class="cont1" style="width: 250px"; onkeyup="updateResult()" align="justify">
+      <b>The quantity I already have</b><br>
       Quantity of a coin you already have<br>
       <input id="QUANI" value="0" type="number"><br>
       <b>My quantity plus new quantity</b> <br>
@@ -122,23 +139,34 @@ h3{   margin: auto;
       <b>The total value in FIAT</b> <br>
       The value in the FIAT currency<br>
       <input id="FIAT" readonly="true" type="text"></div>
-    <!--Posibility to add your quantity plus new quantity and to get what is the curent price of it in FIAT-->
-    <h3> Profit from my current quantity </h3>
-    <div class="cont2" onkeyup="updateResult()" align="justify"> Your quantity<br>
+            
+    <h3>Profit from my current quantity</h3>
+    <div class="cont2" style="width: 200px"; onkeyup="updateResult()" align="justify"> Your quantity<br>
       <input id="YQUA" value="" type="number"><br>
       New quantity<br>
       <input id="NEWQ" value="" type="number"><br>
-      <!-- Do not work corretly in formula when 
-INCOF = (YQUA + NEWQ)  *   (CURPR - PURCPR)Purchasing price:<br>      <input id="PURCPR" value="" type="text"> - What is the price when you buy in FIAT<br> -->
       Current price in FIAT<br>
       <input id="CURPR" value="" type="number"><br>
       <b>Income in FIAT</b><br>
       <input id="INCOF" value="" type="text"><br>
     </div>
+    
+    <h3> Percentage increase or decrees</h3>
+        <div class="cont3" style="width: 200px"; onkeyup="updateResult()" align="justify">
+        Purchasing price<br>
+      <input id="PURC" value="" type="number"><br>
+         Percentage<br>
+         Use - for decrees<br>
+      <input id="PERid" value="" type="number"><br>
+      <b>Current price + percentage</b><br>
+      <input id="CURR" value="" type="text"><br>
+    </div>
+    
     <!-- My quantitiy value acording to price change -->
     <h3>Support me by CPU mining on your browser for the time you visit the site</h3>
 <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
-<div class="coinhive-miner" style="width: 250px; height:300px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-data-autostart="true" data-threads="1"> <em></em></div>
+<div class="coinhive-miner" style="width: 300px;" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
+data-autostart="true" data-threads="1"> <em>Loading...<br><br>It may not load becouse you have ad block.<br>
+  <br>You can share link and support like this.</em></div>
   </body>
 </html>
