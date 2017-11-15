@@ -17,6 +17,7 @@ Is posible to make predictions of:
 1.  Income profit
 2.  Quantity of coin you get
 3.  You can hide/show what you don't use
+4.  You can use this Crypto profit calculator as a tool for learning how to make profit by trading
 
 <b>Web page is for free use</b><br>
 Visit at: [https://myprofit.github.io/](https://myprofit.github.io/)
