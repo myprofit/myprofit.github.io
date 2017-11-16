@@ -83,6 +83,10 @@ h4{margin: auto;
       e("INCO").value = f("QUA") * f("CURP");
 
       e("PERC").value = (f("INCO") / f("INV") -1)*100;
+      
+      e("QUANP").value = f("QUA") + f("QUANI");
+      
+      e("FIAT").value = f("QUANP") * f("CURP");
       //2gen//
       e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));      
 
@@ -194,11 +198,11 @@ $(document).ready(function(){
         <samp>The income in the FIAT currency</samp><br>
         <input id="FIAT" readonly="true" type="text"> </ayeqtnq></div>
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 180px" align="justify">
-      <h3 id="pfmcq"><b>Sell </b>current quantity</h3>
+      <h3 id="pfmcq">Sell current quantity</h3>
       <pfmcq>Your quantity<br>
         <input id="YQUA" value="" type="number"><br>
         New quantity<br>
-        <input id="NEWQ" value="" type="number"><br>
+        <input id="NEWQ" value="0" type="number"><br>
         Current price in FIAT<br>
         <input id="CURPR" value="" type="number"><br>
         <b>Income in FIAT</b><br>
