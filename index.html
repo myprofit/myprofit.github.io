@@ -4,20 +4,33 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="My Crypto profit calculator, provide you calculations for Crypto market, when to sale your coin and at what price will you make profit and by how much.">
-    <meta name="keywords" content="My Crypto profit calculator,MPF,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
+    <meta name="keywords" content="My Crypto profit calculator,Profit tool,Sell tool,MPF,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
     <meta name="author" content="My ProFit">
     <title>Crypto profit calculator</title>
     <style>
 body{background-color: #cccccc;
 }
-div{margin: auto;
-    width: 50%;
-    border: 2px solid green;
+div{margin: 1px;
+    width: center;
+    border: 1px solid green;
     padding: 3px;
-    border-radius:12px;
+    border-radius:6px;
     position:center;
     text-align: center;
     background-color: #FFD700;
+}
+.floating-box {
+    position:center;
+    float: left;
+    height: auto; 
+}
+.floating-box2 {
+    position:center;
+    float: left;
+    width: "width=device-width";
+    height: auto;
+    border: 0;
+    background-color:#cccccc;
 }
 .cont1{
     text-align:center;
@@ -29,16 +42,12 @@ div{margin: auto;
 }
 .cont3{
     text-align:center;
-    background-color: #ADFF2F;
+    background-color: #FF8C00;
 } 
 .coinhive-miner{
-		text-align: center;
-		background-color: #ADFF2F;
-}       
-.qr{background-color:#FF8C00;
-		text-align: center;
-		width: 270px;
-}   
+    text-align: center;
+    background-color: #ADFF2F;
+}
 h2{ margin: auto;
     position:relative;
     text-align: center;
@@ -49,55 +58,58 @@ h3{ margin: auto;
     text-align: center;
     color:#191970;
 }
-h4{	margin: auto;
+h4{margin: auto;
     position:relative;
     text-align: center;
     color:#191970;
 }
-</style> <script>
-         function e(element)
-         {
-            return document.getElementById(element);
-         }
-         function f(element)
-         {
-            return parseFloat(e(element).value);
-         }
-         function updateResult()
-         {
-           e("QUA").value = f("INV") / (f("PURCP"));
+</style><script>
+    function e(element)
+    {
+       return document.getElementById(element);
+    }
+    function f(element)
+    {
+       return parseFloat(e(element).value);
+    }
+    function updateResult()
+    {//1gen//   
+      e("DIFF").value =  f("CURP") - f("PURCP"); 
 
-           e("DIFF").value =  f("CURP") - f("PURCP");
+      e("QUA").value = f("INV") / (f("PURCP")); 
 
-           e("BO").value = f("QUA") * f("DIFF");
+      e("BO").value = f("QUA") * f("DIFF"); 
 
-           e("INCO").value = f("QUA") * f("CURP");
+      e("INCO").value = f("QUA") * f("CURP");
 
-           e("QUANP").value = f("QUA") + f("QUANI");
+      e("PERC").value = (f("INCO") / f("INV") -1)*100;
+      //2gen//
+      e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));      
 
-           e("FIAT").value = f("QUANP") * f("CURP");
+      e("INM").value = f("INCOF") + f("AINM");
 
-           e("PERC").value = (f("INCO") / f("INV") -1)*100;
+      e("QUAA").value = f("INM") / f("BPR");
 
-           e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
+      e("NSI").value = f("QUAA") * f("NSP");          
 
-           e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
+      e("BNS").value = f("NSI") - f("INM");       
+      //3gen//
+      e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
 
-           e("DIFFP").value = f("CURR") - f("PURC");
+      e("DIFFP").value = f("CURR") - f("PURC");  
 
-           e("MQUA").value = f("MPRC") / f("BYP");
+      e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;  
 
-           e("DIFIP").value = f("SELIP") - f("BYP");
+      e("MQUA").value = f("MPRC") / f("BYP");
+      //4gen//
+      e("DIFIP").value = f("SELIP") - f("BYP");
 
-           e("INOM").value = f("MQUA") * f("SELIP");
+      e("BON").value = f("INOM") - f("MPRC"); 
 
-           e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
-
-           e("BON").value = f("INOM") - f("MPRC");
-
-           e("QUAA").value = f("INM") / f("BPR");
+      e("INOM").value = f("MQUA") * f("SELIP");
 }
-</script>
+</script> </head>
+  <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
@@ -106,8 +118,13 @@ $(document).ready(function(){
     });
 });
 $(document).ready(function(){
+    $("#pfmcq").click(function(){
+        $("pfmcq").toggle(300);
+    });
+});
+$(document).ready(function(){
     $("#cpc").click(function(){
-        $("cpc").toggle(450);
+        $("cpc").toggle(300);
     });
 });
 $(document).ready(function(){
@@ -116,43 +133,31 @@ $(document).ready(function(){
     });
 });
 $(document).ready(function(){
-    $("#pfmcq").click(function(){
-        $("pfmcq").toggle(300);
-    });
-});
-$(document).ready(function(){
     $("#piod").click(function(){
         $("piod").toggle(300);
     });
 });
-$(document).ready(function(){
+ $(document).ready(function(){
+    $("#difp").click(function(){
+        $("difp").toggle(300);
+    });
+});   
+ $(document).ready(function(){
+    $("#ibnq").click(function(){
+        $("ibnq").toggle(300);
+    });
+});
+ $(document).ready(function(){
     $("#quatp").click(function(){
         $("quatp").toggle(300);
     });
 });
-$(document).ready(function(){
-    $("#difp").click(function(){
-        $("difp").toggle(300);
+ $(document).ready(function(){
+    $("#miner").click(function(){
+        $("miner").toggle(300);
     });
 });
-$(document).ready(function(){
-    $("#MINER").click(function(){
-        $("MINER").toggle(300);
-    });
-});  
-$(document).ready(function(){
-    $("#IBNQ").click(function(){
-        $("IBNQ").toggle(300);
-    });
-});
-</script>
-  </head>
-  <body>
-    <!-- Possibility to choose the FIAT currency and add it to the final value
-            FIAT currency:<br>      <input id="FIATc" value="" type="text"> - display in € $...<br> -->
-    <!-- Option to select and add the COIN and EXCHANGE market you are using for calculating to give you the output of the current price of coin your choice
-   Exchange market:<br><input id="EXCM" value="" type="text">      <br>      Coin:<br><hr>      <input id="COIN" value="" type="text"> - Coin that you like to calculate it give you curent price-->
-    <div onkeyup="updateResult()" style="width: 300px">
+</script> <div class="floating-box cont1" onkeyup="updateResult()" style="width: 300px">
       <h2 id="cpc">Crypto profit calculator</h2>
       <cpc><b>Investing money</b><br>
         <samp>Your invested money in FIAT</samp><br>
@@ -173,14 +178,11 @@ $(document).ready(function(){
         <samp>Current amount of money you earned or lost in FIAT</samp><br>
         <input id="BO" readonly="true" type="text"><br>
         <b>Income</b><br>
-        <samp>The final earnings at the point of sale at the current price in
-          FIAT</samp><br>
+        <samp>The final earnings at the point of sale at the current price in FIAT</samp><br>
         <input id="INCO" readonly="true" type="text"><br>
         <b>Percentage</b> <br>
         <samp>Earnings in percentage</samp><br>
-        <input id="PERC" readonly="true" type="text"> </cpc></div>
-    <br>
-    <div onkeyup="updateResult()" style="width: 250px" align="justify">
+        <input id="PERC" readonly="true" type="text"></cpc><br>
       <h3 id="ayeqtnq">Add your existing quantity to new quantity</h3>
       <ayeqtnq> <b>The quantity I already have</b><br>
         <samp>Quantity of a coin you already have</samp><br>
@@ -191,33 +193,34 @@ $(document).ready(function(){
         <b>The total value in FIAT</b> <br>
         <samp>The income in the FIAT currency</samp><br>
         <input id="FIAT" readonly="true" type="text"> </ayeqtnq></div>
-    <br>
-    <div class="cont2" onkeyup="updateResult()" style="width: 200px" align="justify">
-      <h3 id="pfmcq">Profit from my current quantity</h3>
-      <pfmcq> Your quantity<br>
+    <div class="floating-box cont2" onkeyup="updateResult()" style="width: 180px" align="justify">
+      <h3 id="pfmcq"><b>Sell </b>current quantity</h3>
+      <pfmcq>Your quantity<br>
         <input id="YQUA" value="" type="number"><br>
         New quantity<br>
         <input id="NEWQ" value="" type="number"><br>
         Current price in FIAT<br>
         <input id="CURPR" value="" type="number"><br>
         <b>Income in FIAT</b><br>
-        <input id="INCOF" value="" type="text"><br>
-      </pfmcq></div><br>
-    <div class="cont3" onkeyup="updateResult()" style="width: 200px" align="justify">
-      <h3 id="IBNQ">Investing money give quantity</h3>
-      <IBNQ>
-      Investing money<br>
-      <input id="INM" value="" type="number"><br>
-      Buy price<br>
-      <input id="BPR" value="" type="number"><br>
-      <b>New quantity</b><br>
-      <input id="QUAA" value="" type="text"><br>
-      </IBNQ>
-      </div>
-    <br>
-    <div class="cont1" onkeyup="updateResult()" style="width: 200px" align="justify">
+        <input id="INCOF" value="" type="text"><br></pfmcq>
+      <h3 id="ibnq">Investing money give quantity</h3>
+      <ibnq> <b>Add to investing money</b><br>
+        <input id="AINM" value="0" type="number"><br>
+        Investing money<br>
+        <input id="INM" value="" type="number"><br>
+        Buy price<br>
+        <input id="BPR" value="" type="number"><br>
+        <b>New quantity</b><br>
+        <input id="QUAA" value="" type="text"><br>
+        Selling price<br>
+        <input id="NSP" value="" type="number"><br>
+        <b>Selling income</b><br>
+        <input id="NSI" value="" type="text"><br>
+        <b>Bonus</b><br>
+        <input id="BNS" value="" type="text"><br></ibnq></div>
+    <div class="floating-box cont3" onkeyup="updateResult()" style="width: 200px" align="justify">
       <h3 id="piod"> Percentage increase or decrees</h3>
-      <piod> Price in FIAT<br>
+      <piod>Price in FIAT<br>
         <input id="PURC" value="" type="number"><br>
         Percentage<br>
         <samp>Use - for decrees</samp><br>
@@ -226,9 +229,15 @@ $(document).ready(function(){
         <input id="DIFFP" value="" type="text"><br>
         <b>Price + percentage</b><br>
         <input id="CURR" value="" type="text"><br>
-      </piod></div>
-    <br>
-    <div class="cont2" onkeyup="updateResult()" style="width: 200px" align="justify">
+      </piod>
+      <h3 id="difp">Difference in percentage</h3>
+      <difp>Purchasing price<br>
+        <input id="BYPP" value="" type="number"><br>
+        Selling price<br>
+        <input id="SELLP" value="" type="number"><br>
+        <b>Difference in percentage</b><br>
+        <input id="PRCDI" value="" type="text"><br></difp></div>
+    <div class="floating-box cont2" onkeyup="updateResult()" style="width: 180px" align="justify">
       <h3 id="quatp">Quantity you get according to price</h3>
       <quatp>My investment<br>
         <input id="MPRC" value="" type="number"><br>
@@ -243,28 +252,15 @@ $(document).ready(function(){
         <b>Bonus</b><br>
         <input id="BON" readonly="true" type="text"><br>
         <b>Income in FIAT</b><br>
-        <input id="INOM" value="" type="text"><br>
-      </quatp></div>
-    <br>
-    <div class="cont1" onkeyup="updateResult()" style="width: 200px" align="justify">
-      <h3 id="difp">Difference in percentage</h3>
-      <difp>Purchasing price<br>
-        <input id="BYPP" value="" type="number"><br>
-        Selling price<br>
-        <input id="SELLP" value="" type="number"><br>
-        <b>Difference in percentage</b><br>
-        <input id="PRCDI" value="" type="text"><br>
-      </difp></div>
-    <h3 id="MINER">Support me by CPU mining on your browser for the time you
-      visit the site</h3>
+        <input id="INOM" value="" type="text"><br></quatp></div>
     <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
-    <div class="coinhive-miner" style="width: 270px;" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-				data-autostart="true" data-threads="1"><miner> <samp>Loading...<br>
+    <div class="floating-box2">
+	<h3 id="miner">Support me by CPU mining on your browser for the time you visit the site</h3></div>
+    <div class="floating-box coinhive-miner" style="width: 270px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="true" data-threads="1"> <miner><samp>Loading...<br>
           Miner is not loaded because you have Adblock.<br>
           You can share link and support me like this.<br>
-        </samp></miner><samp>https://myprofit.github.io</samp></div>
-    <br>
-    <div class="qr">
+        </samp></miner><samp>https://myprofit.github.io </samp></div>
+    <div class="floating-box qr">
       <h3 id="svg">QR code for quick mobile access</h3>
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="270" height="270">
         <desc>https://myprofit.github.io/</desc>
