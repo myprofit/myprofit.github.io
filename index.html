@@ -58,7 +58,7 @@ h3{ margin: auto;
     text-align: center;
     color:#191970;
 }
-h4{margin: auto;
+h4{ margin: auto;
     position:relative;
     text-align: center;
     color:#191970;
@@ -68,57 +68,88 @@ h4{margin: auto;
     text-align: center;
     width: 270px;
     padding: 0px;
-} 
-</style><script>
-    function e(element)
-    {
+}</style> <script>    
+    function clearContent0(){
+    document.getElementById("DIFF").value='';
+    document.getElementById("CURP").value='';
+    document.getElementById("PURCP").value='';
+    document.getElementById("QUA").value='';
+    document.getElementById("INV").value='';
+    document.getElementById("BO").value='';
+    document.getElementById("INCO").value='';
+    document.getElementById("PERC").value='';
+}</script><script>    
+    function clearContent1(){
+    document.getElementById("QUANP").value='';
+    document.getElementById("QUANI").value='';  
+    document.getElementById("FIAT").value='';
+}</script><script>  
+    function clearContent21(){
+    document.getElementById("INCOF").value='';
+    document.getElementById("YQUA").value='';
+    document.getElementById("NEWQ").value='';      
+    document.getElementById("CURPR").value='';
+}</script><script>
+     function clearContent22(){
+    document.getElementById("INM").value='';
+    document.getElementById("AINM").value='';
+    document.getElementById("QUAA").value='';
+    document.getElementById("BPR").value='';
+    document.getElementById("NSI").value='';
+    document.getElementById("NSP").value='';
+    document.getElementById("BNS").value='';
+}</script><script>
+    function clearContent31(){
+    document.getElementById("CURR").value='';
+    document.getElementById("PURC").value='';
+    document.getElementById("PERid").value='';
+    document.getElementById("DIFFP").value=''; 
+}</script><script>
+    function clearContent32(){
+    document.getElementById("PRCDI").value='';
+    document.getElementById("SELLP").value='';
+    document.getElementById("BYPP").value='';
+}</script><script>    
+    function clearContent4(){
+    document.getElementById("MPRC").value='';
+    document.getElementById("BYP").value='';
+    document.getElementById("MQUA").value='';
+    document.getElementById("BON").value='';
+    document.getElementById("INOM").value='';
+    document.getElementById("SELIP").value='';
+    document.getElementById("DIFIP").value='';
+}</script><script>
+    function e(element){
        return document.getElementById(element);
     }
-    function f(element)
-    {
+    function f(element){
        return parseFloat(e(element).value);
     }
     function updateResult()
-    {//1gen//   
-      e("DIFF").value =  f("CURP") - f("PURCP"); 
-
-      e("QUA").value = f("INV") / (f("PURCP")); 
-
-      e("BO").value = f("QUA") * f("DIFF"); 
-
+{//1gen//   
+      e("DIFF").value = f("CURP") - f("PURCP");
+      e("QUA").value = f("INV") / (f("PURCP"));
+      e("BO").value = f("QUA") * f("DIFF");
       e("INCO").value = f("QUA") * f("CURP");
-
-      e("PERC").value = (f("INCO") / f("INV") -1)*100;
-      
-      e("QUANP").value = f("QUA") + f("QUANI");
-      
+      e("PERC").value = (f("INCO") / f("INV") -1)*100;      
+      e("QUANP").value = f("QUA") + f("QUANI");      
       e("FIAT").value = f("QUANP") * f("CURP");
-      //2gen//
-      e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));      
-
+//2gen//
+      e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
       e("INM").value = f("INCOF") + f("AINM");
-
       e("QUAA").value = f("INM") / f("BPR");
-
-      e("NSI").value = f("QUAA") * f("NSP");          
-
+      e("NSI").value = f("QUAA") * f("NSP");   
       e("BNS").value = f("NSI") - f("INM");       
-      //3gen//
+//3gen//
       e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
-
-      e("DIFFP").value = f("CURR") - f("PURC");  
-
-      e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;  
-
+      e("DIFFP").value = f("CURR") - f("PURC");
+      e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
       e("MQUA").value = f("MPRC") / f("BYP");
-      //4gen//
+//4gen//
       e("DIFIP").value = f("SELIP") - f("BYP");
-
+      e("BON").value = f("INOM") - f("MPRC");
       e("INOM").value = f("MQUA") * f("SELIP");
-	    
-      e("BON").value = f("INOM") - f("MPRC"); 
-}
-</script> </head>
+}</script></head>
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -192,7 +223,8 @@ $(document).ready(function(){
         <input id="INCO" readonly="true" type="text"><br>
         <b>Percentage</b> <br>
         <samp>Earnings in percentage</samp><br>
-        <input id="PERC" readonly="true" type="text"></cpc><br>
+        <input id="PERC" readonly="true" type="text"><br>
+        <input value="Clear" onclick="clearContent0()" type="button"> </cpc><br>
       <h3 id="ayeqtnq">Add your existing quantity to new quantity</h3>
       <ayeqtnq> <b>The quantity I already have</b><br>
         <samp>Quantity of a coin you already have</samp><br>
@@ -202,7 +234,8 @@ $(document).ready(function(){
         <input id="QUANP" readonly="true" type="text"> <br>
         <b>The total value in FIAT</b> <br>
         <samp>The income in the FIAT currency</samp><br>
-        <input id="FIAT" readonly="true" type="text"> </ayeqtnq></div>
+        <input id="FIAT" readonly="true" type="text"><br>
+        <input value="Clear" onclick="clearContent1()" type="button"> </ayeqtnq></div>
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 200px" align="justify">
       <h3 id="pfmcq">Sell current quantity</h3>
       <pfmcq>Your quantity<br>
@@ -212,7 +245,8 @@ $(document).ready(function(){
         Current price in FIAT<br>
         <input id="CURPR" value="" type="number"><br>
         <b>Income in FIAT</b><br>
-        <input id="INCOF" value="" type="text"><br></pfmcq>
+        <input id="INCOF" value="" type="text"><br>
+        <input value="Clear" onclick="clearContent21()" type="button"> </pfmcq>
       <h3 id="ibnq">Investing money give quantity</h3>
       <ibnq>Add to investing money<br>
         <input id="AINM" value="0" type="number"><br>
@@ -227,7 +261,8 @@ $(document).ready(function(){
         <b>Selling income</b><br>
         <input id="NSI" value="" type="text"><br>
         <b>Bonus</b><br>
-        <input id="BNS" value="" type="text"><br></ibnq></div>
+        <input id="BNS" value="" type="text"><br>
+        <input value="Clear" onclick="clearContent22()" type="button"> </ibnq></div>
     <div class="floating-box cont3" onkeyup="updateResult()" style="width: 200px" align="justify">
       <h3 id="piod"> Percentage increase or decrees</h3>
       <piod>Price in FIAT<br>
@@ -239,14 +274,15 @@ $(document).ready(function(){
         <input id="DIFFP" value="" type="text"><br>
         <b>Price + percentage</b><br>
         <input id="CURR" value="" type="text"><br>
-      </piod>
+        <input value="Clear" onclick="clearContent31()" type="button"> </piod>
       <h3 id="difp">Difference in percentage</h3>
       <difp>Purchasing price<br>
         <input id="BYPP" value="" type="number"><br>
         Selling price<br>
         <input id="SELLP" value="" type="number"><br>
         <b>Difference in percentage</b><br>
-        <input id="PRCDI" value="" type="text"><br></difp></div>
+        <input id="PRCDI" value="" type="text"><br>
+        <input value="Clear" onclick="clearContent32()" type="button"> </difp></div>
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 200px" align="justify">
       <h3 id="quatp">Quantity you get according to price</h3>
       <quatp>My investment<br>
@@ -262,11 +298,19 @@ $(document).ready(function(){
         <b>Bonus</b><br>
         <input id="BON" readonly="true" type="text"><br>
         <b>Income in FIAT</b><br>
-        <input id="INOM" value="" type="text"><br></quatp></div>
+        <input id="INOM" value="" type="text"><br>
+        <input value="Clear" onclick="clearContent4()" type="button"><br>
+      </quatp></div>
+    <div class="cont1" style="position:fixed; bottom:150px; right:0;">
+ <input value="Clear All" onclick="clearContent0(),clearContent1(), clearContent21(), clearContent22(),
+ clearContent31(),clearContent32(),clearContent4()" type="button">
+    </div>
     <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
     <div class="floating-box2">
-	<h4 id="miner">Support me by CPU mining on your browser for the time you visit the site</h3></div>
-    <div class="floating-box coinhive-miner" style="width: 270px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="false" data-threads="1"> <miner><samp>Loading...<br>
+      <h4 id="miner">Support me by CPU mining on your browser for the time you visit the site</h4>
+    </div>
+    <div class="floating-box coinhive-miner" style="width: 270px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="false" data-threads="1">
+	 <miner><samp>Loading...<br>
           Miner is not loaded because you have Adblock.<br>
           You can share link and support me like this.<br>
         </samp></miner><samp>https://myprofit.github.io </samp></div>
