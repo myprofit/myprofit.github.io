@@ -81,18 +81,18 @@ h4{ margin: auto;
 }</script><script>    
     function clearContent1(){
     document.getElementById("QUANP").value='';
-    document.getElementById("QUANI").value='';  
+    document.getElementById("QUANI").value='0';  
     document.getElementById("FIAT").value='';
 }</script><script>  
     function clearContent21(){
     document.getElementById("INCOF").value='';
     document.getElementById("YQUA").value='';
-    document.getElementById("NEWQ").value='';      
+    document.getElementById("NEWQ").value='0';      
     document.getElementById("CURPR").value='';
 }</script><script>
      function clearContent22(){
     document.getElementById("INM").value='';
-    document.getElementById("AINM").value='';
+    document.getElementById("AINM").value='0';
     document.getElementById("QUAA").value='';
     document.getElementById("BPR").value='';
     document.getElementById("NSI").value='';
@@ -144,11 +144,11 @@ h4{ margin: auto;
       e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
       e("DIFFP").value = f("CURR") - f("PURC");
       e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
-      e("MQUA").value = f("MPRC") / f("BYP");
 //4gen//
+      e("MQUA").value = f("MPRC") / f("BYP");
       e("DIFIP").value = f("SELIP") - f("BYP");
-      e("BON").value = f("INOM") - f("MPRC");
       e("INOM").value = f("MQUA") * f("SELIP");
+      e("BON").value = f("MQUA") * f("DIFIP");
 }</script></head>
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -280,7 +280,7 @@ $(document).ready(function(){
         <input id="BYPP" value="" type="number"><br>
         Selling price<br>
         <input id="SELLP" value="" type="number"><br>
-        <b>Difference in percentage</b><br>
+        <b>Difference in %</b><br>
         <input id="PRCDI" value="" type="text"><br>
         <input value="Clear" onclick="clearContent32()" type="button"> </difp></div>
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 200px" align="justify">
@@ -309,7 +309,7 @@ $(document).ready(function(){
     <div class="floating-box2">
       <h4 id="miner">Support me by CPU mining on your browser for the time you visit the site</h4>
     </div>
-    <div class="floating-box coinhive-miner" style="width: 270px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="false" data-threads="1">
+    <div class="floating-box coinhive-miner" style="width: 265px; height:150px" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="false" data-threads="1"  data-text="#eeeeee" data-background="#000000" data-whitelabel="true" data-action="#1ABC9C">
 	 <miner><samp>Loading...<br>
           Miner is not loaded because you have Adblock.<br>
           You can share link and support me like this.<br>
