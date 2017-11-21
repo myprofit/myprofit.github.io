@@ -30,6 +30,6 @@ What I plan to add to my Crypto profit calculator if I find a way, how to do it
     - Use KEY of numbers or words or cookies to save your div box-s settings
 
 # Iam open for suggestions
-Write your proposal in comments
+Write your proposal in [Issues](https://github.com/myprofit/myprofit.github.io/issues)
 1. For what to add or remove
 2. What and how to change
