@@ -25,6 +25,6 @@ Visit at: [https://myprofit.github.io/](https://myprofit.github.io/)
 # Future plans
 What I plan to add to my Crypto profit calculator if I find a way, how to do it
 1.  Option menu to add or remove div box that you choose - the calculator form you like to use
-- You can have more of the same div box-s if you like
-- And make it easy to use
-- Use KEY of numbers or words or cookies to save your div box-s settings
+    - You can have more of the same div box-s if you like
+    - And make it easy to use
+    - Use KEY of numbers or words or cookies to save your div box-s settings
