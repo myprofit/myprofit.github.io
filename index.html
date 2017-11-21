@@ -109,6 +109,7 @@ h4{ margin: auto;
     document.getElementById("PRCDI").value='';
     document.getElementById("SELLP").value='';
     document.getElementById("BYPP").value='';
+    document.getElementById("DFIP").value='';
 }</script><script>    
     function clearContent4(){
     document.getElementById("MPRC").value='';
@@ -144,6 +145,7 @@ h4{ margin: auto;
       e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
       e("DIFFP").value = f("CURR") - f("PURC");
       e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
+      e("DFIP").value = f("SELLP") - f("BYPP");
 //4gen//
       e("MQUA").value = f("MPRC") / f("BYP");
       e("DIFIP").value = f("SELIP") - f("BYP");
@@ -280,6 +282,8 @@ $(document).ready(function(){
         <input id="BYPP" value="" type="number"><br>
         Selling price<br>
         <input id="SELLP" value="" type="number"><br>
+	<b>Difference in price</b><br>
+        <input id="DFIP" value="" type="text"><br>
         <b>Difference in %</b><br>
         <input id="PRCDI" value="" type="text"><br>
         <input value="Clear" onclick="clearContent32()" type="button"> </difp></div>
