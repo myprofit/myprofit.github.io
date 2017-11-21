@@ -28,3 +28,8 @@ What I plan to add to my Crypto profit calculator if I find a way, how to do it
     - You can have more of the same div box-s if you like
     - And make it easy to use
     - Use KEY of numbers or words or cookies to save your div box-s settings
+
+# Iam open for suggestions
+Write your proposal in comments
+1. For what to add or remove
+2. What and how to change
