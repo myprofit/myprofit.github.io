@@ -19,10 +19,30 @@ p{background-color:DodgerBlue;
     text-align: justify;
 }
 </style>
-  <!-- code-->
+    <script>
+    function e(element)
+    {
+       return document.getElementById(element);
+    }
+    function f(element)
+    {
+       return parseFloat(e(element).value);
+    }
+    function updateResult()    
+{//1gen//   
+      e("bspd").value =  f("isfp") - f("bpif");
+      e("QUA").value = f("INV") / (f("PURCP"));
+      e("BO").value = f("QUA") * f("DIFF");
+      e("INCO").value = f("QUA") * f("CURP");
+      e("PERC").value = (f("INCO") / f("INV") -1)*100;      
+//2gen//
+      e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
+      e("INM").value = f("INCOF") + f("AINM");
+  
+  
+  </script>
 <body>
-<p>This is where new calculators will be seen.<br>
-If they are useful they will show up on index.html</p>
+<p>This is where new calculators will be seen. If they are useful they will show up on index.html</p>
 <div>
 Your whole investment at what price in FIAT<br>
 <input id="wip" type="number" value=""></input>
