@@ -3,13 +3,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profit from selling</title>
   <style>
-    #header{
+#header{
     width: 100%;
     background-color: linen;
     height: 12px;
     text-align: center;
     margin: 2px;
     border: 0px;
+}   
+#container{
+    width: 70%px;
+    background-color: #8EC919;
+    margin: auto;
+    border: 1px solid green;
+    margin: 1px;
+}
+#first{
+    width: 60%px;
+    float: left;
+    height: ;
+    background-color: #8BB133;
+}
+#second{
+    width: 60%;
+    float: left;
+    background-color: #AB0D4E;
+}
+#clear{
+    clear: both;
+  background-color:#FFD700;
 }
     
 body{
@@ -64,8 +86,11 @@ p{background-color:DodgerBlue;
 
  }</script>
 <body>
-<p>This is where new calculators will be seen. If they are useful they will show up on index.html</p>
-<div onkeyup="updateResult()">
+<p>This is where new calculators will be seen.<br>
+ If they are useful they will show up on <ahref="https://myprofit.github.io/index.html">Home page</a></p>
+  <div id="container">
+  
+  <div onkeyup="updateResult()">
 Your whole investment at what price in FIAT<br>
 <input id="wip" style="width: 90px" type="number" value=""></input>
 <br>By price in FIAT<br>
@@ -92,11 +117,13 @@ Selling price in FIAT<br>
 <input value="Clear" onclick="clearContent7()" type="button"> </qwq><br>
   
   
-</div><br>
-  <div id="header">
-      <b>Made by: Profit, to make a profit</b
-    </div>
+</div>
+        <div style="#8BB133" onkeyup="updateResult()" style="width: 200px" id="first" align="justify">
+        <h3 id="">text 1</h3>
+        <div style="background-color:#ADFF2F"> text 2 </div>
+      </div>
   
+  <div id="clear" align="justify"> <b>Made by: Profit, to make a profit</b> </div>
   
 </body>
 </html>
