@@ -31,9 +31,11 @@ p{background-color:DodgerBlue;
     function updateResult()    
 {//1gen//   
       e("bspd").value =  f("isfp") - f("bpif");
+      e("pftq").value = f("yqs") * f("isfp");
+  
       e("QUA").value = f("INV") / (f("PURCP"));
       e("BO").value = f("QUA") * f("DIFF");
-      e("pftq").value = f("yqs") * f("isfp");
+     
       e("PERC").value = (f("INCO") / f("INV") -1)*100;      
 //2gen//
       e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
@@ -55,16 +57,16 @@ Selling price in FIAT<br>
 <input id="isfp" type="number" value=""></input>
 <br>
 <b>Profit for this quantity</b><br>
-<input id="pftq" type="number" value=""></input>
+<input id="pftq" type="text" value=""></input>
 <br>
 <b>Difference in buy sell price<b><br>
-<input id="bspd" type="number" value=""></input>
+<input id="bspd" type="text" value=""></input>
 <br>
 <b>Bonus for the quantity<b><br>
-<input id="btq" type="number" value=""></input>
+<input id="btq" type="text" value=""></input>
 <br>
 <b>Diference in price profit for the selling quantity<b><br>
-<input id="dsbp" type="number" value=""></input>
+<input id="dsbp" type="text" value=""></input>
 </div><br>
 <b style="text-align:center">Made by: Profit, to make a profit.</b>
 </body>
