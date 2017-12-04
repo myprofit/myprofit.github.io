@@ -47,9 +47,9 @@ div{margin: 1px;
     padding: 1px;
     border-radius:6px;
     text-align: center;
-}
+    margin-top: 0px;
+    padding-top: 0px;}
 .floating-box {
-    position:center;
     float: left;
     height: auto; 
 }
@@ -60,36 +60,23 @@ div{margin: 1px;
     background-color:#cccccc;
 }
 .cont1{
-    text-align:center;
-    background-color: Gold;
+background-color: Gold;
 }
 .cont2{
-    text-align:center;
-    background-color: #FF4500;
+background-color: #FF4500;
 }
 .cont3{
-    text-align:center;
-    background-color: #32CD32;
+background-color: #32CD32;
 } 
 .cont4{
-    text-align:center;
-    background-color: #6A5ACD;
+background-color: #6A5ACD;
 }      
 .cont5{
-    text-align:center;
-    background-color: #00BFFF;
-}
-.cont6{
-    text-align:center;
-    background-color: #CB2027;
-    border: 2px green;
-}      
+background-color: #00BFFF;
+}    
 .coinhive-miner{
-    text-align: center;
-    background-color: #ADFF2F;
+background-color: #ADFF2F;
 }
-.piod{background-color: #ADFF2F;
-}  
 h1,h2,h3,h4,h5,h6 {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -98,24 +85,11 @@ h1,h2,h3,h4,h5,h6 {
     bottom: 0px;
     margin-bottom: 0px;
     top: 0px;
-}
-h2{ margin: auto;
-    text-align: center;
-    color:#191970;
-}
-h3{ margin: auto;
-    position:relative;
-    text-align: center;
-    color:#191970;
-}
-h4{margin: auto;
-    position:relative;
     text-align: center;
     color:#191970;
 }
 .qr{background-color:#FFD700;
     border:1px solid green;
-    text-align: center;
 }</style>
     <script>    
 function clearContent0(){
@@ -278,11 +252,8 @@ $(document).ready(function(){
         $("sell").toggle(300);
     });
 });    
-</script> <div id="header">
-      <h2>Crypto profit calculator</h2>
-    </div>
-    <div class="floating-box cont2" onkeyup="updateResult()" style="width: 140px"
-      align="justify">
+</script>
+    <div class="floating-box cont2" onkeyup="updateResult()" style="width: 140px" align="justify">
       <h3 id="pfmcq">Sell current quantity</h3>
       <pfmcq>
         <div class="cont5">Your quantity<br>
@@ -315,9 +286,7 @@ $(document).ready(function(){
           <input id="BNS" value="" style="width: 90px" type="text"><br>
           <b>Selling income</b><br>
           <input id="NSI" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent22()" type="button"></div>
-      </ibnq> </div>
-	
+          <input value="Clear" onclick="clearContent22()" type="button"></div></ibnq> </div>
     <div class="floating-box cont3" onkeyup="updateResult()" style="width: 140px" align="justify">
       <h3 id="piod"> Percentage increase or decrees</h3>
       <piod>
@@ -366,7 +335,7 @@ $(document).ready(function(){
           <input value="Clear" onclick="clearContent4()" type="button"><br>
         </div>
       </quatp> </div>
-	    <div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
+    <div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
       <h3 id="cpc">Crypto profit calculator</h3>
       <cpc>
         <div class="cont2"> <a title="Your invested money in FIAT">Investing money</a><br>
@@ -400,9 +369,11 @@ $(document).ready(function(){
             <input id="BID1" value="" style="width: 90px" type="number"><br>
             <b>Fee 0.25%</b><br>
             <input id="FEFE" value="" style="width: 90px" type="text"><br>
-            <b> Total</b><br>
+            <b>Total</b><br>
             <input id="TOTAL1" value="" style="width: 90px" type="text"><br>
-            <b> Total + Fee 0.25% <input id="FEET1" value="" style="width: 90px" type="text"></b> <input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
+            <b> Total + Fee 0.25%
+	<input id="FEET1" value="" style="width: 90px" type="text"></b>
+	<input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
         <div id="second" class="floating-box" style="width: 105px">
           <h4 id="sell">Custom Fee</h4>
           <sell>Units<br>
