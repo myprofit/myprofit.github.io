@@ -262,6 +262,27 @@ $(document).ready(function(){
     });
 });    
 </script>
+<div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
+      <h3 id="cpc">Crypto profit</h3>
+      <cpc>
+        <div class="cont2"> <a title="Your invested money in FIAT">Investing money</a><br>
+          <input id="INV" value="" style="width: 90px" type="number"><br>
+          <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
+          <input id="PURCP" value="" style="width: 90px" type="number">
+          <a title="What is new price when you like to sell in FIAT">Selling price</a><br>
+          <input id="CURP" value="" style="width: 90px" type="number"><br>
+          <b title="The difference between price in FIAT">Difference in price</b><br>
+          <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Purchased quantity">Quantity</b><br>
+          <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Difference in percentage between price in FIAT">Difference in %</b><br>
+          <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
+          <input id="BO" readonly="true" style="width: 90px" type="text"><br>
+          <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
+          <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent0()" type="button"></div>
+      </cpc> </div>
 <div class="floating-box cont4" onkeyup="updateResult()" style="width: 140px" align="justify">
       <h3 id="quatp">Fiat to quantity</h3>
       <quatp>
@@ -283,28 +304,7 @@ $(document).ready(function(){
           <input id="INOM" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent4()" type="button"><br>
         </div>
-      </quatp> </div>
-<div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
-      <h3 id="cpc">Crypto profit</h3>
-      <cpc>
-        <div class="cont2"> <a title="Your invested money in FIAT">Investing money</a><br>
-          <input id="INV" value="" style="width: 90px" type="number"><br>
-          <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
-          <input id="PURCP" value="" style="width: 90px" type="number">
-          <a title="What is new price when you like to sell in FIAT">Selling price</a><br>
-          <input id="CURP" value="" style="width: 90px" type="number"><br>
-          <b title="The difference between price in FIAT">Difference in price</b><br>
-          <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Purchased quantity">Quantity</b><br>
-          <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Difference in percentage between price in FIAT">Difference in %</b><br>
-          <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
-          <input id="BO" readonly="true" style="width: 90px" type="text"><br>
-          <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
-          <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent0()" type="button"></div>
-      </cpc> </div>  
+      </quatp> </div> 
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 140px" align="justify">
       <h3 id="pfmcq">Sell quantity</h3>
       <pfmcq>
