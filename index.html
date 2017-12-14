@@ -263,7 +263,7 @@ $(document).ready(function(){
 });    
 </script>
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: 140px" align="justify">
-      <h3 id="pfmcq">Sell current quantity</h3>
+      <h3 id="pfmcq">Sell quantity</h3>
       <pfmcq>
         <div class="cont5">Your quantity<br>
           <input id="YQUA" value="" style="width: 90px" type="number"><br>
@@ -275,7 +275,7 @@ $(document).ready(function(){
           <input id="INCOF" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent21()" type="button"></div>
       </pfmcq>
-      <h3 id="ibnq">Investing money give quantity</h3>
+      <h3 id="ibnq">Money quantity</h3>
       <ibnq>
         <div class="cont5">Add to investing money<br>
           <input id="AINM" value="0" style="width: 90px" type="number"><br>
@@ -297,7 +297,7 @@ $(document).ready(function(){
           <input id="NSI" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent22()" type="button"></div></ibnq> </div>
     <div class="floating-box cont3" onkeyup="updateResult()" style="width: 140px" align="justify">
-      <h3 id="piod"> Percentage increase or decrees</h3>
+      <h3 id="piod">Percentage</h3>
       <piod>
         <div class="cont1">Price in FIAT<br>
           <input id="PURC" value="" style="width: 90px" type="number"><br>
@@ -310,7 +310,7 @@ $(document).ready(function(){
           <input id="CURR" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent31()" type="button"> </div>
       </piod>
-      <h3 id="difp">Difference in percentage</h3>
+      <h3 id="difp">Difference in %</h3>
       <difp>
         <div class="cont1">Purchasing price<br>
           <input id="BYPP" value="" style="width: 90px" type="number"><br>
@@ -323,7 +323,7 @@ $(document).ready(function(){
           <input value="Clear" onclick="clearContent32()" type="button"></div>
       </difp></div>
     <div class="floating-box cont4" onkeyup="updateResult()" style="width: 140px" align="justify">
-      <h3 id="quatp">Quantity you get according to price</h3>
+      <h3 id="quatp">Fiat to quantity</h3>
       <quatp>
         <div class="cont3"> My investment<br>
           <input id="MPRC" value="" style="width: 90px" type="number"><br>
@@ -345,7 +345,7 @@ $(document).ready(function(){
         </div>
       </quatp> </div>
     <div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
-      <h3 id="cpc">Crypto profit calculator</h3>
+      <h3 id="cpc">Crypto profit</h3>
       <cpc>
         <div class="cont2"> <a title="Your invested money in FIAT">Investing money</a><br>
           <input id="INV" value="" style="width: 90px" type="number"><br>
@@ -367,9 +367,8 @@ $(document).ready(function(){
       </cpc> </div>
     <div class="floating-box cont5" onkeyup="updateResult()" style="width: auto">
       <h4 id="fee">Fee 0.25%</h4>
-      <fee><samp>In testing phase,<br>
-          is possible that fee<br>
-          calculations are incorrect.</samp><br>
+      <fee><samp>Fee=Units*BidAsk*0.0025<br>
+           Fee=Units*BidAsk*CustomFEE</samp><br>
         <div id="first" class="floating-box CONT3" style="width: 105px">
           <h4 id="buy">Buy / Sell</h4>
           <buy> Units<br>
