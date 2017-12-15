@@ -196,6 +196,7 @@ function clearContent8(){
       e("BNS").value = f("NSI") - f("INM");
       e("PDIP").value = f("NSP") - f("BPR");
       e("PCTG").value = (f("NSI") / f("INM") -1)*100;
+      e("DQIFF").value = f("QUAA") - f("YQUA");
 //3gen//
       e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
       e("DIFFP").value = f("CURR") - f("PURC");
@@ -332,6 +333,8 @@ $(document).ready(function(){
           <input id="PDIP" value="" style="width: 90px" type="text"><br>
           <b>New quantity</b><br>
           <input id="QUAA" value="" style="width: 90px" type="text"><br>
+          <b>Difference quantity</b><br>
+          <input id="DQIFF" value="" style="width: 90px" type="text"><br>
           <b>Difference in %</b><br>
           <input id="PCTG" value="" style="width: 90px" type="text"><br>
           <b>Bonus</b><br>
