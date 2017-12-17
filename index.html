@@ -17,7 +17,7 @@
     padding: 0px;
 }
 #container{
-    width: 300px;
+    width: 212px;
     background-color: #8EC919;
     margin: auto;
     border: 1px solid green;
@@ -137,6 +137,8 @@ function clearContent32(){
     document.getElementById("SELLP").value='';
     document.getElementById("BYPP").value='';
     document.getElementById("DFIP").value='';
+    document.getElementById("ZUZ").value='';
+    document.getElementById("MKM").value='';
 }   
 function clearContent4(){
     document.getElementById("MPRC").value='';
@@ -182,8 +184,12 @@ function clearContent92(){
     document.getElementById("XCZ").value='';
     document.getElementById("LKL").value=''; 
 }	  
-</script>
-    <script>
+function clearContent93(){  
+    document.getElementById("KD").value='';
+    document.getElementById("PTR").value='';
+    document.getElementById("VZU").value='';   
+}	      
+</script> <script>
     function e(element)
     {
        return document.getElementById(element);
@@ -214,6 +220,7 @@ function clearContent92(){
       e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
       e("MQUA").value = f("MPRC") / f("BYP");
       e("DFIP").value = f("SELLP") - f("BYPP");
+      e("MKM").value = f("ZUZ") * f("SELLP");
 //4gen//
       e("DIFIP").value = f("SELIP") - f("BYP");
       e("INOM").value = f("MQUA") * f("SELIP");
@@ -233,10 +240,12 @@ function clearContent92(){
 //Plus//
       e("EVB").value = f("PFI") + f("DPS");
       e("LKL").value = f("VBN") - f("XCZ");
+  //Profitability77
+      e("KD").value = f("VZU") / f("PTR");
 }</script>
   </head>
   <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://myprofit.github.io/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
     $("#svg").click(function(){
@@ -278,52 +287,78 @@ $(document).ready(function(){
       $("#mp").click(function(){
         $("mp").toggle(300);
     });	
+      $("#ss").click(function(){
+        $("ss").toggle(300);
+    });	
+      $("#ng").click(function(){
+        $("ng").toggle(300);
+    });	
+      $("#gf").click(function(){
+        $("gf").toggle(300);
+    });	
 });    
-</script>
-<div class="floating-box cont1" onkeyup="updateResult()" style="width: 140px">
-      <h3 id="cpc">Crypto profit</h3>
-      <cpc>
-        <div class="cont2"> <a title="Your invested money in FIAT">Investing money</a><br>
-          <input id="INV" value="" style="width: 90px" type="number"><br>
-          <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
-          <input id="PURCP" value="" style="width: 90px" type="number">
-          <a title="What is new price when you like to sell in FIAT">Selling price</a><br>
-          <input id="CURP" value="" style="width: 90px" type="number"><br>
-          <b title="The difference between price in FIAT">Difference in price</b><br>
-          <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Purchased quantity">Quantity</b><br>
-          <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Difference in percentage between price in FIAT">Difference in %</b><br>
-          <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
-          <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
-          <input id="BO" readonly="true" style="width: 90px" type="text"><br>
-          <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
-          <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent0()" type="button"></div>
-      </cpc> </div>
-<div class="floating-box cont4" onkeyup="updateResult()" style="width: 140px" align="justify">
-      <h3 id="quatp">Fiat to quantity</h3>
-      <quatp>
-        <div class="cont3">Fiat investment<br>
-          <input id="MPRC" value="" style="width: 90px" type="number"><br>
-          Purchasing price<br>
-          <input id="BYP" value="" style="width: 90px" type="number"><br>
-          Selling price<br>
-          <input id="SELIP" value="" style="width: 90px" type="number"><br>
-          <b>Difference in price</b><br>
-          <input id="DIFIP" value="" style="width: 90px" type="text"><br>
-          <b>My Quantity</b><br>
-          <input id="MQUA" value="" style="width: 90px" type="text"><br>
-          <b>Difference in %</b><br>
-          <input id="DFFI" value="" style="width: 90px" type="text"><br>
-          <b>Bonus</b><br>
-          <input id="BON" readonly="true" style="width: 90px" type="text"><br>
-          <b>Income in FIAT</b><br>
-          <input id="INOM" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent4()" type="button"><br>
-        </div>
-      </quatp> </div> 
-    <div class="floating-box cont2" onkeyup="updateResult()" style="width: 140px" align="justify">
+</script> <div class="floating-box coinhive-miner" style="width: 278px">
+      <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
+        <h3 id="cpc">Crypto profit</h3>
+        <cpc>
+          <div class="cont2"> <a title="Your invested money in FIAT">Investing
+              money</a><br>
+            <input id="INV" value="" style="width: 90px" type="number"><br>
+            <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
+            <input id="PURCP" value="" style="width: 90px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
+              Selling price</a><br>
+            <input id="CURP" value="" style="width: 90px" type="number"><br>
+            <b title="The difference between price in FIAT">Difference in price</b><br>
+            <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Purchased quantity">Quantity</b><br>
+            <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Difference in percentage between price in FIAT">Difference
+              in %</b><br>
+            <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
+            <input id="BO" readonly="true" style="width: 90px" type="text"><br>
+            <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
+            <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
+            <input value="Clear" onclick="clearContent0()" type="button"></div>
+        </cpc> </div>
+      <div id="second" class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
+
+        align="justify">
+        <h3 id="quatp">Fiat to quantity</h3>
+        <quatp>
+          <div class="cont3">Fiat investment<br>
+            <input id="MPRC" value="" style="width: 90px" type="number"><br>
+            Purchasing price<br>
+            <input id="BYP" value="" style="width: 90px" type="number"><br>
+            Selling price<br>
+            <input id="SELIP" value="" style="width: 90px" type="number"><br>
+            <b>Difference in price</b><br>
+            <input id="DIFIP" value="" style="width: 90px" type="text"><br>
+            <b>My Quantity</b><br>
+            <input id="MQUA" value="" style="width: 90px" type="text"><br>
+            <b>Difference in %</b><br>
+            <input id="DFFI" value="" style="width: 90px" type="text"><br>
+            <b>Bonus</b><br>
+            <input id="BON" readonly="true" style="width: 90px" type="text"><br>
+            <b>Income in FIAT</b><br>
+            <input id="INOM" value="" style="width: 90px" type="text"><br>
+            <input value="Clear" onclick="clearContent4()" type="button"><br>
+          </div>
+        </quatp> </div>
+      <div class="qr floating-box">
+        <h3 id="svg">QR code for quick mobile access</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="270" height="270">
+          <desc>https://myprofit.github.io/</desc>
+          <rect style="fill:rgb(255, 255, 255);fill-opacity:1" x="0" y="0" width="270"
+
+            height="270"></rect>
+          <g id="elements">
+            <path style="fill:rgb(0, 0, 0)" d="M 10,10 l 10,0 0,10 -10,0 z M 20,10 l 10,0 0,10 -10,0 z M 30,10 l 10,0 0,10 -10,0 z M 40,10 l 10,0 0,10 -10,0 z M 50,10 l 10,0 0,10 -10,0 z M 60,10 l 10,0 0,10 -10,0 z M 70,10 l 10,0 0,10 -10,0 z M 110,10 l 10,0 0,10 -10,0 z M 130,10 l 10,0 0,10 -10,0 z M 170,10 l 10,0 0,10 -10,0 z M 190,10 l 10,0 0,10 -10,0 z M 200,10 l 10,0 0,10 -10,0 z M 210,10 l 10,0 0,10 -10,0 z M 220,10 l 10,0 0,10 -10,0 z M 230,10 l 10,0 0,10 -10,0 z M 240,10 l 10,0 0,10 -10,0 z M 250,10 l 10,0 0,10 -10,0 z M 10,20 l 10,0 0,10 -10,0 z M 70,20 l 10,0 0,10 -10,0 z M 90,20 l 10,0 0,10 -10,0 z M 110,20 l 10,0 0,10 -10,0 z M 140,20 l 10,0 0,10 -10,0 z M 150,20 l 10,0 0,10 -10,0 z M 160,20 l 10,0 0,10 -10,0 z M 190,20 l 10,0 0,10 -10,0 z M 250,20 l 10,0 0,10 -10,0 z M 10,30 l 10,0 0,10 -10,0 z M 30,30 l 10,0 0,10 -10,0 z M 40,30 l 10,0 0,10 -10,0 z M 50,30 l 10,0 0,10 -10,0 z M 70,30 l 10,0 0,10 -10,0 z M 130,30 l 10,0 0,10 -10,0 z M 150,30 l 10,0 0,10 -10,0 z M 170,30 l 10,0 0,10 -10,0 z M 190,30 l 10,0 0,10 -10,0 z M 210,30 l 10,0 0,10 -10,0 z M 220,30 l 10,0 0,10 -10,0 z M 230,30 l 10,0 0,10 -10,0 z M 250,30 l 10,0 0,10 -10,0 z M 10,40 l 10,0 0,10 -10,0 z M 30,40 l 10,0 0,10 -10,0 z M 40,40 l 10,0 0,10 -10,0 z M 50,40 l 10,0 0,10 -10,0 z M 70,40 l 10,0 0,10 -10,0 z M 90,40 l 10,0 0,10 -10,0 z M 100,40 l 10,0 0,10 -10,0 z M 110,40 l 10,0 0,10 -10,0 z M 130,40 l 10,0 0,10 -10,0 z M 140,40 l 10,0 0,10 -10,0 z M 150,40 l 10,0 0,10 -10,0 z M 190,40 l 10,0 0,10 -10,0 z M 210,40 l 10,0 0,10 -10,0 z M 220,40 l 10,0 0,10 -10,0 z M 230,40 l 10,0 0,10 -10,0 z M 250,40 l 10,0 0,10 -10,0 z M 10,50 l 10,0 0,10 -10,0 z M 30,50 l 10,0 0,10 -10,0 z M 40,50 l 10,0 0,10 -10,0 z M 50,50 l 10,0 0,10 -10,0 z M 70,50 l 10,0 0,10 -10,0 z M 100,50 l 10,0 0,10 -10,0 z M 140,50 l 10,0 0,10 -10,0 z M 190,50 l 10,0 0,10 -10,0 z M 210,50 l 10,0 0,10 -10,0 z M 220,50 l 10,0 0,10 -10,0 z M 230,50 l 10,0 0,10 -10,0 z M 250,50 l 10,0 0,10 -10,0 z M 10,60 l 10,0 0,10 -10,0 z M 70,60 l 10,0 0,10 -10,0 z M 90,60 l 10,0 0,10 -10,0 z M 100,60 l 10,0 0,10 -10,0 z M 120,60 l 10,0 0,10 -10,0 z M 130,60 l 10,0 0,10 -10,0 z M 160,60 l 10,0 0,10 -10,0 z M 190,60 l 10,0 0,10 -10,0 z M 250,60 l 10,0 0,10 -10,0 z M 10,70 l 10,0 0,10 -10,0 z M 20,70 l 10,0 0,10 -10,0 z M 30,70 l 10,0 0,10 -10,0 z M 40,70 l 10,0 0,10 -10,0 z M 50,70 l 10,0 0,10 -10,0 z M 60,70 l 10,0 0,10 -10,0 z M 70,70 l 10,0 0,10 -10,0 z M 90,70 l 10,0 0,10 -10,0 z M 110,70 l 10,0 0,10 -10,0 z M 130,70 l 10,0 0,10 -10,0 z M 150,70 l 10,0 0,10 -10,0 z M 170,70 l 10,0 0,10 -10,0 z M 190,70 l 10,0 0,10 -10,0 z M 200,70 l 10,0 0,10 -10,0 z M 210,70 l 10,0 0,10 -10,0 z M 220,70 l 10,0 0,10 -10,0 z M 230,70 l 10,0 0,10 -10,0 z M 240,70 l 10,0 0,10 -10,0 z M 250,70 l 10,0 0,10 -10,0 z M 100,80 l 10,0 0,10 -10,0 z M 110,80 l 10,0 0,10 -10,0 z M 120,80 l 10,0 0,10 -10,0 z M 150,80 l 10,0 0,10 -10,0 z M 160,80 l 10,0 0,10 -10,0 z M 170,80 l 10,0 0,10 -10,0 z M 10,90 l 10,0 0,10 -10,0 z M 20,90 l 10,0 0,10 -10,0 z M 30,90 l 10,0 0,10 -10,0 z M 40,90 l 10,0 0,10 -10,0 z M 50,90 l 10,0 0,10 -10,0 z M 70,90 l 10,0 0,10 -10,0 z M 80,90 l 10,0 0,10 -10,0 z M 90,90 l 10,0 0,10 -10,0 z M 100,90 l 10,0 0,10 -10,0 z M 120,90 l 10,0 0,10 -10,0 z M 130,90 l 10,0 0,10 -10,0 z M 140,90 l 10,0 0,10 -10,0 z M 150,90 l 10,0 0,10 -10,0 z M 160,90 l 10,0 0,10 -10,0 z M 170,90 l 10,0 0,10 -10,0 z M 180,90 l 10,0 0,10 -10,0 z M 200,90 l 10,0 0,10 -10,0 z M 220,90 l 10,0 0,10 -10,0 z M 240,90 l 10,0 0,10 -10,0 z M 10,100 l 10,0 0,10 -10,0 z M 40,100 l 10,0 0,10 -10,0 z M 60,100 l 10,0 0,10 -10,0 z M 80,100 l 10,0 0,10 -10,0 z M 90,100 l 10,0 0,10 -10,0 z M 110,100 l 10,0 0,10 -10,0 z M 130,100 l 10,0 0,10 -10,0 z M 150,100 l 10,0 0,10 -10,0 z M 170,100 l 10,0 0,10 -10,0 z M 180,100 l 10,0 0,10 -10,0 z M 200,100 l 10,0 0,10 -10,0 z M 240,100 l 10,0 0,10 -10,0 z M 10,110 l 10,0 0,10 -10,0 z M 40,110 l 10,0 0,10 -10,0 z M 50,110 l 10,0 0,10 -10,0 z M 60,110 l 10,0 0,10 -10,0 z M 70,110 l 10,0 0,10 -10,0 z M 80,110 l 10,0 0,10 -10,0 z M 90,110 l 10,0 0,10 -10,0 z M 110,110 l 10,0 0,10 -10,0 z M 150,110 l 10,0 0,10 -10,0 z M 160,110 l 10,0 0,10 -10,0 z M 170,110 l 10,0 0,10 -10,0 z M 200,110 l 10,0 0,10 -10,0 z M 220,110 l 10,0 0,10 -10,0 z M 240,110 l 10,0 0,10 -10,0 z M 250,110 l 10,0 0,10 -10,0 z M 10,120 l 10,0 0,10 -10,0 z M 30,120 l 10,0 0,10 -10,0 z M 40,120 l 10,0 0,10 -10,0 z M 50,120 l 10,0 0,10 -10,0 z M 120,120 l 10,0 0,10 -10,0 z M 160,120 l 10,0 0,10 -10,0 z M 180,120 l 10,0 0,10 -10,0 z M 190,120 l 10,0 0,10 -10,0 z M 200,120 l 10,0 0,10 -10,0 z M 210,120 l 10,0 0,10 -10,0 z M 250,120 l 10,0 0,10 -10,0 z M 10,130 l 10,0 0,10 -10,0 z M 30,130 l 10,0 0,10 -10,0 z M 60,130 l 10,0 0,10 -10,0 z M 70,130 l 10,0 0,10 -10,0 z M 90,130 l 10,0 0,10 -10,0 z M 100,130 l 10,0 0,10 -10,0 z M 110,130 l 10,0 0,10 -10,0 z M 120,130 l 10,0 0,10 -10,0 z M 130,130 l 10,0 0,10 -10,0 z M 140,130 l 10,0 0,10 -10,0 z M 150,130 l 10,0 0,10 -10,0 z M 180,130 l 10,0 0,10 -10,0 z M 190,130 l 10,0 0,10 -10,0 z M 210,130 l 10,0 0,10 -10,0 z M 230,130 l 10,0 0,10 -10,0 z M 240,130 l 10,0 0,10 -10,0 z M 250,130 l 10,0 0,10 -10,0 z M 10,140 l 10,0 0,10 -10,0 z M 30,140 l 10,0 0,10 -10,0 z M 120,140 l 10,0 0,10 -10,0 z M 130,140 l 10,0 0,10 -10,0 z M 140,140 l 10,0 0,10 -10,0 z M 170,140 l 10,0 0,10 -10,0 z M 180,140 l 10,0 0,10 -10,0 z M 200,140 l 10,0 0,10 -10,0 z M 220,140 l 10,0 0,10 -10,0 z M 240,140 l 10,0 0,10 -10,0 z M 10,150 l 10,0 0,10 -10,0 z M 50,150 l 10,0 0,10 -10,0 z M 70,150 l 10,0 0,10 -10,0 z M 80,150 l 10,0 0,10 -10,0 z M 160,150 l 10,0 0,10 -10,0 z M 190,150 l 10,0 0,10 -10,0 z M 200,150 l 10,0 0,10 -10,0 z M 210,150 l 10,0 0,10 -10,0 z M 220,150 l 10,0 0,10 -10,0 z M 240,150 l 10,0 0,10 -10,0 z M 250,150 l 10,0 0,10 -10,0 z M 10,160 l 10,0 0,10 -10,0 z M 40,160 l 10,0 0,10 -10,0 z M 90,160 l 10,0 0,10 -10,0 z M 110,160 l 10,0 0,10 -10,0 z M 120,160 l 10,0 0,10 -10,0 z M 170,160 l 10,0 0,10 -10,0 z M 190,160 l 10,0 0,10 -10,0 z M 200,160 l 10,0 0,10 -10,0 z M 210,160 l 10,0 0,10 -10,0 z M 250,160 l 10,0 0,10 -10,0 z M 10,170 l 10,0 0,10 -10,0 z M 30,170 l 10,0 0,10 -10,0 z M 50,170 l 10,0 0,10 -10,0 z M 70,170 l 10,0 0,10 -10,0 z M 120,170 l 10,0 0,10 -10,0 z M 130,170 l 10,0 0,10 -10,0 z M 140,170 l 10,0 0,10 -10,0 z M 150,170 l 10,0 0,10 -10,0 z M 160,170 l 10,0 0,10 -10,0 z M 170,170 l 10,0 0,10 -10,0 z M 180,170 l 10,0 0,10 -10,0 z M 190,170 l 10,0 0,10 -10,0 z M 200,170 l 10,0 0,10 -10,0 z M 210,170 l 10,0 0,10 -10,0 z M 230,170 l 10,0 0,10 -10,0 z M 90,180 l 10,0 0,10 -10,0 z M 100,180 l 10,0 0,10 -10,0 z M 120,180 l 10,0 0,10 -10,0 z M 150,180 l 10,0 0,10 -10,0 z M 160,180 l 10,0 0,10 -10,0 z M 170,180 l 10,0 0,10 -10,0 z M 210,180 l 10,0 0,10 -10,0 z M 220,180 l 10,0 0,10 -10,0 z M 10,190 l 10,0 0,10 -10,0 z M 20,190 l 10,0 0,10 -10,0 z M 30,190 l 10,0 0,10 -10,0 z M 40,190 l 10,0 0,10 -10,0 z M 50,190 l 10,0 0,10 -10,0 z M 60,190 l 10,0 0,10 -10,0 z M 70,190 l 10,0 0,10 -10,0 z M 90,190 l 10,0 0,10 -10,0 z M 110,190 l 10,0 0,10 -10,0 z M 150,190 l 10,0 0,10 -10,0 z M 170,190 l 10,0 0,10 -10,0 z M 190,190 l 10,0 0,10 -10,0 z M 210,190 l 10,0 0,10 -10,0 z M 230,190 l 10,0 0,10 -10,0 z M 240,190 l 10,0 0,10 -10,0 z M 250,190 l 10,0 0,10 -10,0 z M 10,200 l 10,0 0,10 -10,0 z M 70,200 l 10,0 0,10 -10,0 z M 100,200 l 10,0 0,10 -10,0 z M 130,200 l 10,0 0,10 -10,0 z M 150,200 l 10,0 0,10 -10,0 z M 170,200 l 10,0 0,10 -10,0 z M 210,200 l 10,0 0,10 -10,0 z M 220,200 l 10,0 0,10 -10,0 z M 240,200 l 10,0 0,10 -10,0 z M 10,210 l 10,0 0,10 -10,0 z M 30,210 l 10,0 0,10 -10,0 z M 40,210 l 10,0 0,10 -10,0 z M 50,210 l 10,0 0,10 -10,0 z M 70,210 l 10,0 0,10 -10,0 z M 90,210 l 10,0 0,10 -10,0 z M 100,210 l 10,0 0,10 -10,0 z M 120,210 l 10,0 0,10 -10,0 z M 130,210 l 10,0 0,10 -10,0 z M 140,210 l 10,0 0,10 -10,0 z M 150,210 l 10,0 0,10 -10,0 z M 160,210 l 10,0 0,10 -10,0 z M 170,210 l 10,0 0,10 -10,0 z M 180,210 l 10,0 0,10 -10,0 z M 190,210 l 10,0 0,10 -10,0 z M 200,210 l 10,0 0,10 -10,0 z M 210,210 l 10,0 0,10 -10,0 z M 230,210 l 10,0 0,10 -10,0 z M 10,220 l 10,0 0,10 -10,0 z M 30,220 l 10,0 0,10 -10,0 z M 40,220 l 10,0 0,10 -10,0 z M 50,220 l 10,0 0,10 -10,0 z M 70,220 l 10,0 0,10 -10,0 z M 90,220 l 10,0 0,10 -10,0 z M 100,220 l 10,0 0,10 -10,0 z M 120,220 l 10,0 0,10 -10,0 z M 170,220 l 10,0 0,10 -10,0 z M 180,220 l 10,0 0,10 -10,0 z M 190,220 l 10,0 0,10 -10,0 z M 210,220 l 10,0 0,10 -10,0 z M 220,220 l 10,0 0,10 -10,0 z M 230,220 l 10,0 0,10 -10,0 z M 240,220 l 10,0 0,10 -10,0 z M 250,220 l 10,0 0,10 -10,0 z M 10,230 l 10,0 0,10 -10,0 z M 30,230 l 10,0 0,10 -10,0 z M 40,230 l 10,0 0,10 -10,0 z M 50,230 l 10,0 0,10 -10,0 z M 70,230 l 10,0 0,10 -10,0 z M 90,230 l 10,0 0,10 -10,0 z M 100,230 l 10,0 0,10 -10,0 z M 130,230 l 10,0 0,10 -10,0 z M 140,230 l 10,0 0,10 -10,0 z M 170,230 l 10,0 0,10 -10,0 z M 180,230 l 10,0 0,10 -10,0 z M 220,230 l 10,0 0,10 -10,0 z M 230,230 l 10,0 0,10 -10,0 z M 250,230 l 10,0 0,10 -10,0 z M 10,240 l 10,0 0,10 -10,0 z M 70,240 l 10,0 0,10 -10,0 z M 90,240 l 10,0 0,10 -10,0 z M 110,240 l 10,0 0,10 -10,0 z M 120,240 l 10,0 0,10 -10,0 z M 160,240 l 10,0 0,10 -10,0 z M 170,240 l 10,0 0,10 -10,0 z M 190,240 l 10,0 0,10 -10,0 z M 200,240 l 10,0 0,10 -10,0 z M 210,240 l 10,0 0,10 -10,0 z M 220,240 l 10,0 0,10 -10,0 z M 250,240 l 10,0 0,10 -10,0 z M 10,250 l 10,0 0,10 -10,0 z M 20,250 l 10,0 0,10 -10,0 z M 30,250 l 10,0 0,10 -10,0 z M 40,250 l 10,0 0,10 -10,0 z M 50,250 l 10,0 0,10 -10,0 z M 60,250 l 10,0 0,10 -10,0 z M 70,250 l 10,0 0,10 -10,0 z M 90,250 l 10,0 0,10 -10,0 z M 110,250 l 10,0 0,10 -10,0 z M 120,250 l 10,0 0,10 -10,0 z M 130,250 l 10,0 0,10 -10,0 z M 140,250 l 10,0 0,10 -10,0 z M 200,250 l 10,0 0,10 -10,0 z M 210,250 l 10,0 0,10 -10,0 z M 220,250 l 10,0 0,10 -10,0 z M 230,250 l 10,0 0,10 -10,0 z M 240,250 l 10,0 0,10 -10,0 z M 250,250 l 10,0 0,10 -10,0 z "></path>
+          </g></svg></div>
+    </div>
+    <div class="floating-box cont2" onkeyup="updateResult()" style="width: auto"
+
+      align="justify">
       <h3 id="pfmcq">Sell quantity</h3>
       <pfmcq>
         <div class="cont5">Your quantity<br>
@@ -338,7 +373,8 @@ $(document).ready(function(){
       </pfmcq>
       <h3 id="ibnq">Buy quantity</h3>
       <ibnq>
-        <div class="cont5">Add to investing money<br>
+        <div class="cont5">Add to<br>
+          investing money<br>
           <input id="AINM" value="0" style="width: 90px" type="number"><br>
           <b>Investing money</b><br>
           <input id="INM" value="" style="width: 90px" type="number1"><br>
@@ -358,14 +394,18 @@ $(document).ready(function(){
           <input id="BNS" value="" style="width: 90px" type="text"><br>
           <b>Selling income</b><br>
           <input id="NSI" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent22()" type="button"></div></ibnq> </div>
-    <div class="floating-box cont3" onkeyup="updateResult()" style="width: 140px" align="justify">
+          <input value="Clear" onclick="clearContent22()" type="button"></div>
+      </ibnq> </div>
+    <div class="floating-box cont3" onkeyup="updateResult()" style="width: auto"
+
+      align="justify">
       <h3 id="piod">Percentage</h3>
       <piod>
         <div class="cont1">Price in FIAT<br>
           <input id="PURC" value="" style="width: 90px" type="number"><br>
           Percentage<br>
-          <div class="cont6"><samp>Use minus for decrees</samp></div>
+          <div class="cont6"><samp>Use minus <br>
+              for decrees</samp></div>
           <input id="PERid" value="" style="width: 90px" type="text2"><br>
           <b>Difference in price</b><br>
           <input id="DIFFP" value="" style="width: 90px" type="text"><br>
@@ -383,12 +423,84 @@ $(document).ready(function(){
           <input id="DFIP" value="" style="width: 90px" type="text"><br>
           <b>Difference in %</b><br>
           <input id="PRCDI" value="" style="width: 90px" type="text"><br>
+          Sell quantity<br>
+          <input id="ZUZ" value="" style="width: 90px" type="number"><br>
+          <b>Income</b><br>
+          <input id="MKM" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent32()" type="button"></div>
       </difp></div>
+    <div class="floating-box cont1" onkeyup="updateResult()" style="width: auto"
+
+      align="justify">
+      <h3 id="mp" style="text-align: center"> Plus or Minus or Quantity</h3>
+      <mp>
+        <div class="floating-box cont2" style="width: 100px"> Price
+          1<br>
+          <input id="PFI" value="" style="width: 90px" type="number"><br>
+          + Price 2<br>
+          <input id="DPS" value="" style="width: 90px" type="number"><br>
+          <b> Total Price<br>
+            <input id="EVB" value="" style="width: 90px" type="text"></b> <input
+
+value="Clear" onclick="clearContent91()" type="button"> </div>
+        <div class="floating-box cont5" style="width: 100px"> Price 1<br>
+          <input id="VBN" value="" style="width: 90px" type="number"><br>
+          - Price 2<br>
+          <input id="XCZ" value="" style="width: 90px" type="number"><br>
+          <b> Total Price<br>
+            <input id="LKL" value="" style="width: 90px" type="text"></b> <input
+
+value="Clear" onclick="clearContent92()" type="button"> </div>
+        <div class="floating-box cont3"> Fiat investment<br>
+          <input id="VZU" value="" style="width: 90px" type="number"> <br>
+          Get Quantity<br>
+          <input id="PTR" value="" style="width: 90px" type="number"> <br>
+          <b>Buy at<br>
+            <input id="KD" value="" style="width: 90px" type="text"></b> <br>
+          <input value="Clear" onclick="clearContent93()" type="button"></div>
+      </mp> </div>
+    <div id="container" class="floating-box2">
+      <h3 id="hmdic">How much does it cost</h3>
+      <hmdic>
+        <div id="first" class="floating-box cont1" onkeyup="updateResult()" style="width: 100px"
+
+          align="justify">&nbsp; Buy quantity<br>
+          <input id="PUQU" value="" style="width: 90px" type="number"><br>
+          Purchase price<br>
+          <input id="PRP" value="" style="width: 90px" type="number"><br>
+          <b>Total cost</b><br>
+          <input id="TCIF" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent5()" type="button"></div>
+      </hmdic> <hmdic>
+        <div id="second" class="floating-box cont1" onkeyup="updateResult()" style="width: 100px"
+
+          align="justify"> Sell quantity<br>
+          <input id="PQS" value="" style="width: 90px" type="number"><br>
+          Selling price<br>
+          <input id="PUP" value="" style="width: 90px" type="number"><br>
+          <b>Total cost</b><br>
+          <input id="TCF" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent6()" type="button"><br>
+        </div>
+      </hmdic>
+      <div id="clear" class="floating-box" style="width: 205px">
+        <h4 id="miner">Support me by CPU mining on your browser for the time you
+          visit the site</h4>
+        <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
+        <div class="coinhive-miner" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
+
+          data-autostart="false" data-threads="1" data-text="#eeeeee" data-background="#000000"
+
+          data-whitelabel="true" data-action="#1ABC9C"> <miner><samp>Loading...<br>
+              Miner is not loaded because you have Adblock.<br>
+              You can share link and support me like this.<br>
+            </samp></miner><samp>https://myprofit.github.io</samp></div>
+      </div>
+    </div>
     <div class="floating-box cont5" onkeyup="updateResult()" style="width: auto">
       <h4 id="fee">Fee 0.25%</h4>
       <fee><samp>Fee=Units*BidAsk*0.0025<br>
-           Fee=Units*BidAsk*CustomFEE</samp><br>
+          Fee=Units*BidAsk*CustomFEE</samp><br>
         <div id="first" class="floating-box CONT3" style="width: 105px">
           <h4 id="buy">Buy / Sell</h4>
           <buy> Units<br>
@@ -399,9 +511,11 @@ $(document).ready(function(){
             <input id="FEFE" value="" style="width: 90px" type="text"><br>
             <b>Total</b><br>
             <input id="TOTAL1" value="" style="width: 90px" type="text"><br>
-            <b> Total + Fee 0.25%
-	<input id="FEET1" value="" style="width: 90px" type="text"></b>
-	<input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
+            <b> Total + Fee 0.25% <input id="FEET1" value="" style="width: 90px"
+
+                type="text"></b> <input value="Clear" onclick="clearContent7()"
+
+type="button"> </buy></div>
         <div id="second" class="floating-box" style="width: 105px">
           <h4 id="sell">Custom Fee</h4>
           <sell>Units<br>
@@ -417,67 +531,12 @@ $(document).ready(function(){
             <b> Total + Fee<input id="FE" value="" style="width: 90px" type="text"></b>
             <input value="Clear" onclick="clearContent8()" type="button"> </sell></div>
       </fee></div>
-    <div id="container" class="floating-box2">
-      <h3 id="hmdic">How much does it cost</h3>
-      <hmdic>
-        <div id="first" class="floating-box cont1" onkeyup="updateResult()" style="width: 144px" align="justify">
-	  Purchasing quantity<br>
-          <input id="PUQU" value="" style="width: 90px" type="number"><br>
-          Purchase price<br>
-          <input id="PRP" value="" style="width: 90px" type="number"><br>
-          <b>Total cost in FIAT</b><br>
-          <input id="TCIF" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent5()" type="button"></div>
-      </hmdic> <hmdic>
-        <div id="second" class="floating-box cont1" onkeyup="updateResult()" style="width: 144px" align="justify">
-           Selling quantity<br>
-          <input id="PQS" value="" style="width: 90px" type="number"><br>
-          Selling price<br>
-          <input id="PUP" value="" style="width: 90px" type="number"><br>
-          <b>Total cost in FIAT</b><br>
-          <input id="TCF" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent6()" type="button"><br>
-        </div>
-      </hmdic>
-      <div id="clear">
-        <h4 id="miner">Support me by CPU mining on your browser for the time you visit the site</h4>
-        <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
-        <div class="coinhive-miner" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-          data-autostart="false" data-threads="1" data-text="#eeeeee" data-background="#000000"
-          data-whitelabel="true" data-action="#1ABC9C"> <miner><samp>Loading...<br>
-              Miner is not loaded because you have Adblock.<br>
-              You can share link and support me like this.<br>
-            </samp></miner><samp>https://myprofit.github.io</samp></div>
-      </div>
-      <div class="qr">
-        <h3 id="svg">QR code for quick mobile access</h3>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="270" height="270">
-          <desc>https://myprofit.github.io/</desc>
-          <rect style="fill:rgb(255, 255, 255);fill-opacity:1" x="0" y="0" width="270" height="270"></rect>
-          <g id="elements">
-            <path style="fill:rgb(0, 0, 0)" d="M 10,10 l 10,0 0,10 -10,0 z M 20,10 l 10,0 0,10 -10,0 z M 30,10 l 10,0 0,10 -10,0 z M 40,10 l 10,0 0,10 -10,0 z M 50,10 l 10,0 0,10 -10,0 z M 60,10 l 10,0 0,10 -10,0 z M 70,10 l 10,0 0,10 -10,0 z M 110,10 l 10,0 0,10 -10,0 z M 130,10 l 10,0 0,10 -10,0 z M 170,10 l 10,0 0,10 -10,0 z M 190,10 l 10,0 0,10 -10,0 z M 200,10 l 10,0 0,10 -10,0 z M 210,10 l 10,0 0,10 -10,0 z M 220,10 l 10,0 0,10 -10,0 z M 230,10 l 10,0 0,10 -10,0 z M 240,10 l 10,0 0,10 -10,0 z M 250,10 l 10,0 0,10 -10,0 z M 10,20 l 10,0 0,10 -10,0 z M 70,20 l 10,0 0,10 -10,0 z M 90,20 l 10,0 0,10 -10,0 z M 110,20 l 10,0 0,10 -10,0 z M 140,20 l 10,0 0,10 -10,0 z M 150,20 l 10,0 0,10 -10,0 z M 160,20 l 10,0 0,10 -10,0 z M 190,20 l 10,0 0,10 -10,0 z M 250,20 l 10,0 0,10 -10,0 z M 10,30 l 10,0 0,10 -10,0 z M 30,30 l 10,0 0,10 -10,0 z M 40,30 l 10,0 0,10 -10,0 z M 50,30 l 10,0 0,10 -10,0 z M 70,30 l 10,0 0,10 -10,0 z M 130,30 l 10,0 0,10 -10,0 z M 150,30 l 10,0 0,10 -10,0 z M 170,30 l 10,0 0,10 -10,0 z M 190,30 l 10,0 0,10 -10,0 z M 210,30 l 10,0 0,10 -10,0 z M 220,30 l 10,0 0,10 -10,0 z M 230,30 l 10,0 0,10 -10,0 z M 250,30 l 10,0 0,10 -10,0 z M 10,40 l 10,0 0,10 -10,0 z M 30,40 l 10,0 0,10 -10,0 z M 40,40 l 10,0 0,10 -10,0 z M 50,40 l 10,0 0,10 -10,0 z M 70,40 l 10,0 0,10 -10,0 z M 90,40 l 10,0 0,10 -10,0 z M 100,40 l 10,0 0,10 -10,0 z M 110,40 l 10,0 0,10 -10,0 z M 130,40 l 10,0 0,10 -10,0 z M 140,40 l 10,0 0,10 -10,0 z M 150,40 l 10,0 0,10 -10,0 z M 190,40 l 10,0 0,10 -10,0 z M 210,40 l 10,0 0,10 -10,0 z M 220,40 l 10,0 0,10 -10,0 z M 230,40 l 10,0 0,10 -10,0 z M 250,40 l 10,0 0,10 -10,0 z M 10,50 l 10,0 0,10 -10,0 z M 30,50 l 10,0 0,10 -10,0 z M 40,50 l 10,0 0,10 -10,0 z M 50,50 l 10,0 0,10 -10,0 z M 70,50 l 10,0 0,10 -10,0 z M 100,50 l 10,0 0,10 -10,0 z M 140,50 l 10,0 0,10 -10,0 z M 190,50 l 10,0 0,10 -10,0 z M 210,50 l 10,0 0,10 -10,0 z M 220,50 l 10,0 0,10 -10,0 z M 230,50 l 10,0 0,10 -10,0 z M 250,50 l 10,0 0,10 -10,0 z M 10,60 l 10,0 0,10 -10,0 z M 70,60 l 10,0 0,10 -10,0 z M 90,60 l 10,0 0,10 -10,0 z M 100,60 l 10,0 0,10 -10,0 z M 120,60 l 10,0 0,10 -10,0 z M 130,60 l 10,0 0,10 -10,0 z M 160,60 l 10,0 0,10 -10,0 z M 190,60 l 10,0 0,10 -10,0 z M 250,60 l 10,0 0,10 -10,0 z M 10,70 l 10,0 0,10 -10,0 z M 20,70 l 10,0 0,10 -10,0 z M 30,70 l 10,0 0,10 -10,0 z M 40,70 l 10,0 0,10 -10,0 z M 50,70 l 10,0 0,10 -10,0 z M 60,70 l 10,0 0,10 -10,0 z M 70,70 l 10,0 0,10 -10,0 z M 90,70 l 10,0 0,10 -10,0 z M 110,70 l 10,0 0,10 -10,0 z M 130,70 l 10,0 0,10 -10,0 z M 150,70 l 10,0 0,10 -10,0 z M 170,70 l 10,0 0,10 -10,0 z M 190,70 l 10,0 0,10 -10,0 z M 200,70 l 10,0 0,10 -10,0 z M 210,70 l 10,0 0,10 -10,0 z M 220,70 l 10,0 0,10 -10,0 z M 230,70 l 10,0 0,10 -10,0 z M 240,70 l 10,0 0,10 -10,0 z M 250,70 l 10,0 0,10 -10,0 z M 100,80 l 10,0 0,10 -10,0 z M 110,80 l 10,0 0,10 -10,0 z M 120,80 l 10,0 0,10 -10,0 z M 150,80 l 10,0 0,10 -10,0 z M 160,80 l 10,0 0,10 -10,0 z M 170,80 l 10,0 0,10 -10,0 z M 10,90 l 10,0 0,10 -10,0 z M 20,90 l 10,0 0,10 -10,0 z M 30,90 l 10,0 0,10 -10,0 z M 40,90 l 10,0 0,10 -10,0 z M 50,90 l 10,0 0,10 -10,0 z M 70,90 l 10,0 0,10 -10,0 z M 80,90 l 10,0 0,10 -10,0 z M 90,90 l 10,0 0,10 -10,0 z M 100,90 l 10,0 0,10 -10,0 z M 120,90 l 10,0 0,10 -10,0 z M 130,90 l 10,0 0,10 -10,0 z M 140,90 l 10,0 0,10 -10,0 z M 150,90 l 10,0 0,10 -10,0 z M 160,90 l 10,0 0,10 -10,0 z M 170,90 l 10,0 0,10 -10,0 z M 180,90 l 10,0 0,10 -10,0 z M 200,90 l 10,0 0,10 -10,0 z M 220,90 l 10,0 0,10 -10,0 z M 240,90 l 10,0 0,10 -10,0 z M 10,100 l 10,0 0,10 -10,0 z M 40,100 l 10,0 0,10 -10,0 z M 60,100 l 10,0 0,10 -10,0 z M 80,100 l 10,0 0,10 -10,0 z M 90,100 l 10,0 0,10 -10,0 z M 110,100 l 10,0 0,10 -10,0 z M 130,100 l 10,0 0,10 -10,0 z M 150,100 l 10,0 0,10 -10,0 z M 170,100 l 10,0 0,10 -10,0 z M 180,100 l 10,0 0,10 -10,0 z M 200,100 l 10,0 0,10 -10,0 z M 240,100 l 10,0 0,10 -10,0 z M 10,110 l 10,0 0,10 -10,0 z M 40,110 l 10,0 0,10 -10,0 z M 50,110 l 10,0 0,10 -10,0 z M 60,110 l 10,0 0,10 -10,0 z M 70,110 l 10,0 0,10 -10,0 z M 80,110 l 10,0 0,10 -10,0 z M 90,110 l 10,0 0,10 -10,0 z M 110,110 l 10,0 0,10 -10,0 z M 150,110 l 10,0 0,10 -10,0 z M 160,110 l 10,0 0,10 -10,0 z M 170,110 l 10,0 0,10 -10,0 z M 200,110 l 10,0 0,10 -10,0 z M 220,110 l 10,0 0,10 -10,0 z M 240,110 l 10,0 0,10 -10,0 z M 250,110 l 10,0 0,10 -10,0 z M 10,120 l 10,0 0,10 -10,0 z M 30,120 l 10,0 0,10 -10,0 z M 40,120 l 10,0 0,10 -10,0 z M 50,120 l 10,0 0,10 -10,0 z M 120,120 l 10,0 0,10 -10,0 z M 160,120 l 10,0 0,10 -10,0 z M 180,120 l 10,0 0,10 -10,0 z M 190,120 l 10,0 0,10 -10,0 z M 200,120 l 10,0 0,10 -10,0 z M 210,120 l 10,0 0,10 -10,0 z M 250,120 l 10,0 0,10 -10,0 z M 10,130 l 10,0 0,10 -10,0 z M 30,130 l 10,0 0,10 -10,0 z M 60,130 l 10,0 0,10 -10,0 z M 70,130 l 10,0 0,10 -10,0 z M 90,130 l 10,0 0,10 -10,0 z M 100,130 l 10,0 0,10 -10,0 z M 110,130 l 10,0 0,10 -10,0 z M 120,130 l 10,0 0,10 -10,0 z M 130,130 l 10,0 0,10 -10,0 z M 140,130 l 10,0 0,10 -10,0 z M 150,130 l 10,0 0,10 -10,0 z M 180,130 l 10,0 0,10 -10,0 z M 190,130 l 10,0 0,10 -10,0 z M 210,130 l 10,0 0,10 -10,0 z M 230,130 l 10,0 0,10 -10,0 z M 240,130 l 10,0 0,10 -10,0 z M 250,130 l 10,0 0,10 -10,0 z M 10,140 l 10,0 0,10 -10,0 z M 30,140 l 10,0 0,10 -10,0 z M 120,140 l 10,0 0,10 -10,0 z M 130,140 l 10,0 0,10 -10,0 z M 140,140 l 10,0 0,10 -10,0 z M 170,140 l 10,0 0,10 -10,0 z M 180,140 l 10,0 0,10 -10,0 z M 200,140 l 10,0 0,10 -10,0 z M 220,140 l 10,0 0,10 -10,0 z M 240,140 l 10,0 0,10 -10,0 z M 10,150 l 10,0 0,10 -10,0 z M 50,150 l 10,0 0,10 -10,0 z M 70,150 l 10,0 0,10 -10,0 z M 80,150 l 10,0 0,10 -10,0 z M 160,150 l 10,0 0,10 -10,0 z M 190,150 l 10,0 0,10 -10,0 z M 200,150 l 10,0 0,10 -10,0 z M 210,150 l 10,0 0,10 -10,0 z M 220,150 l 10,0 0,10 -10,0 z M 240,150 l 10,0 0,10 -10,0 z M 250,150 l 10,0 0,10 -10,0 z M 10,160 l 10,0 0,10 -10,0 z M 40,160 l 10,0 0,10 -10,0 z M 90,160 l 10,0 0,10 -10,0 z M 110,160 l 10,0 0,10 -10,0 z M 120,160 l 10,0 0,10 -10,0 z M 170,160 l 10,0 0,10 -10,0 z M 190,160 l 10,0 0,10 -10,0 z M 200,160 l 10,0 0,10 -10,0 z M 210,160 l 10,0 0,10 -10,0 z M 250,160 l 10,0 0,10 -10,0 z M 10,170 l 10,0 0,10 -10,0 z M 30,170 l 10,0 0,10 -10,0 z M 50,170 l 10,0 0,10 -10,0 z M 70,170 l 10,0 0,10 -10,0 z M 120,170 l 10,0 0,10 -10,0 z M 130,170 l 10,0 0,10 -10,0 z M 140,170 l 10,0 0,10 -10,0 z M 150,170 l 10,0 0,10 -10,0 z M 160,170 l 10,0 0,10 -10,0 z M 170,170 l 10,0 0,10 -10,0 z M 180,170 l 10,0 0,10 -10,0 z M 190,170 l 10,0 0,10 -10,0 z M 200,170 l 10,0 0,10 -10,0 z M 210,170 l 10,0 0,10 -10,0 z M 230,170 l 10,0 0,10 -10,0 z M 90,180 l 10,0 0,10 -10,0 z M 100,180 l 10,0 0,10 -10,0 z M 120,180 l 10,0 0,10 -10,0 z M 150,180 l 10,0 0,10 -10,0 z M 160,180 l 10,0 0,10 -10,0 z M 170,180 l 10,0 0,10 -10,0 z M 210,180 l 10,0 0,10 -10,0 z M 220,180 l 10,0 0,10 -10,0 z M 10,190 l 10,0 0,10 -10,0 z M 20,190 l 10,0 0,10 -10,0 z M 30,190 l 10,0 0,10 -10,0 z M 40,190 l 10,0 0,10 -10,0 z M 50,190 l 10,0 0,10 -10,0 z M 60,190 l 10,0 0,10 -10,0 z M 70,190 l 10,0 0,10 -10,0 z M 90,190 l 10,0 0,10 -10,0 z M 110,190 l 10,0 0,10 -10,0 z M 150,190 l 10,0 0,10 -10,0 z M 170,190 l 10,0 0,10 -10,0 z M 190,190 l 10,0 0,10 -10,0 z M 210,190 l 10,0 0,10 -10,0 z M 230,190 l 10,0 0,10 -10,0 z M 240,190 l 10,0 0,10 -10,0 z M 250,190 l 10,0 0,10 -10,0 z M 10,200 l 10,0 0,10 -10,0 z M 70,200 l 10,0 0,10 -10,0 z M 100,200 l 10,0 0,10 -10,0 z M 130,200 l 10,0 0,10 -10,0 z M 150,200 l 10,0 0,10 -10,0 z M 170,200 l 10,0 0,10 -10,0 z M 210,200 l 10,0 0,10 -10,0 z M 220,200 l 10,0 0,10 -10,0 z M 240,200 l 10,0 0,10 -10,0 z M 10,210 l 10,0 0,10 -10,0 z M 30,210 l 10,0 0,10 -10,0 z M 40,210 l 10,0 0,10 -10,0 z M 50,210 l 10,0 0,10 -10,0 z M 70,210 l 10,0 0,10 -10,0 z M 90,210 l 10,0 0,10 -10,0 z M 100,210 l 10,0 0,10 -10,0 z M 120,210 l 10,0 0,10 -10,0 z M 130,210 l 10,0 0,10 -10,0 z M 140,210 l 10,0 0,10 -10,0 z M 150,210 l 10,0 0,10 -10,0 z M 160,210 l 10,0 0,10 -10,0 z M 170,210 l 10,0 0,10 -10,0 z M 180,210 l 10,0 0,10 -10,0 z M 190,210 l 10,0 0,10 -10,0 z M 200,210 l 10,0 0,10 -10,0 z M 210,210 l 10,0 0,10 -10,0 z M 230,210 l 10,0 0,10 -10,0 z M 10,220 l 10,0 0,10 -10,0 z M 30,220 l 10,0 0,10 -10,0 z M 40,220 l 10,0 0,10 -10,0 z M 50,220 l 10,0 0,10 -10,0 z M 70,220 l 10,0 0,10 -10,0 z M 90,220 l 10,0 0,10 -10,0 z M 100,220 l 10,0 0,10 -10,0 z M 120,220 l 10,0 0,10 -10,0 z M 170,220 l 10,0 0,10 -10,0 z M 180,220 l 10,0 0,10 -10,0 z M 190,220 l 10,0 0,10 -10,0 z M 210,220 l 10,0 0,10 -10,0 z M 220,220 l 10,0 0,10 -10,0 z M 230,220 l 10,0 0,10 -10,0 z M 240,220 l 10,0 0,10 -10,0 z M 250,220 l 10,0 0,10 -10,0 z M 10,230 l 10,0 0,10 -10,0 z M 30,230 l 10,0 0,10 -10,0 z M 40,230 l 10,0 0,10 -10,0 z M 50,230 l 10,0 0,10 -10,0 z M 70,230 l 10,0 0,10 -10,0 z M 90,230 l 10,0 0,10 -10,0 z M 100,230 l 10,0 0,10 -10,0 z M 130,230 l 10,0 0,10 -10,0 z M 140,230 l 10,0 0,10 -10,0 z M 170,230 l 10,0 0,10 -10,0 z M 180,230 l 10,0 0,10 -10,0 z M 220,230 l 10,0 0,10 -10,0 z M 230,230 l 10,0 0,10 -10,0 z M 250,230 l 10,0 0,10 -10,0 z M 10,240 l 10,0 0,10 -10,0 z M 70,240 l 10,0 0,10 -10,0 z M 90,240 l 10,0 0,10 -10,0 z M 110,240 l 10,0 0,10 -10,0 z M 120,240 l 10,0 0,10 -10,0 z M 160,240 l 10,0 0,10 -10,0 z M 170,240 l 10,0 0,10 -10,0 z M 190,240 l 10,0 0,10 -10,0 z M 200,240 l 10,0 0,10 -10,0 z M 210,240 l 10,0 0,10 -10,0 z M 220,240 l 10,0 0,10 -10,0 z M 250,240 l 10,0 0,10 -10,0 z M 10,250 l 10,0 0,10 -10,0 z M 20,250 l 10,0 0,10 -10,0 z M 30,250 l 10,0 0,10 -10,0 z M 40,250 l 10,0 0,10 -10,0 z M 50,250 l 10,0 0,10 -10,0 z M 60,250 l 10,0 0,10 -10,0 z M 70,250 l 10,0 0,10 -10,0 z M 90,250 l 10,0 0,10 -10,0 z M 110,250 l 10,0 0,10 -10,0 z M 120,250 l 10,0 0,10 -10,0 z M 130,250 l 10,0 0,10 -10,0 z M 140,250 l 10,0 0,10 -10,0 z M 200,250 l 10,0 0,10 -10,0 z M 210,250 l 10,0 0,10 -10,0 z M 220,250 l 10,0 0,10 -10,0 z M 230,250 l 10,0 0,10 -10,0 z M 240,250 l 10,0 0,10 -10,0 z M 250,250 l 10,0 0,10 -10,0 z "></path>
-          </g></svg></div>
-    </div>
     <div class="cont1" style="position:fixed; bottom:150px; right:0;"><input value="Clear All"
-onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),clearContent8()"
-type="button"> <br>
+
+onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),
+      clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),
+      clearContent8(),clearContent91(),clearContent92(),clearContent93()" type="button">
+      <br>
     </div>
-    <div class="floating-box cont1" onkeyup="updateResult()" style="width: auto" align="justify"> 
-        <h3 id="mp">Plus Minus</h3><mp>
-        <div class="floating-box cont2" style="width: 100px"> Price 1<br>
-          <input id="PFI" value="" style="width: 90px" type="number"><br>
-          + Price 2<br>
-          <input id="DPS" value="" style="width: 90px" type="number"><br>
-          <b> Total Price<input id="EVB" value="" style="width: 90px" type="text"></b>
-        <input value="Clear" onclick="clearContent91()" type="button">
-</div>
-        <div class="floating-box cont5" style="width: 100px"> Price 1<br>
-          <input id="VBN" value="" style="width: 90px" type="number"><br>
-          - Price 2<br>
-          <input id="XCZ" value="" style="width: 90px" type="number"><br>
-          <b> Total Price<input id="LKL" value="" style="width: 90px" type="text"></b>
-	<input value="Clear" onclick="clearContent92()" type="button">
-</div>
-      </mp> </div>
   </body>
 </html>
