@@ -171,7 +171,18 @@ function clearContent8(){
     document.getElementById("FEF").value='';
     document.getElementById("TOT").value='';
     document.getElementById("FE").value='';
-}</script>
+}
+function clearContent91(){  
+    document.getElementById("PFI").value='';
+    document.getElementById("DPS").value='';
+    document.getElementById("EVB").value='';
+}
+function clearContent92(){  
+    document.getElementById("VBN").value='';
+    document.getElementById("XCZ").value='';
+    document.getElementById("LKL").value=''; 
+}	  
+</script>
     <script>
     function e(element)
     {
@@ -219,6 +230,9 @@ function clearContent8(){
       e("TOT").value = f("UN") * f("BI");
       e("FEF").value = f("UN") * f("BI") * f("CCF");
       e("FE").value = f("TOT") + (f("UN") * f("BI") * f("CCF"));
+//Plus//
+      e("EVB").value = f("PFI") + f("DPS");
+      e("LKL").value = f("VBN") - f("XCZ");
 }</script>
   </head>
   <body>
@@ -445,5 +459,22 @@ $(document).ready(function(){
 onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),clearContent8()"
 type="button"> <br>
     </div>
+    <div class="floating-box cont1" onkeyup="updateResult()" style="width: auto" align="justify"> 
+        <h3 id="mp">Plus Minus</h3><mp>
+        <div class="floating-box cont2" style="width: 100px"> Price 1<br>
+          <input id="PFI" value="" style="width: 90px" type="number"><br>
+          + Price 2<br>
+          <input id="DPS" value="" style="width: 90px" type="number"><br>
+          <b> Total Price<input id="EVB" value="" style="width: 90px" type="text"></b>
+        <input value="Clear" onclick="clearContent91()" type="button">
+</div>
+        <div class="floating-box cont5" style="width: 100px"> Price 1<br>
+          <input id="VBN" value="" style="width: 90px" type="number"><br>
+          - Price 2<br>
+          <input id="XCZ" value="" style="width: 90px" type="number"><br>
+          <b> Total Price<input id="LKL" value="" style="width: 90px" type="text"></b>
+	<input value="Clear" onclick="clearContent92()" type="button">
+</div>
+      </mp> </div>
   </body>
 </html>
