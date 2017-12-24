@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Crypto profit calculator, provide you calculations for Crypto market, when to sale your coin and at what price will you make profit and by how much.">
+    <meta name="keywords" content="My Crypto profit calculator,Profit tool,Sell tool,MPC,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
+    <meta name="author" content="My ProFit">
+    <title>Crypto profit only</title>
+     <style>   
+#header{
+    width: 100%;
+    background-color: #cccccc;
+    min-height: 25px;
+    text-align: center;
+    border: 0px;
+    padding: 0px;
+}
+#container{
+    width: 212px;
+    background-color: #8EC919;
+    margin: auto;
+    border: 1px solid green;
+    margin: 1px;
+}
+#first{
+    width: 100px;
+    float: left;
+    height: ;
+    background-color: #8BB133;
+}
+#second{
+    width: 100px;
+    float: left;
+    background-color: #AB0D4E;
+}
+#clear{
+    clear: both;
+  background-color:#FFD700;
+}
+input[type=text1] {
+color: red;  
+}  
+input[type=text] {
+color: red;  
+}    
+input[type=number1] {
+color: red;
+}
+</style> <style>
+body{background-color: #cccccc;
+}
+div{margin: 1px;
+    width: auto;
+    border: 1px solid green;
+    padding: 1px;
+    border-radius:6px;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;}
+.floating-box {
+    float: left;
+    height: auto; 
+}
+.floating-box2 {
+    float: right;
+    height: auto;
+    border: 0;
+    background-color:#cccccc;
+}
+.cont1{
+background-color: Gold;
+}
+.cont2{
+background-color: #FF4500;
+}
+.cont3{
+background-color: #32CD32;
+} 
+.cont4{
+background-color: #6A5ACD;
+}      
+.cont5{
+background-color: #00BFFF;
+}    
+.cont6{    
+background-color: #ADFF2F;
+}  
+.coinhive-miner{
+background-color: #ADFF2F;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+    top: 0px;
+    text-align: center;
+    color:#191970;
+}
+.qr{background-color:#FFD700;
+    border:1px solid green;
+}</style>   
+    
+    <script>    
+function clearContent0(){
+    document.getElementById("DIFF").value='';
+    document.getElementById("CURP").value='';
+    document.getElementById("PURCP").value='';
+    document.getElementById("QUA").value='';
+    document.getElementById("INV").value='';
+    document.getElementById("BO").value='';
+    document.getElementById("INCO").value='';
+    document.getElementById("PERC").value='';
+} 
+ </script>   
+    
+    
+  <script>
+    function e(element)
+    {
+       return document.getElementById(element);
+    }
+    function f(element)
+    {
+       return parseFloat(e(element).value);
+    }
+    function updateResult()    
+{//1gen//   
+      e("DIFF").value =  f("CURP") - f("PURCP");
+      e("QUA").value = f("INV") / (f("PURCP"));
+      e("BO").value = f("QUA") * f("DIFF");
+      e("INCO").value = f("QUA") * f("CURP");
+      e("PERC").value = (f("INCO") / f("INV") -1)*100; 
+      
+      
+      
+      
+      
+      }</script>
+    
+    
+    
+    
+    <script src="https://myprofit.github.io/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+    $("#cpc").click(function(){
+        $("cpc").toggle(300);
+    });
+});    
+</script> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
+        <h3 id="cpc">Crypto profit</h3>
+        <cpc>
+          <div class="cont2"> <a title="Your invested money in FIAT">Investing
+              money</a><br>
+            <input id="INV" value="" style="width: 90px" type="number"><br>
+            <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
+            <input id="PURCP" value="" style="width: 90px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
+              Selling price</a><br>
+            <input id="CURP" value="" style="width: 90px" type="number"><br>
+            <b title="The difference between price in FIAT">Difference in price</b><br>
+            <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Purchased quantity">Quantity</b><br>
+            <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Difference in percentage between price in FIAT">Difference
+              in %</b><br>
+            <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
+            <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
+            <input id="BO" readonly="true" style="width: 90px" type="text"><br>
+            <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
+            <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
+            <input value="Clear" onclick="clearContent0()" type="button"></div>
+        </cpc> </div>
+    
+    
+    
+    
+    
+      </body>
+</html>
