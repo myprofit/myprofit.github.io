@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Crypto profit calculator, provide you calculations for Crypto market, when to sale your coin and at what price will you make profit and by how much.">
+    <meta name="keywords" content="My Crypto profit calculator,Profit tool,Sell tool,MPC,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
+    <meta name="author" content="My ProFit">
+    <title>Crypto profit only</title>
+     <style>   
+#header{
+    width: 100%;
+    background-color: Gold;
+    min-height: 25px;
+    text-align: center;
+    border: 0px;
+    padding: 0px;
+}
+#container{
+    width: 212px;
+    background-color: #8EC919;
+    margin: auto;
+    border: 1px solid green;
+    margin: 1px;
+}
+#first{
+    width: 100px;
+    float: left;
+    height: ;
+    background-color: #8BB133;
+}
+#second{
+    width: 100px;
+    float: left;
+    background-color: #AB0D4E;
+}
+#clear{
+    clear: both;
+  background-color:#FFD700;
+}
+input[type=text1] {
+color: red;  
+}  
+input[type=text] {
+color: red;  
+}    
+input[type=number1] {
+color: red;
+}
+</style> <style>
+body{background-color: #cccccc;
+}
+div{margin: 1px;
+    width: auto;
+    border: 1px solid green;
+    padding: 1px;
+    border-radius:6px;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 0px;}
+.floating-box {
+    float: left;
+    height: auto; 
+}
+.floating-box2 {
+    float: right;
+    height: auto;
+    border: 0;
+    background-color:#cccccc;
+}
+.cont1{
+background-color: Gold;
+}
+.cont2{
+background-color: #FF4500;
+}
+.cont3{
+background-color: #32CD32;
+} 
+.cont4{
+background-color: #6A5ACD;
+}      
+.cont5{
+background-color: #00BFFF;
+}    
+.cont6{    
+background-color: #ADFF2F;
+}  
+.coinhive-miner{
+background-color: #ADFF2F;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+    top: 0px;
+    text-align: center;
+    color:#191970;
+}
+.qr{background-color:#FFD700;
+    border:1px solid green;
+}</style>   
+        <style>  
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  border-radius:6px;
+}
+</style> 
+
+
+
+ <script>  
+function clearContent22(){
+    document.getElementById("INM").value='';
+    document.getElementById("AINM").value='0';
+    document.getElementById("QUAA").value='';
+    document.getElementById("BPR").value='';
+    document.getElementById("NSI").value='';
+    document.getElementById("NSP").value='';
+    document.getElementById("BNS").value='';
+}
+function clearContent31(){
+    document.getElementById("CURR").value='';
+    document.getElementById("PURC").value='';
+    document.getElementById("PERid").value='';
+    document.getElementById("DIFFP").value=''; 
+}
+
+</style> 
+
+<script>
+    function e(element)
+    {
+       return document.getElementById(element);
+    }
+    function f(element)
+    {
+       return parseFloat(e(element).value);
+    }
+    function updateResult()    
+{//1gen//   
+      e("DIFF").value =  f("CURP") - f("PURCP");
+      e("QUA").value = f("INV") / (f("PURCP"));
+      e("BO").value = f("QUA") * f("DIFF");
+      e("INCO").value = f("QUA") * f("CURP");
+      e("PERC").value = (f("INCO") / f("INV") -1)*100;    
+      
+      
+      }</script>
+      
+      
+       <script src="https://myprofit.github.io/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+    $("#svg").click(function(){
+        $("svg").toggle(300);
+    });	
+});    
+</script> 
+
+<div class="floating-box cont3" onkeyup="updateResult()" style="width: auto"
+
+      align="justify">
+      <h3 id="piod">Percentage</h3>
+      <piod>
+        <div class="cont1">Price in FIAT<br>
+          <input id="PURC" value="" style="width: 90px" type="number"><br>
+          Percentage<br>
+          <div class="cont6"><samp>Use minus <br>
+              for decrees</samp></div>
+          <input id="PERid" value="" style="width: 90px" type="text2"><br>
+          <b>Difference in price</b><br>
+          <input id="DIFFP" value="" style="width: 90px" type="text"><br>
+          <b>Price + percentage</b><br>
+          <input id="CURR" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent31()" type="button"> </div>
+      </piod>
+      <h3 id="difp">Difference in %</h3>
+      <difp>
+        <div class="cont1">Purchasing price<br>
+          <input id="BYPP" value="" style="width: 90px" type="number"><br>
+          Selling price<br>
+          <input id="SELLP" value="" style="width: 90px" type="number"><br>
+          <b>Difference in price</b><br>
+          <input id="DFIP" value="" style="width: 90px" type="text"><br>
+          <b>Difference in %</b><br>
+          <input id="PRCDI" value="" style="width: 90px" type="text"><br>
+          Sell quantity<br>
+          <input id="ZUZ" value="" style="width: 90px" type="number"><br>
+          <b>Income</b><br>
+          <input id="MKM" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent32()" type="button"></div>
+      </difp></div>
+
+
+
+  </body>
+</html>
