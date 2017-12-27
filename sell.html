@@ -150,29 +150,45 @@ function clearContent31(){
     }
     function updateResult()    
 {//1gen//   
-      e("DIFF").value =  f("CURP") - f("PURCP");
-      e("QUA").value = f("INV") / (f("PURCP"));
-      e("BO").value = f("QUA") * f("DIFF");
-      e("INCO").value = f("QUA") * f("CURP");
-      e("PERC").value = (f("INCO") / f("INV") -1)*100;    
-      
-      
-      }</script>
+ function clearContent21(){
+    document.getElementById("INCOF").value='';
+    document.getElementById("YQUA").value='';
+    document.getElementById("NEWQ").value='0';      
+    document.getElementById("CURPR").value='';
+}
+function clearContent22(){
+    document.getElementById("INM").value='';
+    document.getElementById("AINM").value='0';
+    document.getElementById("QUAA").value='';
+    document.getElementById("BPR").value='';
+    document.getElementById("NSI").value='';
+    document.getElementById("NSP").value='';
+    document.getElementById("BNS").value='';
+}</script>
       
       
        <script src="https://myprofit.github.io/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
-    $("#svg").click(function(){
-        $("svg").toggle(300);
+    $("#pfmcq").click(function(){
+        $("pfmcq").toggle(300);
     });	
+    $("#mcm").click(function(){
+        $("mcm").toggle(300);
+    });	  
+     $("#ibi").click(function(){
+        $("ibi").toggle(300);
+    });	   
+    $("#ibnq").click(function(){
+        $("ibnq").toggle(300);
+    });	  
+  
+  
 });    
 </script> 
 
-<div class="floating-box cont2" onkeyup="updateResult()" style="width: auto"
-
-      align="justify">
-      <h3 id="pfmcq">Sell quantity</h3>
+<div class="floating-box cont2" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h3 id="pfmcq">Sell quantity 1</h3>
       <pfmcq>
         <div class="cont5">Your quantity<br>
           <input id="YQUA" value="" style="width: 90px" type="number"><br>
@@ -211,6 +227,53 @@ $(document).ready(function(){
       </ibnq> </div>
 
 
+   <div class="floating-box cont2" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h3 id="mcm">Sell quantity 2</h3>
+      <mcm>
+        <div class="cont5">Your quantity<br>
+          <input id="YQUA" value="" style="width: 90px" type="number"><br>
+          Add quantity<br>
+          <input id="NEWQ" value="0" style="width: 90px" type="number"><br>
+          Price in FIAT<br>
+          <input id="CURPR" value="" style="width: 90px" type="number"><br>
+          <b>Income in FIAT</b><br>
+          <input id="INCOF" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent21()" type="button"></div>
+      </mcm>
+      <h3 id="ibi">Buy quantity</h3>
+      <ibi>
+        <div class="cont5">Add to<br>
+          investing money<br>
+          <input id="AINM" value="0" style="width: 90px" type="number"><br>
+          <b>Investing money</b><br>
+          <input id="INM" value="" style="width: 90px" type="number1"><br>
+          Buy price<br>
+          <input id="BPR" value="" style="width: 90px" type="number"><br>
+          Selling price<br>
+          <input id="NSP" value="" style="width: 90px" type="number"><br>
+          <b>Difference in price</b><br>
+          <input id="PDIP" value="" style="width: 90px" type="text"><br>
+          <b>New quantity</b><br>
+          <input id="QUAA" value="" style="width: 90px" type="text"><br>
+          <b>Difference quantity</b><br>
+          <input id="DQIFF" value="" style="width: 90px" type="text"><br>
+          <b>Difference in %</b><br>
+          <input id="PCTG" value="" style="width: 90px" type="text"><br>
+          <b>Bonus</b><br>
+          <input id="BNS" value="" style="width: 90px" type="text"><br>
+          <b>Selling income</b><br>
+          <input id="NSI" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent22()" type="button"></div>
+      </ibi> </div> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
   </body>
