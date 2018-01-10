@@ -17,7 +17,7 @@
     padding: 0px;
 }
 #container{
-    width: 212px;
+    width: auto;
     background-color: #8EC919;
     margin: auto;
     border: 1px solid green;
@@ -88,6 +88,8 @@ background-color: #ADFF2F;
 }  
 .coinhive-miner{
 background-color: #ADFF2F;
+  width: 256px;
+  height: 310px;
 }
 h1,h2,h3,h4,h5,h6 {
     margin-bottom: 0px;
@@ -300,122 +302,55 @@ $(document).ready(function(){
         $("gf").toggle(300);
     });	
 });    
-</script> 
-      <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
-        <h3 id="cpc">Crypto profit</h3>
-        <cpc>
-          <div class="cont2"> <a title="Your invested money in FIAT">Investing
-              money</a><br>
-            <input id="INV" value="" style="width: 90px" type="number"><br>
-            <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
-            <input id="PURCP" value="" style="width: 90px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
-              Selling price</a><br>
-            <input id="CURP" value="" style="width: 90px" type="number"><br>
-            <b title="The difference between price in FIAT">Difference in price</b><br>
-            <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
-            <b title="Purchased quantity">Quantity</b><br>
-            <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
-            <b title="Difference in percentage between price in FIAT">Difference
-              in %</b><br>
-            <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
-            <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
-            <input id="BO" readonly="true" style="width: 90px" type="text"><br>
-            <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
-            <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
-            <input value="Clear" onclick="clearContent0()" type="button"></div>
-        </cpc> </div>
-      <div id="second" class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
+</script> <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
+      <h3 id="cpc">Crypto profit</h3>
+      <cpc>
+        <div class="cont2"> <a title="Your invested money in FIAT">Investing
+            money</a><br>
+          <input id="INV" value="" style="width: 90px" type="number"><br>
+          <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
+          <input id="PURCP" value="" style="width: 90px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
+            Selling price</a><br>
+          <input id="CURP" value="" style="width: 90px" type="number"><br>
+          <b title="The difference between price in FIAT">Difference in price</b><br>
+          <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Purchased quantity">Quantity</b><br>
+          <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Difference in percentage between price in FIAT">Difference
+            in %</b><br>
+          <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
+          <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
+          <input id="BO" readonly="true" style="width: 90px" type="text"><br>
+          <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
+          <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent0()" type="button"></div>
+      </cpc> </div>
+    <div id="second" class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
 
-        align="justify">
-        <h3 id="quatp">Fiat to quantity</h3>
-        <quatp>
-          <div class="cont3">Fiat investment<br>
-            <input id="MPRC" value="" style="width: 90px" type="number"><br>
-            Purchasing price<br>
-            <input id="BYP" value="" style="width: 90px" type="number"><br>
-            Selling price<br>
-            <input id="SELIP" value="" style="width: 90px" type="number"><br>
-            <b>Difference in price</b><br>
-            <input id="DIFIP" value="" style="width: 90px" type="text"><br>
-            <b>My Quantity</b><br>
-            <input id="MQUA" value="" style="width: 90px" type="text"><br>
-            <b>Difference in %</b><br>
-            <input id="DFFI" value="" style="width: 90px" type="text"><br>
-            <b>Bonus</b><br>
-            <input id="BON" readonly="true" style="width: 90px" type="text"><br>
-            <b>Income in FIAT</b><br>
-            <input id="INOM" value="" style="width: 90px" type="text"><br>
-            <input value="Clear" onclick="clearContent4()" type="button"><br>
-          </div>
-        </quatp> </div>
-      <!-- <div class="qr floating-box">
-        <h3 id="svg">QR code for quick mobile access</h3>
- <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="220.000000pt" height="220.000000pt" viewBox="0 0 220.000000 220.000000"
- preserveAspectRatio="xMidYMid meet">
- https://image.online-convert.com/convert-to-svg
-
-<g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
-<path d="M0 1895 l0 -305 305 0 305 0 0 305 0 305 -305 0 -305 0 0 -305z m520
-5 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/>
-<path d="M170 1895 l0 -135 135 0 135 0 0 135 0 135 -135 0 -135 0 0 -135z"/>
-<path d="M1050 2160 l0 -40 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -90 0 -90 45
-0 45 0 0 -45 0 -45 -90 0 -90 0 0 -40 0 -40 -40 0 -40 0 0 85 0 85 40 0 40 0
-0 45 0 45 -130 0 -130 0 0 -45 0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -85
-0 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 -45 0 -45 -40 0 -40 0 0 45 0 45
--220 0 -220 0 0 -395 0 -395 40 0 40 0 0 350 0 350 90 0 90 0 0 -85 0 -85 -45
-0 -45 0 0 -135 0 -135 45 0 45 0 0 90 0 90 90 0 90 0 0 -45 0 -45 85 0 85 0 0
-45 0 45 -85 0 -85 0 0 45 0 45 175 0 175 0 0 85 0 85 45 0 45 0 0 -85 0 -85
-40 0 40 0 0 -45 0 -45 -130 0 -130 0 0 -45 0 -45 130 0 130 0 0 -45 0 -45 135
-0 135 0 0 45 0 45 45 0 45 0 0 45 0 45 40 0 40 0 0 45 0 45 45 0 45 0 0 -90 0
--90 -45 0 -45 0 0 -45 0 -45 -40 0 -40 0 0 -45 0 -45 40 0 40 0 0 -40 0 -40
--175 0 -175 0 0 40 0 40 -85 0 -85 0 0 -40 0 -40 40 0 40 0 0 -90 0 -90 -40 0
--40 0 0 45 0 45 -90 0 -90 0 0 -90 0 -90 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0
--220 0 -220 45 0 45 0 0 90 0 90 45 0 45 0 0 -90 0 -90 175 0 175 0 0 45 0 45
--90 0 -90 0 0 45 0 45 90 0 90 0 0 45 0 45 -90 0 -90 0 0 45 0 45 175 0 175 0
-0 -90 0 -90 -40 0 -40 0 0 -45 0 -45 85 0 85 0 0 45 0 45 45 0 45 0 0 -45 0
--45 45 0 45 0 0 -45 0 -45 265 0 265 0 0 180 0 180 -90 0 -90 0 0 40 0 40 45
-0 45 0 0 45 0 45 45 0 45 0 0 45 0 45 -135 0 -135 0 0 45 0 45 45 0 45 0 0 45
-0 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 85 0 85 45 0 45 0 0 90 0 90 45 0
-45 0 0 -90 0 -90 45 0 45 0 0 -40 0 -40 45 0 45 0 0 85 0 85 -45 0 -45 0 0 45
-0 45 45 0 45 0 0 130 0 130 -45 0 -45 0 0 90 0 90 -45 0 -45 0 0 -130 0 -130
-45 0 45 0 0 -45 0 -45 -90 0 -90 0 0 -45 0 -45 -45 0 -45 0 0 90 0 90 45 0 45
-0 0 40 0 40 -45 0 -45 0 0 -40 0 -40 -40 0 -40 0 0 130 0 130 -45 0 -45 0 0
--130 0 -130 -90 0 -90 0 0 40 0 40 45 0 45 0 0 90 0 90 -45 0 -45 0 0 90 0 90
--45 0 -45 0 0 40 0 40 -40 0 -40 0 0 -40 0 -40 -45 0 -45 0 0 -90 0 -90 -90 0
--90 0 0 45 0 45 45 0 45 0 0 85 0 85 45 0 45 0 0 45 0 45 45 0 45 0 0 90 0 90
-40 0 40 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 45 45 0 45 0 0
-40 0 40 -45 0 -45 0 0 -40 0 -40 -130 0 -130 0 0 40 0 40 -45 0 -45 0 0 -40z
-m-90 -705 l0 -45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 45 0 45 0 0 -85
-0 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 45 0 45 -45 0 -45 0 0 85 0 85
--40 0 -40 0 0 45 0 45 40 0 40 0 0 -45z m800 -350 l0 -45 40 0 40 0 0 -45 0
--45 -40 0 -40 0 0 45 0 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85
--45 0 -45 0 0 40 0 40 -45 0 -45 0 0 45 0 45 90 0 90 0 0 45 0 45 45 0 45 0 0
-45 0 45 45 0 45 0 0 -45z m-530 -530 l0 -135 -45 0 -45 0 0 45 0 45 -45 0 -45
-0 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85 45 0 45 0 0 -45 0 -45 -85 0 -85 0 0
-175 0 175 -45 0 -45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 40 0 40 0 0 45 0 45
-45 0 45 0 0 45 0 45 90 0 90 0 0 -135z m530 0 l0 -135 -135 0 -135 0 0 135 0
-135 135 0 135 0 0 -135z m170 0 l0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0
--40 0 -40 -45 0 -45 0 0 40 0 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 45
-45 0 45 0 0 -45z m-170 -260 l0 -45 40 0 40 0 0 -45 0 -45 -130 0 -130 0 0 45
-0 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -45z m350 -135 l0 -90 -90 0 -90 0 0 45
-0 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -90z"/>
-<path d="M1580 1895 l0 -305 310 0 310 0 0 305 0 305 -310 0 -310 0 0 -305z
-m530 5 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/>
-<path d="M1760 1895 l0 -135 130 0 130 0 0 135 0 135 -130 0 -130 0 0 -135z"/>
-<path d="M350 925 l0 -45 -45 0 -45 0 0 -40 0 -40 -45 0 -45 0 0 -45 0 -45 45
-0 45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 40
-0 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 -45z"/>
-<path d="M520 925 l0 -45 90 0 90 0 0 -40 0 -40 45 0 45 0 0 40 0 40 -45 0
--45 0 0 45 0 45 -90 0 -90 0 0 -45z"/>
-<path d="M0 310 l0 -310 305 0 305 0 0 310 0 310 -305 0 -305 0 0 -310z m520
-0 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/>
-<path d="M170 310 l0 -130 135 0 135 0 0 130 0 130 -135 0 -135 0 0 -130z"/>
-</g>
-</svg>
-</div>-->
-
+      align="justify">
+      <h3 id="quatp">Fiat to quantity</h3>
+      <quatp>
+        <div class="cont3">Fiat investment<br>
+          <input id="MPRC" value="" style="width: 90px" type="number"><br>
+          Purchasing price<br>
+          <input id="BYP" value="" style="width: 90px" type="number"><br>
+          Selling price<br>
+          <input id="SELIP" value="" style="width: 90px" type="number"><br>
+          <b>Difference in price</b><br>
+          <input id="DIFIP" value="" style="width: 90px" type="text"><br>
+          <b>My Quantity</b><br>
+          <input id="MQUA" value="" style="width: 90px" type="text"><br>
+          <b>Difference in %</b><br>
+          <input id="DFFI" value="" style="width: 90px" type="text"><br>
+          <b>Bonus</b><br>
+          <input id="BON" readonly="true" style="width: 90px" type="text"><br>
+          <b>Income in FIAT</b><br>
+          <input id="INOM" value="" style="width: 90px" type="text"><br>
+          <input value="Clear" onclick="clearContent4()" type="button"><br>
+        </div>
+      </quatp> </div>
+    <!-- <div class="qr floating-box">
+        <h3 id="svg">QR code for quick mobile access</h3> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="220.000000pt" height="220.000000pt" viewBox="0 0 220.000000 220.000000" preserveAspectRatio="xMidYMid meet"> https://image.online-convert.com/convert-to-svg<g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)"fill="#000000" stroke="none"><path d="M0 1895 l0 -305 305 0 305 0 0 305 0 305 -305 0 -305 0 0 -305z m5205 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M170 1895 l0 -135 135 0 135 0 0 135 0 135 -135 0 -135 0 0 -135z"/><path d="M1050 2160 l0 -40 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -90 0 -90 450 45 0 0 -45 0 -45 -90 0 -90 0 0 -40 0 -40 -40 0 -40 0 0 85 0 85 40 0 40 00 45 0 45 -130 0 -130 0 0 -45 0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -850 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 -45 0 -45 -40 0 -40 0 0 45 0 45-220 0 -220 0 0 -395 0 -395 40 0 40 0 0 350 0 350 90 0 90 0 0 -85 0 -85 -450 -45 0 0 -135 0 -135 45 0 45 0 0 90 0 90 90 0 90 0 0 -45 0 -45 85 0 85 0 045 0 45 -85 0 -85 0 0 45 0 45 175 0 175 0 0 85 0 85 45 0 45 0 0 -85 0 -8540 0 40 0 0 -45 0 -45 -130 0 -130 0 0 -45 0 -45 130 0 130 0 0 -45 0 -45 1350 135 0 0 45 0 45 45 0 45 0 0 45 0 45 40 0 40 0 0 45 0 45 45 0 45 0 0 -90 0-90 -45 0 -45 0 0 -45 0 -45 -40 0 -40 0 0 -45 0 -45 40 0 40 0 0 -40 0 -40-175 0 -175 0 0 40 0 40 -85 0 -85 0 0 -40 0 -40 40 0 40 0 0 -90 0 -90 -40 0-40 0 0 45 0 45 -90 0 -90 0 0 -90 0 -90 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0-220 0 -220 45 0 45 0 0 90 0 90 45 0 45 0 0 -90 0 -90 175 0 175 0 0 45 0 45-90 0 -90 0 0 45 0 45 90 0 90 0 0 45 0 45 -90 0 -90 0 0 45 0 45 175 0 175 00 -90 0 -90 -40 0 -40 0 0 -45 0 -45 85 0 85 0 0 45 0 45 45 0 45 0 0 -45 0-45 45 0 45 0 0 -45 0 -45 265 0 265 0 0 180 0 180 -90 0 -90 0 0 40 0 40 450 45 0 0 45 0 45 45 0 45 0 0 45 0 45 -135 0 -135 0 0 45 0 45 45 0 45 0 0 450 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 85 0 85 45 0 45 0 0 90 0 90 45 045 0 0 -90 0 -90 45 0 45 0 0 -40 0 -40 45 0 45 0 0 85 0 85 -45 0 -45 0 0 450 45 45 0 45 0 0 130 0 130 -45 0 -45 0 0 90 0 90 -45 0 -45 0 0 -130 0 -13045 0 45 0 0 -45 0 -45 -90 0 -90 0 0 -45 0 -45 -45 0 -45 0 0 90 0 90 45 0 450 0 40 0 40 -45 0 -45 0 0 -40 0 -40 -40 0 -40 0 0 130 0 130 -45 0 -45 0 0-130 0 -130 -90 0 -90 0 0 40 0 40 45 0 45 0 0 90 0 90 -45 0 -45 0 0 90 0 90-45 0 -45 0 0 40 0 40 -40 0 -40 0 0 -40 0 -40 -45 0 -45 0 0 -90 0 -90 -90 0-90 0 0 45 0 45 45 0 45 0 0 85 0 85 45 0 45 0 0 45 0 45 45 0 45 0 0 90 0 9040 0 40 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 45 45 0 45 0 040 0 40 -45 0 -45 0 0 -40 0 -40 -130 0 -130 0 0 40 0 40 -45 0 -45 0 0 -40zm-90 -705 l0 -45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 45 0 45 0 0 -850 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 45 0 45 -45 0 -45 0 0 85 0 85-40 0 -40 0 0 45 0 45 40 0 40 0 0 -45z m800 -350 l0 -45 40 0 40 0 0 -45 0-45 -40 0 -40 0 0 45 0 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85-45 0 -45 0 0 40 0 40 -45 0 -45 0 0 45 0 45 90 0 90 0 0 45 0 45 45 0 45 0 045 0 45 45 0 45 0 0 -45z m-530 -530 l0 -135 -45 0 -45 0 0 45 0 45 -45 0 -450 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85 45 0 45 0 0 -45 0 -45 -85 0 -85 0 0175 0 175 -45 0 -45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 40 0 40 0 0 45 0 4545 0 45 0 0 45 0 45 90 0 90 0 0 -135z m530 0 l0 -135 -135 0 -135 0 0 135 0135 135 0 135 0 0 -135z m170 0 l0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0-40 0 -40 -45 0 -45 0 0 40 0 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 4545 0 45 0 0 -45z m-170 -260 l0 -45 40 0 40 0 0 -45 0 -45 -130 0 -130 0 0 450 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -45z m350 -135 l0 -90 -90 0 -90 0 0 450 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -90z"/><path d="M1580 1895 l0 -305 310 0 310 0 0 305 0 305 -310 0 -310 0 0 -305zm530 5 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M1760 1895 l0 -135 130 0 130 0 0 135 0 135 -130 0 -130 0 0 -135z"/><path d="M350 925 l0 -45 -45 0 -45 0 0 -40 0 -40 -45 0 -45 0 0 -45 0 -45 450 45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 400 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 -45z"/><path d="M520 925 l0 -45 90 0 90 0 0 -40 0 -40 45 0 45 0 0 40 0 40 -45 0-45 0 0 45 0 45 -90 0 -90 0 0 -45z"/><path d="M0 310 l0 -310 305 0 305 0 0 310 0 310 -305 0 -305 0 0 -310z m5200 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M170 310 l0 -130 135 0 135 0 0 130 0 130 -135 0 -135 0 0 -130z"/></g></svg></div>-->
     <div class="floating-box cont2" onkeyup="updateResult()" style="width: auto"
 
       align="justify">
@@ -541,21 +476,7 @@ value="Clear" onclick="clearContent92()" type="button"> </div>
           <input id="TCF" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent6()" type="button"><br>
         </div>
-      </hmdic>
-      <div id="clear" class="floating-box" style="width: 205px">
-        <h4 id="miner">Support me by CPU mining on your browser for the time you
-          visit the site</h4>
-        <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
-        <div class="coinhive-miner" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-
-          data-autostart="false" data-threads="1" data-text="#eeeeee" data-background="#000000"
-
-          data-whitelabel="true" data-action="#1ABC9C"> <miner><samp>Loading...<br>
-              Miner is not loaded because you have Adblock.<br>
-              You can share link and support me like this.<br>
-            </samp></miner><samp>https://myprofit.github.io</samp></div>
-      </div>
-    </div>
+      </hmdic> </div>
     <div class="floating-box cont5" onkeyup="updateResult()" style="width: auto">
       <h4 id="fee">Fee 0.25%</h4>
       <fee><samp>Fee=Units*BidAsk*0.0025<br>
@@ -596,6 +517,19 @@ onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),
       clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),
       clearContent8(),clearContent91(),clearContent92(),clearContent93()" type="button">
       <br>
+    </div>
+    <div id="clear" class="floating-box" style="width: 262px">
+      <h4 id="miner">Support me by CPU mining on your browser for the time you
+        visit the site</h4>
+      <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
+      <div class="coinhive-miner" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v" data-autostart="false"
+
+        data-threads="1" data-text="#eeeeee" data-background="#000000" data-whitelabel="true"
+
+        data-action="#1ABC9C"> <miner><samp>Loading...<br>
+            Miner is not loaded because you have Adblock.<br>
+            You can share link and support me like this.<br>
+          </samp></miner><samp>https://myprofit.github.io</samp></div>
     </div>
   </body>
 </html>
