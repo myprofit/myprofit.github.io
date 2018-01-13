@@ -32,7 +32,11 @@
 #second{
     width: 100px;
     float: left;
-    background-color: #AB0D4E;
+    background-color: #cddc39;
+}
+#third{width: 100px;
+    float: left;
+    background-color: #FF4500;
 }
 #clear{
     clear: both;
@@ -50,10 +54,13 @@ color: red;
 </style> <style>
 body{background-color: #cccccc;
 }
+samp{text-align: justify;
+
+}
 div{margin: 1px;
     width: auto;
     border: 1px solid green;
-    padding: 1px;
+    padding: 0.2px;
     border-radius:6px;
     text-align: center;
     margin-top: 0px;
@@ -91,6 +98,9 @@ background-color: #ADFF2F;
   width: 200px;
   height: 280px;
 }
+.new{  width: 200px;
+  height: 280px;
+    }    
 h1,h2,h3,h4,h5,h6 {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -194,6 +204,16 @@ function clearContent93(){
     document.getElementById("PTR").value='';
     document.getElementById("VZU").value='';   
 }	      
+function clearContent10(){  
+    document.getElementById("TOTA").value='';
+    document.getElementById("TBA").value='';
+    document.getElementById("TTF").value=''; 
+    document.getElementById("TRT").value='';
+    document.getElementById("UTU").value='';
+    document.getElementById("FTE").value='';   
+}      
+      
+      
 </script> <script>
     function e(element)
     {
@@ -204,6 +224,8 @@ function clearContent93(){
        return parseFloat(e(element).value);
     }
     function updateResult()    
+    
+    
 {//1gen//   
       e("DIFF").value =  f("CURP") - f("PURCP");
       e("QUA").value = f("INV") / (f("PURCP"));
@@ -245,8 +267,14 @@ function clearContent93(){
 //Plus//
       e("EVB").value = f("PFI") + f("DPS");
       e("LKL").value = f("VBN") - f("XCZ");
-  //Profitability77
+//Profitability77
       e("KD").value = f("VZU") / f("PTR");
+//    TOTA TBA TTF TRT UTU FTE
+   			e("TRT").value = f("UTU") * f("TBA") * f("TTF");
+// units
+  		e("UTU").value = f("TOTA") / f("TBA");
+  //total + fee
+			e("FTE").value = f("TOTA") - f("TRT");
 }</script>
   </head>
   <body>
@@ -301,6 +329,9 @@ $(document).ready(function(){
       $("#gf").click(function(){
         $("gf").toggle(300);
     });	
+      $("#total").click(function(){
+        $("total").toggle(300);
+    });	    
 });    
 </script> <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
       <h3 id="cpc">Crypto profit</h3>
@@ -321,30 +352,31 @@ $(document).ready(function(){
           <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
           <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
           <input id="BO" readonly="true" style="width: 90px" type="text"><br>
-          <b title="The final earnings at the point of sale at the current price in FIAT">Income</b><br>
+          <b title="The final earnings at the point of sale at the current price in FIAT">Income
+            in FIAT</b><br>
           <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent0()" type="button"></div>
       </cpc> </div>
-    <div id="second" class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
+    <div class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
 
       align="justify">
-      <h3 id="quatp">Fiat to quantity</h3>
+      <h3 id="quatp">BTC to quantity</h3>
       <quatp>
-        <div class="cont3">Fiat investment<br>
+        <div class="cont3">BTC investment<br>
           <input id="MPRC" value="" style="width: 90px" type="number"><br>
-          Purchasing price<br>
+          Buy price in BTC<br>
           <input id="BYP" value="" style="width: 90px" type="number"><br>
-          Selling price<br>
+          Sell price in BTC<br>
           <input id="SELIP" value="" style="width: 90px" type="number"><br>
           <b>Difference in price</b><br>
           <input id="DIFIP" value="" style="width: 90px" type="text"><br>
-          <b>My Quantity</b><br>
+          <b>Quantity</b><br>
           <input id="MQUA" value="" style="width: 90px" type="text"><br>
           <b>Difference in %</b><br>
           <input id="DFFI" value="" style="width: 90px" type="text"><br>
           <b>Bonus</b><br>
           <input id="BON" readonly="true" style="width: 90px" type="text"><br>
-          <b>Income in FIAT</b><br>
+          <b>Income in BTC</b><br>
           <input id="INOM" value="" style="width: 90px" type="text"><br>
           <input value="Clear" onclick="clearContent4()" type="button"><br>
         </div>
@@ -452,7 +484,7 @@ value="Clear" onclick="clearContent92()" type="button"> </div>
           <b>Buy at<br>
             <input id="KD" value="" style="width: 90px" type="text"></b> <br>
           <input value="Clear" onclick="clearContent93()" type="button"></div>
-      </mp> </div>
+      </mp></div>
     <div id="container" class="floating-box2">
       <h3 id="hmdic">How much does it cost</h3>
       <hmdic>
@@ -495,8 +527,9 @@ value="Clear" onclick="clearContent92()" type="button"> </div>
     <div class="floating-box cont5" onkeyup="updateResult()" style="width: auto">
       <h4 id="fee">Fee 0.25%</h4>
       <fee><samp>Fee=Units*BidAsk*0.0025<br>
-          Fee=Units*BidAsk*CustomFEE</samp><br>
-        <div id="first" class="floating-box CONT3" style="width: 105px">
+          Fee=Units*BidAsk*CustomFEE<br>
+        </samp>
+        <div id="first" class="floating-box CONT3" style="width: 108px">
           <h4 id="buy">Buy / Sell</h4>
           <buy> Units<br>
             <input id="UNI1" value="" style="width: 90px" type="number"><br>
@@ -511,7 +544,7 @@ value="Clear" onclick="clearContent92()" type="button"> </div>
                 type="text"></b> <input value="Clear" onclick="clearContent7()"
 
 type="button"> </buy></div>
-        <div id="second" class="floating-box" style="width: 105px">
+        <div id="second" class="floating-box" style="width: 108px">
           <h4 id="sell">Custom Fee</h4>
           <sell>Units<br>
             <input id="UN" value="" style="width: 90px" type="number"><br>
@@ -525,13 +558,36 @@ type="button"> </buy></div>
             <input id="TOT" value="" style="width: 90px" type="text"><br>
             <b> Total + Fee<input id="FE" value="" style="width: 90px" type="text"></b>
             <input value="Clear" onclick="clearContent8()" type="button"> </sell></div>
+        <div id="second" class="floating-box" style="width: auto">
+          <div id="third" class="floating-box" style="width: 115px">
+            <h4 id="total">Total</h4>
+            <total>Total in BTC<br>
+              <input id="TOTA" value="" style="width: 90px" type="number"><br>
+              Bid / Ask<br>
+              <input id="TBA" value="" style="width: 90px" type="number"><br>
+              Custom Fee<br>
+              <input id="TTF" value="" style="width: 90px" type="text2"><br>
+              <b>Fee </b>from total<br>
+              <input id="TRT" value="" style="width: 90px" type="text"><br>
+              <b>Units</b><br>
+              <input id="UTU" value="" style="width: 90px" type="text"><br>
+              <b>Total + Fee<input id="FTE" value="" style="width: 90px"
+
+                  type="text"></b> <input value="Clear" onclick="clearContent10()"
+
+type="button"> <br>
+              <samp>There can be some errors, but it works, when it work as I
+                think it have to this text will be deleted.</samp></total></div>
+        </div>
       </fee></div>
     <div class="cont1" style="position:fixed; bottom:150px; right:0;"><input value="Clear All"
 
 onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),
       clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),
-      clearContent8(),clearContent91(),clearContent92(),clearContent93()" type="button">
+      clearContent8(),clearContent91(),clearContent92(),clearContent93(),clearContent10()"
+
+type="button"> <br>
       <br>
-    </div>
+      <input value="Refresh" onclick="window.location.reload()" type="button"> </div>
   </body>
 </html>
