@@ -39,8 +39,19 @@
     background-color: #FF4500;
 }
 #clear{
-    clear: both;
+  clear: both;
   background-color:#FFD700;
+}
+#bton{  
+  background-color: Gold;
+  border: 2px solid orange;
+  padding: 0px;
+  margin: 8px;
+  border-radius:6px;
+  width: auto;
+  text-align: center;
+} 
+#bton:hover {  border: 2px solid blue;
 }
 input[type=text1] {
 color: red;  
@@ -60,20 +71,25 @@ samp{text-align: justify;
 div{margin: 1px;
     width: auto;
     border: 1px solid green;
-    padding: 0.2px;
-    border-radius:6px;
+    padding: 0px;
+    border-radius:8px;
     text-align: center;
     margin-top: 0px;
-    padding-top: 0px;}
-.floating-box {
+    padding-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.fleft {
     float: left;
     height: auto; 
+    margin-right: 0px;
 }
-.floating-box2 {
+.fright {
     float: right;
     height: auto;
-    border: 0;
+    border: 1px solid green;
     background-color:#cccccc;
+    margin-right: 0px;
 }
 .cont1{
 background-color: Gold;
@@ -85,7 +101,7 @@ background-color: #FF4500;
 background-color: #32CD32;
 } 
 .cont4{
-background-color: #6A5ACD;
+background-color: #FFA500;
 }      
 .cont5{
 background-color: #00BFFF;
@@ -94,13 +110,12 @@ background-color: #00BFFF;
 background-color: #ADFF2F;
 }  
 .coinhive-miner{
-background-color: #ADFF2F;
-  width: 200px;
-  height: 280px;
+  background-color: #ADFF2F;
+  width: 280px;
+  height: 150px;
+  border-radius:6px;
+  padding: 2px;
 }
-.new{  width: 200px;
-  height: 280px;
-    }    
 h1,h2,h3,h4,h5,h6 {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -116,104 +131,129 @@ h1,h2,h3,h4,h5,h6 {
     border:1px solid green;
 }</style>
     <script>    
+      //cPROFIT
 function clearContent0(){
-    document.getElementById("DIFF").value='';
-    document.getElementById("CURP").value='';
+    document.getElementById("INV").value='';  
     document.getElementById("PURCP").value='';
+    document.getElementById("CURP").value='';
+    document.getElementById("DIFF").value='';
     document.getElementById("QUA").value='';
-    document.getElementById("INV").value='';
+    document.getElementById("PERC").value='';
     document.getElementById("BO").value='';
     document.getElementById("INCO").value='';
-    document.getElementById("PERC").value='';
-} 
+}
+      //BTC to profit
+function clearContent1(){
+    document.getElementById("MPRC").value='';
+    document.getElementById("BYP").value='';
+    document.getElementById("SELIP").value='';
+    document.getElementById("DIFIP").value='';
+    document.getElementById("MQUA").value='';
+    document.getElementById("DFFI").value='';
+    document.getElementById("BON").value='';
+    document.getElementById("INOM").value='';
+}     
+      //Sell quantity
 function clearContent21(){
-    document.getElementById("INCOF").value='';
     document.getElementById("YQUA").value='';
     document.getElementById("NEWQ").value='0';      
     document.getElementById("CURPR").value='';
+    document.getElementById("INCOF").value='';
 }
+      //Buy quantity 
 function clearContent22(){
-    document.getElementById("INM").value='';
-    document.getElementById("AINM").value='0';
-    document.getElementById("QUAA").value='';
+    document.getElementById("AINM").value='';
+    document.getElementById("INM").value='0';
     document.getElementById("BPR").value='';
-    document.getElementById("NSI").value='';
     document.getElementById("NSP").value='';
+    document.getElementById("PDIP").value='';
+    document.getElementById("QUAA").value='';
+    document.getElementById("DQIFF").value='';
+    document.getElementById("PCTG").value='';
     document.getElementById("BNS").value='';
+    document.getElementById("NSI").value='';
 }
+      //Percentage
 function clearContent31(){
-    document.getElementById("CURR").value='';
     document.getElementById("PURC").value='';
-    document.getElementById("PERid").value='';
-    document.getElementById("DIFFP").value=''; 
+    document.getElementById("PERid").value='20';
+    document.getElementById("DIFFP").value='';
+    document.getElementById("CURR").value='';
 }
+      //Difference in %
 function clearContent32(){
-    document.getElementById("PRCDI").value='';
-    document.getElementById("SELLP").value='';
     document.getElementById("BYPP").value='';
+    document.getElementById("SELLP").value='';
     document.getElementById("DFIP").value='';
+    document.getElementById("PRCDI").value='';
     document.getElementById("ZUZ").value='';
     document.getElementById("MKM").value='';
-}   
-function clearContent4(){
-    document.getElementById("MPRC").value='';
-    document.getElementById("BYP").value='';
-    document.getElementById("MQUA").value='';
-    document.getElementById("BON").value='';
-    document.getElementById("INOM").value='';
-    document.getElementById("SELIP").value='';
-    document.getElementById("DIFIP").value='';
-}    
-function clearContent5(){    
+}
+      //PRICE 1 + PRICE 2 
+function clearContent41(){  
+    document.getElementById("PFI").value='';
+    document.getElementById("DPS").value='';
+    document.getElementById("EVB").value='';
+}
+      //SELL - BUY PRICE
+function clearContent42(){  
+    document.getElementById("VBN").value='';
+    document.getElementById("XCZ").value='';
+    document.getElementById("LKL").value=''; 
+}	  
+      //INVESTMENT
+function clearContent43(){  
+    document.getElementById("VZU").value='';
+    document.getElementById("PTR").value='';
+    document.getElementById("KD").value='';   
+}	      
+    //HOW MUCH - Buy quantity 
+function clearContent51(){    
     document.getElementById("PUQU").value='';
     document.getElementById("PRP").value='';
     document.getElementById("TCIF").value='';
 }    
-function clearContent6(){   
-    document.getElementById("TCF").value='';
-    document.getElementById("PUP").value='';
+      //HOW MUCH - Sell quantity
+function clearContent52(){   
     document.getElementById("PQS").value='';
+    document.getElementById("PUP").value='';
+    document.getElementById("TCF").value='';
 }
+       //Total Buy
+function clearContent61(){  
+    document.getElementById("TOLA").value='';
+    document.getElementById("TBA").value='';
+    document.getElementById("TTF").value=''; 
+    document.getElementById("UTU").value='';
+    document.getElementById("TRT").value='';
+    document.getElementById("FTE").value='';   
+}
+      //Total Sell
+function clearContent62(){  
+    document.getElementById("THA").value='';
+    document.getElementById("NBN").value='';
+    document.getElementById("CDF").value=''; 
+    document.getElementById("FTF").value='';
+    document.getElementById("FRT").value='';
+    document.getElementById("HFT").value='';
+}            
+      //Units OF FEE 
+function clearContent63(){    
+    document.getElementById("UN").value='';
+    document.getElementById("BI").value='';
+    document.getElementById("CCF").value='';
+    document.getElementById("ZFG").value='';
+    document.getElementById("TOT").value='';
+    document.getElementById("NEF").value='';
+}
+      //Fee 0.25%
 function clearContent7(){
     document.getElementById("UNI1").value='';
     document.getElementById("BID1").value='';
     document.getElementById("FEFE").value='';
     document.getElementById("TOTAL1").value='';
     document.getElementById("FEET1").value='';   
-}
-function clearContent8(){    
-    document.getElementById("UN").value='';
-    document.getElementById("BI").value='';
-    document.getElementById("CFE").value='';
-    document.getElementById("FEF").value='';
-    document.getElementById("TOT").value='';
-    document.getElementById("FE").value='';
-}
-function clearContent91(){  
-    document.getElementById("PFI").value='';
-    document.getElementById("DPS").value='';
-    document.getElementById("EVB").value='';
-}
-function clearContent92(){  
-    document.getElementById("VBN").value='';
-    document.getElementById("XCZ").value='';
-    document.getElementById("LKL").value=''; 
-}	  
-function clearContent93(){  
-    document.getElementById("KD").value='';
-    document.getElementById("PTR").value='';
-    document.getElementById("VZU").value='';   
-}	      
-function clearContent10(){  
-    document.getElementById("TOTA").value='';
-    document.getElementById("TBA").value='';
-    document.getElementById("TTF").value=''; 
-    document.getElementById("TRT").value='';
-    document.getElementById("UTU").value='';
-    document.getElementById("FTE").value='';   
-}      
-      
-      
+}   
 </script> <script>
     function e(element)
     {
@@ -223,67 +263,65 @@ function clearContent10(){
     {
        return parseFloat(e(element).value);
     }
-    function updateResult()    
-    
-    
-{//1gen//   
-      e("DIFF").value =  f("CURP") - f("PURCP");
-      e("QUA").value = f("INV") / (f("PURCP"));
-      e("BO").value = f("QUA") * f("DIFF");
-      e("INCO").value = f("QUA") * f("CURP");
-      e("PERC").value = (f("INCO") / f("INV") -1)*100;      
-//2gen//
-      e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
-      e("INM").value = f("INCOF") + f("AINM");
-      e("QUAA").value = f("INM") / f("BPR");
-      e("NSI").value = f("QUAA") * f("NSP");   
-      e("BNS").value = f("NSI") - f("INM");
-      e("PDIP").value = f("NSP") - f("BPR");
-      e("PCTG").value = (f("NSI") / f("INM") -1)*100;
-      e("DQIFF").value = f("QUAA") - f("YQUA");
-//3gen//
-      e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
-      e("DIFFP").value = f("CURR") - f("PURC");
-      e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
-      e("MQUA").value = f("MPRC") / f("BYP");
-      e("DFIP").value = f("SELLP") - f("BYPP");
-      e("MKM").value = f("ZUZ") * f("SELLP");
-//4gen//
-      e("DIFIP").value = f("SELIP") - f("BYP");
-      e("INOM").value = f("MQUA") * f("SELIP");
-      e("BON").value = f("MQUA") * f("DIFIP");
-      e("DFFI").value = (f("INOM") / f("MPRC") -1)*100;
-//5gen//  
-      e("TCIF").value = f("PUQU") * f("PRP");
-      e("TCF").value = f("PUP") * f("PQS");
-//Fee1// 
-      e("TOTAL1").value = f("UNI1") * f("BID1");
-      e("FEFE").value = f("UNI1") * f("BID1") * 0.0025;
-      e("FEET1").value = f("TOTAL1") + (f("UNI1") * f("BID1") * 0.0025);
-//Fee2//
-      e("TOT").value = f("UN") * f("BI");
-      e("FEF").value = f("UN") * f("BI") * f("CCF");
-      e("FE").value = f("TOT") + (f("UN") * f("BI") * f("CCF"));
-//Plus//
-      e("EVB").value = f("PFI") + f("DPS");
-      e("LKL").value = f("VBN") - f("XCZ");
-//Profitability77
-      e("KD").value = f("VZU") / f("PTR");
-//    TOTA TBA TTF TRT UTU FTE
-   			e("TRT").value = f("UTU") * f("TBA") * f("TTF");
-// units
-  		e("UTU").value = f("TOTA") / f("TBA");
-  //total + fee
-			e("FTE").value = f("TOTA") - f("TRT");
+    function updateResult(){
+//Crypto profit  
+  e("DIFF").value =  f("CURP") - f("PURCP");
+  e("QUA").value = f("INV") / (f("PURCP"));
+  e("BO").value = f("QUA") * f("DIFF");
+  e("INCO").value = f("QUA") * f("CURP");
+  e("PERC").value = (f("INCO") / f("INV") -1)*100;      
+//Sell quantity Buy quantity
+  e("INCOF").value = (f("YQUA") + (f("NEWQ"))) * (f("CURPR"));
+  e("INM").value = f("INCOF") + f("AINM");
+  e("QUAA").value = f("INM") / f("BPR");
+  e("NSI").value = f("QUAA") * f("NSP");   
+  e("BNS").value = f("NSI") - f("INM");
+  e("PDIP").value = f("NSP") - f("BPR");
+  e("PCTG").value = (f("NSI") / f("INM") -1)*100;
+  e("DQIFF").value = f("QUAA") - f("YQUA");
+//Percentage
+  e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
+  e("DIFFP").value = f("CURR") - f("PURC");
+  e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
+  e("MQUA").value = f("MPRC") / f("BYP");
+  e("DFIP").value = f("SELLP") - f("BYPP");
+  e("MKM").value = f("ZUZ") * f("SELLP");
+//BTC to profit
+  e("DIFIP").value = f("SELIP") - f("BYP");
+  e("INOM").value = f("MQUA") * f("SELIP");
+  e("BON").value = f("MQUA") * f("DIFIP");
+  e("DFFI").value = (f("INOM") / f("MPRC") -1)*100;
+//HOW MUCH - Buy quantity  
+  e("TCIF").value = f("PUQU") * f("PRP");
+  e("TCF").value = f("PUP") * f("PQS");
+//Fee 25// 
+  e("TOTAL1").value = f("UNI1") * f("BID1");
+  e("FEFE").value = f("UNI1") * f("BID1") * 0.0025;
+  e("FEET1").value = f("TOTAL1") + (f("UNI1") * f("BID1") * 0.0025);
+//custom Fee//
+  e("TOT").value = f("UN") * f("BI");
+  e("ZFG").value = f("UN") * f("BI") * (f("CCF") / 100);
+  e("NEF").value = f("TOT") + (f("UN") * f("BI") * (f("CCF") / 100));
+//Price1 + Price2
+  e("EVB").value = f("PFI") + f("DPS");
+//SELL - BUY PRICE
+  e("LKL").value = f("VBN") - f("XCZ");
+//INVESTMENT
+  e("KD").value = f("VZU") / f("PTR");
+//Total Buy
+  e("TRT").value = f("TOLA") * (f("TTF") / 100);
+  e("UTU").value = (f("TOLA") -  f("TRT")) / f("TBA");
+  e("FTE").value = f("TOLA") - f("TRT");
+//Total Sell
+  e("FRT").value = f("THA") * (f("CDF") / 100);
+  e("HFT").value = f("THA") + f("FRT");
+  e("FTF").value = f("HFT") / f("NBN");
 }</script>
   </head>
   <body>
     <script src="https://myprofit.github.io/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
-    $("#svg").click(function(){
-        $("svg").toggle(300);
-    });
       $("#pfmcq").click(function(){
         $("pfmcq").toggle(300);
     });
@@ -331,254 +369,264 @@ $(document).ready(function(){
     });	
       $("#total").click(function(){
         $("total").toggle(300);
-    });	    
+    });	   
+      $("#tbas").click(function(){
+        $("tbas").toggle(300);
+    });	 
+      $("#totalb").click(function(){
+        $("totalb").toggle(300);
+    });	  
+      $("#totals").click(function(){
+        $("totals").toggle(300);
+    });	
+      $("#totald").click(function(){
+        $("totald").toggle(300);
+    });
 });    
-</script> <div id="" class="floating-box cont1" onkeyup="updateResult()" style="width: auto">
+</script> <div id="" class="fleft cont1" onkeyup="updateResult()" style="width: auto">
       <h3 id="cpc">Crypto profit</h3>
       <cpc>
-        <div class="cont2"> <a title="Your invested money in FIAT">Investing
-            money</a><br>
-          <input id="INV" value="" style="width: 90px" type="number"><br>
-          <a title="What is the price when you buy in FIAT">Purchasing price</a><br>
-          <input id="PURCP" value="" style="width: 90px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
+        <div class="cont2"> <a title="Your invested money in FIAT">FIAT
+            Investment</a><br>
+          <input id="INV" value="" style="width: 95px" type="number"><br>
+          <a title="What is the price when you buy in FIAT">Buying price</a><br>
+          <input id="PURCP" value="" style="width: 95px" type="number"> <a title="What is new price when you like to sell in FIAT"><br>
             Selling price</a><br>
-          <input id="CURP" value="" style="width: 90px" type="number"><br>
-          <b title="The difference between price in FIAT">Difference in price</b><br>
-          <input id="DIFF" readonly="true" style="width: 90px" type="text"><br>
+          <input id="CURP" value="" style="width: 95px" type="number"><br>
+          <b title="The difference between price in FIAT">Price difference</b><br>
+          <input id="DIFF" readonly="true" style="width: 95px" type="text"><br>
           <b title="Purchased quantity">Quantity</b><br>
-          <input id="QUA" readonly="true" style="width: 90px" type="text"><br>
+          <input id="QUA" readonly="true" style="width: 95px" type="text"><br>
           <b title="Difference in percentage between price in FIAT">Difference
             in %</b><br>
-          <input id="PERC" readonly="true" style="width: 90px" type="text"><br>
+          <input id="PERC" readonly="true" style="width: 95px" type="text"><br>
           <b title="Current amount of money you earned or lost in FIAT">Bonus</b><br>
-          <input id="BO" readonly="true" style="width: 90px" type="text"><br>
+          <input id="BO" readonly="true" style="width: 95px" type="text"><br>
           <b title="The final earnings at the point of sale at the current price in FIAT">Income
             in FIAT</b><br>
-          <input id="INCO" readonly="true" style="width: 90px" type="text"><br>
+          <input id="INCO" readonly="true" style="width: 95px" type="text"><br>
           <input value="Clear" onclick="clearContent0()" type="button"></div>
       </cpc> </div>
-    <div class="floating-box cont4" onkeyup="updateResult()" style="width: auto"
-
-      align="justify">
-      <h3 id="quatp">BTC to quantity</h3>
+    <div class="fleft cont4" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h3 id="quatp">BTC to profit</h3>
       <quatp>
         <div class="cont3">BTC investment<br>
-          <input id="MPRC" value="" style="width: 90px" type="number"><br>
+          <input id="MPRC" value="" style="width: 95px" type="number"><br>
           Buy price in BTC<br>
-          <input id="BYP" value="" style="width: 90px" type="number"><br>
+          <input id="BYP" value="" style="width: 95px" type="number"><br>
           Sell price in BTC<br>
-          <input id="SELIP" value="" style="width: 90px" type="number"><br>
-          <b>Difference in price</b><br>
-          <input id="DIFIP" value="" style="width: 90px" type="text"><br>
+          <input id="SELIP" value="" style="width: 95px" type="number"><br>
+          <b>Price difference</b><br>
+          <input id="DIFIP" value="" style="width: 95px" type="text"><br>
           <b>Quantity</b><br>
-          <input id="MQUA" value="" style="width: 90px" type="text"><br>
+          <input id="MQUA" value="" style="width: 95px" type="text"><br>
           <b>Difference in %</b><br>
-          <input id="DFFI" value="" style="width: 90px" type="text"><br>
+          <input id="DFFI" value="" style="width: 95px" type="text"><br>
           <b>Bonus</b><br>
-          <input id="BON" readonly="true" style="width: 90px" type="text"><br>
+          <input id="BON" readonly="true" style="width: 95px" type="text"><br>
           <b>Income in BTC</b><br>
-          <input id="INOM" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent4()" type="button"><br>
+          <input id="INOM" value="" style="width: 95px" type="text"><br>
+          <input value="Clear" onclick="clearContent1()" type="button"><br>
         </div>
       </quatp> </div>
-    <!-- <div class="qr floating-box">
-        <h3 id="svg">QR code for quick mobile access</h3> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="220.000000pt" height="220.000000pt" viewBox="0 0 220.000000 220.000000" preserveAspectRatio="xMidYMid meet"> https://image.online-convert.com/convert-to-svg<g transform="translate(0.000000,220.000000) scale(0.100000,-0.100000)"fill="#000000" stroke="none"><path d="M0 1895 l0 -305 305 0 305 0 0 305 0 305 -305 0 -305 0 0 -305z m5205 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M170 1895 l0 -135 135 0 135 0 0 135 0 135 -135 0 -135 0 0 -135z"/><path d="M1050 2160 l0 -40 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -90 0 -90 450 45 0 0 -45 0 -45 -90 0 -90 0 0 -40 0 -40 -40 0 -40 0 0 85 0 85 40 0 40 00 45 0 45 -130 0 -130 0 0 -45 0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0 -850 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 -45 0 -45 -40 0 -40 0 0 45 0 45-220 0 -220 0 0 -395 0 -395 40 0 40 0 0 350 0 350 90 0 90 0 0 -85 0 -85 -450 -45 0 0 -135 0 -135 45 0 45 0 0 90 0 90 90 0 90 0 0 -45 0 -45 85 0 85 0 045 0 45 -85 0 -85 0 0 45 0 45 175 0 175 0 0 85 0 85 45 0 45 0 0 -85 0 -8540 0 40 0 0 -45 0 -45 -130 0 -130 0 0 -45 0 -45 130 0 130 0 0 -45 0 -45 1350 135 0 0 45 0 45 45 0 45 0 0 45 0 45 40 0 40 0 0 45 0 45 45 0 45 0 0 -90 0-90 -45 0 -45 0 0 -45 0 -45 -40 0 -40 0 0 -45 0 -45 40 0 40 0 0 -40 0 -40-175 0 -175 0 0 40 0 40 -85 0 -85 0 0 -40 0 -40 40 0 40 0 0 -90 0 -90 -40 0-40 0 0 45 0 45 -90 0 -90 0 0 -90 0 -90 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0-220 0 -220 45 0 45 0 0 90 0 90 45 0 45 0 0 -90 0 -90 175 0 175 0 0 45 0 45-90 0 -90 0 0 45 0 45 90 0 90 0 0 45 0 45 -90 0 -90 0 0 45 0 45 175 0 175 00 -90 0 -90 -40 0 -40 0 0 -45 0 -45 85 0 85 0 0 45 0 45 45 0 45 0 0 -45 0-45 45 0 45 0 0 -45 0 -45 265 0 265 0 0 180 0 180 -90 0 -90 0 0 40 0 40 450 45 0 0 45 0 45 45 0 45 0 0 45 0 45 -135 0 -135 0 0 45 0 45 45 0 45 0 0 450 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 85 0 85 45 0 45 0 0 90 0 90 45 045 0 0 -90 0 -90 45 0 45 0 0 -40 0 -40 45 0 45 0 0 85 0 85 -45 0 -45 0 0 450 45 45 0 45 0 0 130 0 130 -45 0 -45 0 0 90 0 90 -45 0 -45 0 0 -130 0 -13045 0 45 0 0 -45 0 -45 -90 0 -90 0 0 -45 0 -45 -45 0 -45 0 0 90 0 90 45 0 450 0 40 0 40 -45 0 -45 0 0 -40 0 -40 -40 0 -40 0 0 130 0 130 -45 0 -45 0 0-130 0 -130 -90 0 -90 0 0 40 0 40 45 0 45 0 0 90 0 90 -45 0 -45 0 0 90 0 90-45 0 -45 0 0 40 0 40 -40 0 -40 0 0 -40 0 -40 -45 0 -45 0 0 -90 0 -90 -90 0-90 0 0 45 0 45 45 0 45 0 0 85 0 85 45 0 45 0 0 45 0 45 45 0 45 0 0 90 0 9040 0 40 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 45 45 0 45 0 040 0 40 -45 0 -45 0 0 -40 0 -40 -130 0 -130 0 0 40 0 40 -45 0 -45 0 0 -40zm-90 -705 l0 -45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 45 0 45 0 0 -850 -85 45 0 45 0 0 -45 0 -45 -135 0 -135 0 0 45 0 45 -45 0 -45 0 0 85 0 85-40 0 -40 0 0 45 0 45 40 0 40 0 0 -45z m800 -350 l0 -45 40 0 40 0 0 -45 0-45 -40 0 -40 0 0 45 0 45 -45 0 -45 0 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85-45 0 -45 0 0 40 0 40 -45 0 -45 0 0 45 0 45 90 0 90 0 0 45 0 45 45 0 45 0 045 0 45 45 0 45 0 0 -45z m-530 -530 l0 -135 -45 0 -45 0 0 45 0 45 -45 0 -450 0 -45 0 -45 -45 0 -45 0 0 -85 0 -85 45 0 45 0 0 -45 0 -45 -85 0 -85 0 0175 0 175 -45 0 -45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 40 0 40 0 0 45 0 4545 0 45 0 0 45 0 45 90 0 90 0 0 -135z m530 0 l0 -135 -135 0 -135 0 0 135 0135 135 0 135 0 0 -135z m170 0 l0 -45 45 0 45 0 0 -45 0 -45 -45 0 -45 0 0-40 0 -40 -45 0 -45 0 0 40 0 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 45 0 4545 0 45 0 0 -45z m-170 -260 l0 -45 40 0 40 0 0 -45 0 -45 -130 0 -130 0 0 450 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -45z m350 -135 l0 -90 -90 0 -90 0 0 450 45 45 0 45 0 0 45 0 45 45 0 45 0 0 -90z"/><path d="M1580 1895 l0 -305 310 0 310 0 0 305 0 305 -310 0 -310 0 0 -305zm530 5 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M1760 1895 l0 -135 130 0 130 0 0 135 0 135 -130 0 -130 0 0 -135z"/><path d="M350 925 l0 -45 -45 0 -45 0 0 -40 0 -40 -45 0 -45 0 0 -45 0 -45 450 45 0 0 45 0 45 45 0 45 0 0 -45 0 -45 45 0 45 0 0 45 0 45 -45 0 -45 0 0 400 40 45 0 45 0 0 45 0 45 -45 0 -45 0 0 -45z"/><path d="M520 925 l0 -45 90 0 90 0 0 -40 0 -40 45 0 45 0 0 40 0 40 -45 0-45 0 0 45 0 45 -90 0 -90 0 0 -45z"/><path d="M0 310 l0 -310 305 0 305 0 0 310 0 310 -305 0 -305 0 0 -310z m5200 l0 -220 -220 0 -220 0 0 220 0 220 220 0 220 0 0 -220z"/><path d="M170 310 l0 -130 135 0 135 0 0 130 0 130 -135 0 -135 0 0 -130z"/></g></svg></div>-->
-    <div class="floating-box cont2" onkeyup="updateResult()" style="width: auto"
-
-      align="justify">
+    <div class="fleft cont6" onkeyup="updateResult()" style="width: auto" align="justify">
       <h3 id="pfmcq">Sell quantity</h3>
       <pfmcq>
         <div class="cont5">Your quantity<br>
-          <input id="YQUA" value="" style="width: 90px" type="number"><br>
+          <input id="YQUA" value="" style="width: 95px" type="number"><br>
           Add quantity<br>
-          <input id="NEWQ" value="0" style="width: 90px" type="number"><br>
+          <input id="NEWQ" value="0" style="width: 95px" type="number"><br>
           Price in FIAT<br>
-          <input id="CURPR" value="" style="width: 90px" type="number"><br>
+          <input id="CURPR" value="" style="width: 95px" type="number"><br>
           <b>Income in FIAT</b><br>
-          <input id="INCOF" value="" style="width: 90px" type="text"><br>
+          <input id="INCOF" value="" style="width: 95px" type="text"><br>
           <input value="Clear" onclick="clearContent21()" type="button"></div>
       </pfmcq>
       <h3 id="ibnq">Buy quantity</h3>
       <ibnq>
-        <div class="cont5">Add to<br>
-          investing money<br>
-          <input id="AINM" value="0" style="width: 90px" type="number"><br>
+        <div class="cont5">Add money<br>
+          <input id="AINM" value="0" style="width: 95px" type="number"><br>
           <b>Investing money</b><br>
-          <input id="INM" value="" style="width: 90px" type="number1"><br>
+          <input id="INM" value="" style="width: 95px" type="number1"><br>
           Buy price<br>
-          <input id="BPR" value="" style="width: 90px" type="number"><br>
+          <input id="BPR" value="" style="width: 95px" type="number"><br>
           Selling price<br>
-          <input id="NSP" value="" style="width: 90px" type="number"><br>
-          <b>Difference in price</b><br>
-          <input id="PDIP" value="" style="width: 90px" type="text"><br>
+          <input id="NSP" value="" style="width: 95px" type="number"><br>
+          <b>Price difference</b><br>
+          <input id="PDIP" value="" style="width: 95px" type="text"><br>
           <b>New quantity</b><br>
-          <input id="QUAA" value="" style="width: 90px" type="text"><br>
+          <input id="QUAA" value="" style="width: 95px" type="text"><br>
           <b>Difference quantity</b><br>
-          <input id="DQIFF" value="" style="width: 90px" type="text"><br>
+          <input id="DQIFF" value="" style="width: 95px" type="text"><br>
           <b>Difference in %</b><br>
-          <input id="PCTG" value="" style="width: 90px" type="text"><br>
+          <input id="PCTG" value="" style="width: 95px" type="text"><br>
           <b>Bonus</b><br>
-          <input id="BNS" value="" style="width: 90px" type="text"><br>
+          <input id="BNS" value="" style="width: 95px" type="text"><br>
           <b>Selling income</b><br>
-          <input id="NSI" value="" style="width: 90px" type="text"><br>
+          <input id="NSI" value="" style="width: 95px" type="text"><br>
           <input value="Clear" onclick="clearContent22()" type="button"></div>
       </ibnq> </div>
-    <div class="floating-box cont3" onkeyup="updateResult()" style="width: auto"
-
-      align="justify">
+    <div class="fleft cont3" onkeyup="updateResult()" style="width: auto" align="justify">
       <h3 id="piod">Percentage</h3>
       <piod>
         <div class="cont1">Price in FIAT<br>
-          <input id="PURC" value="" style="width: 90px" type="number"><br>
+          <input id="PURC" value="" style="width: 95px" type="number"><br>
           Percentage<br>
           <div class="cont6"><samp>Use minus <br>
               for decrees</samp></div>
-          <input id="PERid" value="" style="width: 90px" type="text2"><br>
-          <b>Difference in price</b><br>
-          <input id="DIFFP" value="" style="width: 90px" type="text"><br>
+          <input id="PERid" value="20" style="width: 95px" type="text2"><br>
+          <b>Price difference</b><br>
+          <input id="DIFFP" value="" style="width: 95px" type="text"><br>
           <b>Price + percentage</b><br>
-          <input id="CURR" value="" style="width: 90px" type="text"><br>
+          <input id="CURR" value="" style="width: 95px" type="text"><br>
           <input value="Clear" onclick="clearContent31()" type="button"> </div>
       </piod>
       <h3 id="difp">Difference in %</h3>
       <difp>
         <div class="cont1">Purchasing price<br>
-          <input id="BYPP" value="" style="width: 90px" type="number"><br>
+          <input id="BYPP" value="" style="width: 95px" type="number"><br>
           Selling price<br>
-          <input id="SELLP" value="" style="width: 90px" type="number"><br>
-          <b>Difference in price</b><br>
-          <input id="DFIP" value="" style="width: 90px" type="text"><br>
+          <input id="SELLP" value="" style="width: 95px" type="number"><br>
+          <b>Price difference</b><br>
+          <input id="DFIP" value="" style="width: 95px" type="text"><br>
           <b>Difference in %</b><br>
-          <input id="PRCDI" value="" style="width: 90px" type="text"><br>
+          <input id="PRCDI" value="" style="width: 95px" type="text"><br>
           Sell quantity<br>
-          <input id="ZUZ" value="" style="width: 90px" type="number"><br>
+          <input id="ZUZ" value="" style="width: 95px" type="number"><br>
           <b>Income</b><br>
-          <input id="MKM" value="" style="width: 90px" type="text"><br>
+          <input id="MKM" value="" style="width: 95px" type="text"><br>
           <input value="Clear" onclick="clearContent32()" type="button"></div>
       </difp></div>
-    <div class="floating-box cont1" onkeyup="updateResult()" style="width: auto"
-
-      align="justify">
-      <h3 id="mp" style="text-align: center"> Plus or Minus or Quantity</h3>
+    <div class="fleft cont1" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h3 id="mp" style="text-align: center">Plus or Minus or Quantity</h3>
       <mp>
-        <div class="floating-box cont2" style="width: 100px"> Price 1<br>
-          <input id="PFI" value="" style="width: 90px" type="number"><br>
+        <div class="fleft cont2" style="width: 105px">Price 1<br>
+          <input id="PFI" value="" style="width: 95px" type="number"><br>
           + Price 2<br>
-          <input id="DPS" value="" style="width: 90px" type="number"><br>
-          <b> Total Price<br>
-            <input id="EVB" value="" style="width: 90px" type="text"></b><br>
-          <input value="Clear" onclick="clearContent91()" type="button"> </div>
-        <div class="floating-box cont5" style="width: 100px">Sell Price<br>
-          <input id="VBN" value="" style="width: 90px" type="number"><br>
+          <input id="DPS" value="" style="width: 95px" type="number"><br>
+          <b>Total Price<br>
+            <input id="EVB" value="" style="width: 95px" type="text"></b><br>
+          <input value="Clear" onclick="clearContent41()" type="button"> </div>
+        <div class="fleft cont5" style="width: 105px">Sell Price<br>
+          <input id="VBN" value="" style="width: 95px" type="number"><br>
           - Buy price<br>
-          <input id="XCZ" value="" style="width: 90px" type="number"><br>
-          <b> Total Profit<br>
-            <input id="LKL" value="" style="width: 90px" type="text"></b><br>
-          <input value="Clear" onclick="clearContent92()" type="button"> </div>
-        <div class="floating-box cont3"> Fiat investment<br>
-          <input id="VZU" value="" style="width: 90px" type="number"> <br>
+          <input id="XCZ" value="" style="width: 95px" type="number"><br>
+          <b>Total Profit<br>
+            <input id="LKL" value="" style="width: 95px" type="text"></b><br>
+          <input value="Clear" onclick="clearContent42()" type="button"> </div>
+        <div class="fleft cont3" style="width: 105px">Investment<br>
+          <input id="VZU" value="" style="width: 95px" type="number"><br>
           Get Quantity<br>
-          <input id="PTR" value="" style="width: 90px" type="number"> <br>
+          <input id="PTR" value="" style="width: 95px" type="number"><br>
           <b>Buy at<br>
-            <input id="KD" value="" style="width: 90px" type="text"></b> <br>
-          <input value="Clear" onclick="clearContent93()" type="button"></div>
+            <input id="KD" value="" style="width: 95px" type="text"></b><br>
+          <input value="Clear" onclick="clearContent43()" type="button"></div>
       </mp></div>
-    <div id="container" class="floating-box2">
+    <div id="container" class="fright">
       <h3 id="hmdic">How much does it cost</h3>
       <hmdic>
-        <div id="first" class="floating-box cont1" onkeyup="updateResult()" style="width: 100px"
-
-          align="justify">&nbsp; Buy quantity<br>
-          <input id="PUQU" value="" style="width: 90px" type="number"><br>
+        <div id="first" class="fleft cont1" onkeyup="updateResult()" style="width: 105px"
+          align="justify">Buy quantity<br>
+          <input id="PUQU" value="" style="width: 95px" type="number"><br>
           Purchase price<br>
-          <input id="PRP" value="" style="width: 90px" type="number"><br>
+          <input id="PRP" value="" style="width: 95px" type="number"><br>
           <b>Total cost</b><br>
-          <input id="TCIF" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent5()" type="button"></div>
+          <input id="TCIF" value="" style="width: 95px" type="text"><br>
+          <input value="Clear" onclick="clearContent51()" type="button"></div>
       </hmdic> <hmdic>
-        <div id="second" class="floating-box cont1" onkeyup="updateResult()" style="width: 100px"
-
-          align="justify"> Sell quantity<br>
-          <input id="PQS" value="" style="width: 90px" type="number"><br>
+        <div id="" class="fright cont1" onkeyup="updateResult()" style="width: 105px"
+          align="justify">Sell quantity<br>
+          <input id="PQS" value="" style="width: 95px" type="number"><br>
           Selling price<br>
-          <input id="PUP" value="" style="width: 90px" type="number"><br>
+          <input id="PUP" value="" style="width: 95px" type="number"><br>
           <b>Total cost</b><br>
-          <input id="TCF" value="" style="width: 90px" type="text"><br>
-          <input value="Clear" onclick="clearContent6()" type="button"><br>
+          <input id="TCF" value="" style="width: 95px" type="text"><br>
+          <input value="Clear" onclick="clearContent52()" type="button"><br>
         </div>
       </hmdic>
-      <div id="clear" class="floating-box" style="width: 205px">
+      <div id="clear" class="fleft" style="width: 285px">
         <h4 id="miner">Support me by CPU mining on your browser for the time you
           visit the site</h4>
         <miner>
           <script src="https://authedmine.com/lib/simple-ui.min.js" async=""></script>
           <div class="coinhive-miner" data-key="bIEVIDBzHAG7TfRDxxm0KmGgKzhZuj5v"
-
             data-autostart="true" data-threads="1" data-text="#eeeeee" data-background="#000000"
-
             data-whitelabel="true" data-action="#1ABC9C"> <miner><samp>Loading...<br>
                 Miner is not loaded because you have Adblock.<br>
                 You can share link and support me like this.<br>
               </samp></miner><samp>https://myprofit.github.io</samp></div>
         </miner> </div>
     </div>
-    <div class="floating-box cont5" onkeyup="updateResult()" style="width: auto">
-      <h4 id="fee">Fee 0.25%</h4>
-      <fee><samp>Fee=Units*BidAsk*0.0025<br>
-          Fee=Units*BidAsk*CustomFEE<br>
+    <div class="fleft cont1" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h4 id="tbas">Total Buy, Sell and Fee</h4>
+      <tbas> <samp>Fee=Units*BidAsk*CustomFEE<br>
         </samp>
-        <div id="first" class="floating-box CONT3" style="width: 100px">
-          <h4 id="buy">Buy / Sell</h4>
-          <buy> Units<br>
-            <input id="UNI1" value="" style="width: 90px" type="number"><br>
-            Bid / Ask<br>
-            <input id="BID1" value="" style="width: 90px" type="number"><br>
-            <b>Fee 0.25%</b><br>
-            <input id="FEFE" value="" style="width: 90px" type="text"><br>
-            <b>Total</b><br>
-            <input id="TOTAL1" value="" style="width: 90px" type="text"><br>
-            <b> Total + Fee<input id="FEET1" value="" style="width: 90px" type="text"></b>
-            <input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
-        <div id="second" class="floating-box" style="width: 100px">
-          <h4 id="sell">Custom Fee</h4>
-          <sell>Units<br>
-            <input id="UN" value="" style="width: 90px" type="number"><br>
-            Bid / Ask<br>
-            <input id="BI" value="" style="width: 90px" type="number"><br>
+        <div class="fleft cont2" style="width: 105px" onkeyup="updateResult()">
+          <h4 id="totalb">Total Buy</h4>
+          <totalb>Total in BTC<br>
+            <input id="TOLA" value="" style="width: 95px" type="number"><br>
+            Bid<br>
+            <input id="TBA" value="" style="width: 95px" type="number"><br>
             Custom Fee<br>
-            <input id="CCF" value="" style="width: 90px" type="text2"><br>
-            <b>Fee is</b><br>
-            <input id="FEF" value="" style="width: 90px" type="text"><br>
-            <b> Total</b><br>
-            <input id="TOT" value="" style="width: 90px" type="text"><br>
-            <b> Total + Fee<input id="FE" value="" style="width: 90px" type="text"></b>
-            <input value="Clear" onclick="clearContent8()" type="button"> </sell></div>
-        <div id="third" class="floating-box" style="width: 100px">
-          <h4 id="total">Total</h4>
-          <total>Total in BTC<br>
-            <input id="TOTA" value="" style="width: 90px" type="number"><br>
-            Bid / Ask<br>
-            <input id="TBA" value="" style="width: 90px" type="number"><br>
-            Custom Fee<br>
-            <input id="TTF" value="" style="width: 90px" type="text2"><br>
+            <input id="TTF" value="" style="width: 95px" type="text2"><br>
+            <b>Quantity</b><br>
+            <input id="UTU" value="" style="width: 95px" type="text"><br>
             <b>Fee </b>from total<br>
-            <input id="TRT" value="" style="width: 90px" type="text"><br>
-            <b>Units</b><br>
-            <input id="UTU" value="" style="width: 90px" type="text"><br>
-            <b>Total + Fee<br>
-              <input id="FTE" value="" style="width: 90px" type="text"></b><br>
-            <input value="Clear" onclick="clearContent10()" type="button"> <br>
-            <samp>There can be some errors, but it works, when it work as I
-              think it have to this text will be deleted.</samp></total></div>
+            <input id="TRT" value="" style="width: 95px" type="text"><br>
+            <b>SubTotal<br>
+              <input id="FTE" value="" style="width: 95px" type="text"></b><br>
+            <input value="Clear" onclick="clearContent61()" type="button"> <br>
+          </totalb></div>
+        <div class="fleft cont5" style="width: 105px" onkeyup="updateResult()">
+          <h4 id="totals">Total Sell</h4>
+          <totals>Total in BTC<br>
+            <input id="THA" value="" style="width: 95px" type="number"><br>
+            Ask<br>
+            <input id="NBN" value="" style="width: 95px" type="number"><br>
+            Custom Fee<br>
+            <input id="CDF" value="" style="width: 95px" type="text2"><br>
+            <b>Quantity</b><br>
+            <input id="FTF" value="" style="width: 95px" type="text"><br>
+            <b>Fee </b>from total<br>
+            <input id="FRT" value="" style="width: 95px" type="text"><br>
+            <b>SubTotal<br>
+              <input id="HFT" value="" style="width: 95px" type="text"></b><br>
+            <input value="Clear" onclick="clearContent62()" type="button"></totals></div>
+        <div class="fleft cont3" style="width: 105px">
+          <h4 id="sell">Units</h4>
+          <sell><input id="UN" value="" style="width: 95px" type="number"><br>
+            Bid or Ask<br>
+            <input id="BI" value="" style="width: 95px" type="number"><br>
+            Custom Fee<br>
+            <input id="CCF" value="" style="width: 95px" type="text2"><br>
+            <b>Fee is</b><br>
+            <input id="ZFG" value="" style="width: 95px" type="text"><br>
+            <b>Total</b><br>
+            <input id="TOT" value="" style="width: 95px" type="text"><br>
+            <b>Total + Fee<input id="NEF" value="" style="width: 95px" type="text"></b>
+            <input value="Clear" onclick="clearContent63()" type="button"></sell></div>
+      </tbas> </div>
+    <div class="fleft cont5" onkeyup="updateResult()" style="width: auto">
+      <h4 id="fee">Fee 0.25%</h4>
+      <fee>
+        <div class="fleft cont1" style="width: 105px">
+          <h4 id="buy">Units</h4>
+          <buy> <input id="UNI1" value="" style="width: 95px" type="number"><br>
+            Bid or Ask<br>
+            <input id="BID1" value="" style="width: 95px" type="number"><br>
+            <b>Fee 0.25%</b><br>
+            <input id="FEFE" value="" style="width: 95px" type="text"><br>
+            <b>Total</b><br>
+            <input id="TOTAL1" value="" style="width: 95px" type="text"><br>
+            <b>Total + Fee<input id="FEET1" value="" style="width: 95px" type="text"></b>
+            <input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
       </fee></div>
-    <div class="cont1" style="position:fixed; bottom:150px; right:0;"><input value="Clear All"
-
-onclick="clearContent0(),clearContent21(),clearContent22(),clearContent31(),
-      clearContent32(),clearContent4(),clearContent5(),clearContent6(),clearContent7(),
-      clearContent8(),clearContent91(),clearContent92(),clearContent93(),clearContent10()"
-
-type="button"> <br>
+    <bt id="bton" style="position:fixed; bottom:150px; right:0;"> <input value="Clear All"
+onclick="clearContent0(),clearContent1(),clearContent21(),clearContent22(),clearContent31(),
+	 clearContent32(),clearContent41(),clearContent42(),clearContent43(),clearContent51(),
+	 clearContent52(),clearContent61(),clearContent62(),clearContent63(),clearContent7()"
+type="button"><br>
       <br>
-      <input value="Refresh" onclick="window.location.reload()" type="button"> </div>
+      <input value="Refresh" onclick="window.location.reload()" type="button"></bt>
   </body>
-</html>
+</html
