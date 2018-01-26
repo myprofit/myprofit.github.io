@@ -9,129 +9,136 @@
     <title>Crypto profit calculator</title>
     <style>   
 #header{
-    width: 100%;
-    background-color: #cccccc;
-    min-height: 25px;
-    text-align: center;
-    border: 0px;
-    padding: 0px;
+ width: 100%;
+ background-color: #cccccc;
+ min-height: 25px;
+ text-align: center;
+ border: 0px;
+ padding: 0px;
 }
 #container{
-    width: auto;
-    background-color: #8EC919;
-    margin: auto;
-    border: 1px solid green;
-    margin: 1px;
+ width: auto;
+ background-color: #8EC919;
+ margin: auto;
+ border: 1px solid green;
+ margin: 1px;
 }
 #first{
-    width: 100px;
-    float: left;
-    height: ;
-    background-color: #8BB133;
+ width: 100px;
+ float: left;
+ height: ;
+ background-color: #8BB133;
 }
 #second{
-    width: 100px;
-    float: left;
-    background-color: #cddc39;
+ width: 100px;
+ float: left;
+ background-color: #cddc39;
 }
-#third{width: 100px;
-    float: left;
-    background-color: #FF4500;
+#third{
+ width: 100px;
+ float: left;
+ background-color: #FF4500;
 }
 #clear{
-  clear: both;
-  background-color:#FFD700;
+ clear: both;
+ background-color:#FFD700;
 }
 #bton{  
-  background-color: Gold;
-  border: 2px solid orange;
-  padding: 0px;
-  margin: 8px;
-  border-radius:6px;
-  width: auto;
-  text-align: center;
+ background-color: Gold;
+ border: 2px solid orange;
+ padding: 0px;
+ margin: 8px;
+ border-radius:6px;
+ width: auto;
+ text-align: center;
 } 
-#bton:hover {  border: 2px solid blue;
-}
-input[type=text1] {
-color: red;  
+input[type=text1]{
+ color: red;
+ background-color: lightgrey;
 }  
-input[type=text] {
-color: red;  
+input[type=text]{
+ color: red;
+ background-color: lightgrey;
 }    
-input[type=number1] {
-color: red;
+input[type=number1]{
+ color: red;
+ background-color: lightgrey;
+}  
+input:hover{
+ border: 2px solid DeepPink;
+ border-radius:2px;
 }
 </style> <style>
-body{background-color: #cccccc;
+body{
+ background-color: #cccccc;
 }
-samp{text-align: justify;
-
+samp{
+ text-align: justify;
 }
-div{margin: 1px;
-    width: auto;
-    border: 1px solid green;
-    padding: 0px;
-    border-radius:8px;
-    text-align: center;
-    margin-top: 0px;
-    padding-top: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
+div{
+ margin: 1px;
+ width: auto;
+ border: 1px solid green;
+ padding: 0px;
+ border-radius:8px;
+ text-align: center;
+ margin-top: 0px;
+ padding-top: 0px;
+ margin-left: 0px;
+ margin-right: 0px;
 }
-.fleft {
-    float: left;
-    height: auto; 
-    margin-right: 0px;
+.fleft{
+ float: left;
+ height: auto; 
+ margin-right: 0px;
 }
-.fright {
-    float: right;
-    height: auto;
-    border: 1px solid green;
-    background-color:#cccccc;
-    margin-right: 0px;
+.fright{
+ float: right;
+ height: auto;
+ margin-right: 0px;
 }
 .cont1{
-background-color: Gold;
+ background-color: Gold;
 }
 .cont2{
-background-color: #FF4500;
+ background-color: Tomato;
 }
 .cont3{
-background-color: #32CD32;
+ background-color: #32CD32;
 } 
 .cont4{
-background-color: #FFA500;
+ background-color: #FFA500;
 }      
 .cont5{
-background-color: #00BFFF;
+ background-color: #00BFFF;
 }    
 .cont6{    
-background-color: #ADFF2F;
+ background-color: #ADFF2F;
 }  
 .coinhive-miner{
-  background-color: #ADFF2F;
-  width: 280px;
-  height: 150px;
-  border-radius:6px;
-  padding: 2px;
+ background-color: #ADFF2F;
+ width: 280px;
+ height: 150px;
+ border-radius:6px;
+ padding: 2px;
 }
-h1,h2,h3,h4,h5,h6 {
-    margin-bottom: 0px;
-    margin-top: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    bottom: 0px;
-    margin-bottom: 0px;
-    top: 0px;
-    text-align: center;
-    color:#191970;
+h1,h2,h3,h4,h5,h6{
+ margin-bottom: 0px;
+ margin-top: 0px;
+ padding-bottom: 0px;
+ padding-top: 0px;
+ bottom: 0px;
+ margin-bottom: 0px;
+ top: 0px;
+ text-align: center;
+ color:#191970;
 }
-.qr{background-color:#FFD700;
-    border:1px solid green;
+.qr{
+ background-color:#FFD700;
+ border:1px solid green;
 }</style>
     <script>    
-      //cPROFIT
+//cPROFIT
 function clearContent0(){
     document.getElementById("INV").value='';  
     document.getElementById("PURCP").value='';
@@ -142,7 +149,7 @@ function clearContent0(){
     document.getElementById("BO").value='';
     document.getElementById("INCO").value='';
 }
-      //BTC to profit
+//BTC to profit
 function clearContent1(){
     document.getElementById("MPRC").value='';
     document.getElementById("BYP").value='';
@@ -153,14 +160,14 @@ function clearContent1(){
     document.getElementById("BON").value='';
     document.getElementById("INOM").value='';
 }     
-      //Sell quantity
+//Sell quantity
 function clearContent21(){
     document.getElementById("YQUA").value='';
     document.getElementById("NEWQ").value='0';      
     document.getElementById("CURPR").value='';
     document.getElementById("INCOF").value='';
 }
-      //Buy quantity 
+//Buy quantity 
 function clearContent22(){
     document.getElementById("AINM").value='';
     document.getElementById("INM").value='0';
@@ -173,14 +180,14 @@ function clearContent22(){
     document.getElementById("BNS").value='';
     document.getElementById("NSI").value='';
 }
-      //Percentage
+//Percentage
 function clearContent31(){
     document.getElementById("PURC").value='';
     document.getElementById("PERid").value='20';
     document.getElementById("DIFFP").value='';
     document.getElementById("CURR").value='';
 }
-      //Difference in %
+//Difference in %
 function clearContent32(){
     document.getElementById("BYPP").value='';
     document.getElementById("SELLP").value='';
@@ -189,37 +196,37 @@ function clearContent32(){
     document.getElementById("ZUZ").value='';
     document.getElementById("MKM").value='';
 }
-      //PRICE 1 + PRICE 2 
+//PRICE 1 + PRICE 2 
 function clearContent41(){  
     document.getElementById("PFI").value='';
     document.getElementById("DPS").value='';
     document.getElementById("EVB").value='';
 }
-      //SELL - BUY PRICE
+//SELL - BUY PRICE
 function clearContent42(){  
     document.getElementById("VBN").value='';
     document.getElementById("XCZ").value='';
     document.getElementById("LKL").value=''; 
 }	  
-      //INVESTMENT
+//INVESTMENT
 function clearContent43(){  
     document.getElementById("VZU").value='';
     document.getElementById("PTR").value='';
     document.getElementById("KD").value='';   
 }	      
-    //HOW MUCH - Buy quantity 
+//HOW MUCH - Buy quantity 
 function clearContent51(){    
     document.getElementById("PUQU").value='';
     document.getElementById("PRP").value='';
     document.getElementById("TCIF").value='';
 }    
-      //HOW MUCH - Sell quantity
+//HOW MUCH - Sell quantity
 function clearContent52(){   
     document.getElementById("PQS").value='';
     document.getElementById("PUP").value='';
     document.getElementById("TCF").value='';
 }
-       //Total Buy
+//Total Buy
 function clearContent61(){  
     document.getElementById("TOLA").value='';
     document.getElementById("TBA").value='';
@@ -228,7 +235,7 @@ function clearContent61(){
     document.getElementById("TRT").value='';
     document.getElementById("FTE").value='';   
 }
-      //Total Sell
+//Total Sell
 function clearContent62(){  
     document.getElementById("THA").value='';
     document.getElementById("NBN").value='';
@@ -237,7 +244,7 @@ function clearContent62(){
     document.getElementById("FRT").value='';
     document.getElementById("HFT").value='';
 }            
-      //Units OF FEE 
+//Units OF FEE 
 function clearContent63(){    
     document.getElementById("UN").value='';
     document.getElementById("BI").value='';
@@ -245,8 +252,9 @@ function clearContent63(){
     document.getElementById("ZFG").value='';
     document.getElementById("TOT").value='';
     document.getElementById("NEF").value='';
+    document.getElementById("MKN").value='';
 }
-      //Fee 0.25%
+//Fee 0.25%
 function clearContent7(){
     document.getElementById("UNI1").value='';
     document.getElementById("BID1").value='';
@@ -263,8 +271,8 @@ function clearContent7(){
     {
        return parseFloat(e(element).value);
     }
-    function updateResult(){
-//Crypto profit  
+    function updateResult()
+{//Crypto profit  
   e("DIFF").value =  f("CURP") - f("PURCP");
   e("QUA").value = f("INV") / (f("PURCP"));
   e("BO").value = f("QUA") * f("DIFF");
@@ -298,10 +306,11 @@ function clearContent7(){
   e("TOTAL1").value = f("UNI1") * f("BID1");
   e("FEFE").value = f("UNI1") * f("BID1") * 0.0025;
   e("FEET1").value = f("TOTAL1") + (f("UNI1") * f("BID1") * 0.0025);
-//custom Fee//
+//Units
   e("TOT").value = f("UN") * f("BI");
   e("ZFG").value = f("UN") * f("BI") * (f("CCF") / 100);
   e("NEF").value = f("TOT") + (f("UN") * f("BI") * (f("CCF") / 100));
+  e("MKN").value = f("TOT") - f("ZFG");
 //Price1 + Price2
   e("EVB").value = f("PFI") + f("DPS");
 //SELL - BUY PRICE
@@ -558,7 +567,7 @@ $(document).ready(function(){
         </miner> </div>
     </div>
     <div class="fleft cont1" onkeyup="updateResult()" style="width: auto" align="justify">
-      <h4 id="tbas">Total Buy, Sell and Fee</h4>
+      <h3 id="tbas">Total Buy, Sell and Fee</h3>
       <tbas> <samp>Fee=Units*BidAsk*CustomFEE<br>
         </samp>
         <div class="fleft cont2" style="width: 105px" onkeyup="updateResult()">
@@ -604,10 +613,11 @@ $(document).ready(function(){
             <b>Total</b><br>
             <input id="TOT" value="" style="width: 95px" type="text"><br>
             <b>Total + Fee<input id="NEF" value="" style="width: 95px" type="text"></b>
+            <b>Total - Fee<input id="MKN" value="" style="width: 95px" type="text"></b>
             <input value="Clear" onclick="clearContent63()" type="button"></sell></div>
       </tbas> </div>
     <div class="fleft cont5" onkeyup="updateResult()" style="width: auto">
-      <h4 id="fee">Fee 0.25%</h4>
+      <h3 id="fee">Fee 0.25%</h3>
       <fee>
         <div class="fleft cont1" style="width: 105px">
           <h4 id="buy">Units</h4>
@@ -629,4 +639,4 @@ type="button"><br>
       <br>
       <input value="Refresh" onclick="window.location.reload()" type="button"></bt>
   </body>
-</html
+</html>
