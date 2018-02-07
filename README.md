@@ -13,6 +13,7 @@ Help you calculate your crypto currency profit
 8.  Difference in percentage between two prices 
 9.  You can calculate your fee-s 
 10. How much you pay/get if you buy/sell your quantity 
+11. Calculate Coin Cap, price in FIAT and BTC
  
 # Extra 
 Is possible to make predictions of: 
@@ -20,10 +21,7 @@ Is possible to make predictions of:
 2.  Quantity of coin you get 
 3.  You can hide/show what you don't use, by clicking on headers 
 4.  You can use this Crypto profit calculator as a tool for learning how to make profit by trading 
- 
-<b>Web page is for free use</b><br> 
-Visit at: [https://myprofit.github.io/](https://myprofit.github.io/) 
- 
+, 
 # Future plans 
 What I plan to add to my Crypto profit calculator if I find a way, how to do it 
 1.  Option menu to add or remove div box that you choose - the calculator form you like to use 
