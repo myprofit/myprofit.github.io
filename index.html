@@ -302,10 +302,9 @@ function clearContent7(){
 //HOW MUCH - Buy quantity  
   e("TCIF").value = f("PUQU") * f("PRP");
   e("TCF").value = f("PUP") * f("PQS");
-//Fee 25// 
-  e("TOTAL1").value = f("UNI1") * f("BID1");
-  e("FEFE").value = f("UNI1") * f("BID1") * 0.0025;
-  e("FEET1").value = f("TOTAL1") + (f("UNI1") * f("BID1") * 0.0025);
+//Coin Cup// 
+  e("FEFE").value = f("UNI1") / f("BID1");
+  e("FEET1").value = f("FEFE") / f("TOTAL1");  
 //Units
   e("TOT").value = f("UN") * f("BI");
   e("ZFG").value = f("UN") * f("BI") * (f("CCF") / 100);
@@ -617,18 +616,18 @@ $(document).ready(function(){
             <input value="Clear" onclick="clearContent63()" type="button"></sell></div>
       </tbas> </div>
     <div class="fleft cont5" onkeyup="updateResult()" style="width: auto">
-      <h3 id="fee">Fee 0.25%</h3>
+      <h3 id="fee">Coin Cap</h3>
       <fee>
-        <div class="fleft cont1" style="width: 105px">
-          <h4 id="buy">Units</h4>
-          <buy> <input id="UNI1" value="" style="width: 95px" type="number"><br>
-            Bid or Ask<br>
+        <div class="fleft cont1" style="width: 125px">
+          <h4 id="buy">Market Cap</h4>
+          <buy><input id="UNI1" value="" style="width: 95px" type="number">Circulating
+            Supply<br>
             <input id="BID1" value="" style="width: 95px" type="number"><br>
-            <b>Fee 0.25%</b><br>
+            <b>Price in FIAT</b><br>
             <input id="FEFE" value="" style="width: 95px" type="text"><br>
-            <b>Total</b><br>
-            <input id="TOTAL1" value="" style="width: 95px" type="text"><br>
-            <b>Total + Fee<input id="FEET1" value="" style="width: 95px" type="text"></b>
+            BTC price in FIAT<br>
+            <input id="TOTAL1" value="" style="width: 95px" type="number"><br>
+            <b>Price in BTC<input id="FEET1" value="" style="width: 95px" type="text"></b>
             <input value="Clear" onclick="clearContent7()" type="button"> </buy></div>
       </fee></div>
     <bt id="bton" style="position:fixed; bottom:150px; right:0;"> <input value="Clear All"
