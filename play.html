@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="My Crypto profit calculator, provide you calculations for Crypto market, when to sale your coin and at what price will you make profit and by how much.">
+<meta name="keywords" content="My Crypto profit calculator,Profit tool,Sell tool,MPC,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
+<meta name="author" content="My ProFit">
+<title>Buy and Sell Profit</title>
+<style>
+#header{
+width: 100%;
+background-color: #cccccc;
+min-height: 25px;
+text-align: center;
+border: 0px;
+padding: 0px;
+}
+#container{
+width: auto;
+background-color: #8EC919;
+margin: auto;
+border: 1px solid green;
+margin: 1px;
+}
+#first{
+width: 100px;
+float: left;
+height: ;
+background-color: #8BB133;
+}
+#second{
+width: 100px;
+float: left;
+background-color: #cddc39;
+}
+#third{
+width: 100px;
+float: left;
+background-color: #FF4500;
+}
+#clear{
+clear: both;
+background-color:#FFD700;
+}
+#bton{
+background-color: Gold;
+border: 2px solid orange;
+padding: 0px;
+margin: 8px;
+border-radius:6px;
+width: auto;
+text-align: center;
+}
+input[type=text1]{
+color: red;
+background-color: lightgrey;
+}
+input[type=text]{
+color: red;
+background-color: lightgrey;
+}
+input[type=number1]{
+color: red;
+background-color: lightgrey;
+}
+input:hover{
+border: 2px solid DeepPink;
+border-radius:2px;
+}
+</style> <style>
+body{
+background-color: #cccccc;
+}
+div{
+margin: 0px;
+width: 120px;
+border: 1px solid green;
+padding: 2px;
+border-radius:8px;
+text-align: center;
+margin-top: 2px;
+padding-top: 0px;
+margin-left: 2px;
+margin-right: 2px;
+}
+.fleft{
+float: left;
+height: auto;
+margin-right: 0px;
+}
+.fright{
+float: right;
+height: auto;
+margin-right: 0px;
+}
+
+.cont0{
+background-color: Gold;
+}
+.cont1{
+background-color: #fe0000;
+}
+.cont2{
+background-color: #ff9c00;
+}
+.cont3{
+background-color: ##f5ff00;
+}
+.cont4{
+background-color: #3cf10e;
+}
+.cont5{
+background-color: #01ffe5;
+}
+.cont6{
+background-color: #3366ff;
+}
+.cont7{
+background-color: #c516cc;
+}
+.cont8{
+background-color: #ff009c;
+}
+.coinhive-miner{
+background-color: #ADFF2F;
+width: 280px;
+height: 150px;
+border-radius:6px;
+padding: 2px;
+}
+h1,h2,h3,h4,h5,h6{
+margin-bottom: 0px;
+margin-top: 0px;
+padding-bottom: 0px;
+padding-top: 0px;
+bottom: 0px;
+margin-bottom: 0px;
+top: 0px;
+text-align: center;
+color:#191970;
+}
+.qr{
+background-color:#FFD700;
+border:1px solid green;
+}</style>
+<script>
+function clearContent0(){
+document.getElementById("INV").value='';
+document.getElementById("PURCP").value='';
+document.getElementById("CURP").value='';
+document.getElementById("DIFF").value='';
+document.getElementById("QUA").value='';
+document.getElementById("PERC").value='';
+document.getElementById("BO").value='';
+}
+function clearContent1(){
+document.getElementById("NARD").value='';
+document.getElementById("DAS").value='';
+document.getElementById("DWE").value='';
+document.getElementById("DTZ").value='';
+document.getElementById("FRZ").value='';
+document.getElementById("NIQ").value='';
+}
+
+function clearContent2(){
+document.getElementById("NLN").value='';
+document.getElementById("RIF").value='';
+document.getElementById("LUT").value='';
+document.getElementById("WFG").value='';
+document.getElementById("VGT").value='';
+document.getElementById("PXT").value='';
+document.getElementById("EMN").value='';
+}
+
+function clearContent3(){
+document.getElementById("MNB").value='';
+document.getElementById("ZHV").value='';
+document.getElementById("CRL").value='';
+document.getElementById("KXR").value='';
+document.getElementById("GDI").value='';
+document.getElementById("PID").value='';
+}
+
+function clearContent4(){
+document.getElementById("EZU").value='';
+document.getElementById("BCS").value='';
+document.getElementById("LOE").value='';
+document.getElementById("SHK").value='';
+document.getElementById("XTR").value='';
+document.getElementById("QZO").value='';
+document.getElementById("FNH").value='';
+}
+
+function clearContent5(){
+document.getElementById("WJV").value='';
+document.getElementById("OSP").value='';
+document.getElementById("TLO").value='';
+document.getElementById("BDI").value='';
+document.getElementById("SCR").value='';
+document.getElementById("DXR").value='';
+}
+
+function clearContent6(){
+document.getElementById("PRZ").value='';
+document.getElementById("LGT").value='';
+document.getElementById("HDC").value='';
+document.getElementById("MYA").value='';
+document.getElementById("WKL").value='';
+document.getElementById("LBE").value='';
+document.getElementById("VWI").value='';
+}
+
+function clearContent7(){
+document.getElementById("DAB").value='';
+document.getElementById("ERH").value='';
+document.getElementById("DFN").value='';
+document.getElementById("OGA").value='';
+document.getElementById("MQW").value='';
+document.getElementById("LIZ").value='';
+}
+
+function clearContent8(){
+document.getElementById("SHR").value='';
+document.getElementById("PUZ").value='';
+document.getElementById("YTR").value='';
+document.getElementById("POI").value='';
+document.getElementById("LUF").value='';
+document.getElementById("RDS").value='';
+document.getElementById("RDR").value='';
+}
+
+function clearContent9(){
+document.getElementById("AEI").value='';
+document.getElementById("ULO").value='';
+document.getElementById("TDH").value='';
+document.getElementById("VBK").value='';
+document.getElementById("EHE").value='';
+document.getElementById("DEA").value='';
+}
+
+function clearContent10(){
+document.getElementById("BGF").value='';
+document.getElementById("UHN").value='';
+document.getElementById("FVC").value='';
+document.getElementById("WRS").value='';
+document.getElementById("BXI").value='';
+document.getElementById("LOL").value='';
+document.getElementById("NQG").value='';
+}
+
+function clearContent11(){
+document.getElementById("SDR").value='';
+document.getElementById("KUX").value='';
+document.getElementById("VJR").value='';
+document.getElementById("ZXO").value='';
+document.getElementById("KIF").value='';
+document.getElementById("LOF").value='';
+}
+</script> <script>
+function e(element)
+{
+return document.getElementById(element);
+}
+function f(element)
+{
+return parseFloat(e(element).value);
+}
+function updateResult()
+{//Buy Total
+
+//Quantitiy
+e("INV").value = (f("PERC") - f("QUA")) / f("PURCP");
+//SubTotal
+e("CURP").value = f("PERC") - f("QUA");
+//Commision
+e("QUA").value = f("PERC") * (f("DIFF") / 100);
+
+//Sell Quantity
+
+//Ask
+e("DAS").value = ((f("PURCP") * f("BO")) / 100) + f("PURCP");
+//SubTotal
+e("DWE").value = f("NARD") * f("DAS");
+//Commision
+e("FRZ").value = f("DWE") * ( f("DTZ") / 100);
+//Total
+e("NIQ").value = f("DWE") - f("FRZ");
+
+////////////// 2 buy Q
+//subtotal
+e("LUT").value = f("NLN") * f("RIF");
+//Commision
+e("VGT").value = f("LUT") * ( f("WFG") / 100);
+//Total
+e("PXT").value = f("LUT") + f("WFG");
+
+// 2 sell Q
+//Sell Ask
+e("ZHV").value = ((f("RIF") * f("EMN")) / 100);
+//SubTotal
+e("CRL").value = f("MNB") * f("ZHV");
+//Commision
+e("GDI").value = f("CRL") * ( f("KXR") / 100);
+//Total
+e("PID").value = f("CRL") - f("KXR");
+
+////////////// 3 SELL q
+//SubTotal
+e("LOE").value = f("EZU") * f("BCS");
+//Commision
+e("XTR").value = (f("LOE") * ( f("SHK") / 100));
+//Total
+e("QZO").value = f("LOE") - f("XTR");
+
+// 3 BUY tOTAL
+//Quantity
+e("WJV").value = (f("DXR") - f("SCR")) / f("OSP");
+//Bid
+e("OSP").value = ((- f("BCS") * f("FNH")) / 100) + f("BCS");
+//SUBTOTAL
+e("TLO").value = f("DXR") - f("SCR");
+//Commision
+e("SCR").value = (f("DXR") * ( f("BDI") / 100));
+//Total
+e("DXR").value = f("QZO");
+
+////////////// 4 BUY TOTAL
+//Quantity
+e("PRZ").value = (f("LBE") - f("WKL")) / f("LGT");
+//SubTotal
+e("HDC").value = f("LBE") - f("WKL");
+//Commision
+e("WKL").value = (f("LBE") * ( f("MYA") / 100));
+
+//4 SELL tOTAL
+//Quantity
+e("DAB").value = f("DFN") / f("ERH");
+//SELL Ask
+e("ERH").value = ((f("LGT") * f("VWI")) / 100) + f("LGT");
+//SubTotal
+e("DFN").value = f("LIZ") + f("MQW");
+//Commision
+e("MQW").value = (f("LIZ") * ( f("OGA") / 100));
+
+
+////////////// 5 Sell T
+// quantitiy
+e("SHR").value = f("YTR") / f("PUZ");
+//SubTotal
+e("YTR").value = f("RDS") + f("LUF");
+//Commision
+e("LUF").value = (f("RDS") * ( f("POI") / 100));
+
+// 5 BUY Q
+//Quantity
+e("AEI").value = f("SHR");
+//BID
+e("ULO").value = ((-f("PUZ") * f("RDR")) / 100) + f("PUZ");
+//SubTotal
+e("TDH").value = f("AEI") * f("ULO");
+//Commision
+e("EHE").value = (f("TDH") * ( f("VBK") / 100));
+//Total
+e("DEA").value = f("TDH") + f("EHE");
+
+
+////////////// 6 BUY quantitiy
+//SubTotal
+e("FVC").value = f("BGF") * f("UHN");
+//Commision
+e("BXI").value = (f("FVC") * ( f("WRS") / 100));
+//Total
+e("LOL").value = f("FVC") + f("BXI");
+
+// 6 SELL TOTAL
+//Total - can be auto or custom
+// e("LOF").value = f("LOL");
+
+//Commision
+e("KIF").value = (f("LOF") * ( f("ZXO") / 100));
+//Ask
+e("KUX").value = ((f("UHN") * f("NQG")) / 100) + f("UHN");
+//SubTotal
+e("VJR").value = f("LOF") + f("KIF");
+//Quantity
+e("SDR").value = f("VJR") / f("KUX");
+
+}</script>
+</head>
+<body>
+<script src="https://myprofit.github.io/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("#buq").click(function(){
+$("buq").toggle(300);
+});
+$("#seq").click(function(){
+$("seq").toggle(300);
+});
+$("#squ").click(function(){
+$("squ").toggle(300);
+});
+$("#btu").click(function(){
+$("btu").toggle(300);
+});
+$("#buy").click(function(){
+$("buy").toggle(300);
+});
+$("#sell").click(function(){
+$("sell").toggle(300);
+});
+$("#btt").click(function(){
+$("btt").toggle(300);
+});
+$("#slt").click(function(){
+$("slt").toggle(300);
+});
+$("#tse").click(function(){
+$("tse").toggle(300);
+});
+$("#bnq").click(function(){
+$("bnq").toggle(300);
+});
+$("#qiy").click(function(){
+$("qiy").toggle(300);
+});
+$("#tso").click(function(){
+$("tso").toggle(300);
+});
+});
+</script>
+<!-- 1 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="buy">Buy Total</h3>
+<buy>
+<div class="cont1">
+
+<b>Quantity</b><br>
+<input id="INV" readonly="true" value="" style="width: 95px" type="number1"><br>
+
+<a>Buy Bid Price</a><br>
+<input id="PURCP" value="" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="CURP" readonly="true" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="DIFF" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="QUA" readonly="true" style="width: 95px" type="number1"><br>
+
+<a>Total</a><br>
+<input id="PERC" style="width: 95px" type="number"><br>
+
+<input value="Clear" onclick="clearContent0()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="BO" style="width: 95px" type="number"><br>
+</div>
+</buy>
+
+<h3 id="sell">Sell Quantity</h3>
+<sell>
+<div class="cont1">
+
+<a>Quantity</a><br>
+<input id="NARD" value="" style="width: 95px" type="number"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="DAS" readonly="true" value="" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="DWE" readonly="true" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="DTZ" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="FRZ" readonly="true" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="NIQ" readonly="true" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent1()" type="button">
+</div>
+</sell>
+</div>
+
+<!-- 2 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="buq">Buy Quantity</h3>
+<buq>
+<div class="cont2">
+
+<b>Quantity</b><br>
+<input id="NLN" style="width: 95px" type="number"><br>
+
+<b>Buy Bid Price</b><br>
+<input id="RIF" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="LUT" style="width: 95px" type="number1"><br>
+
+<b>Fee</b><br>
+<input id="WFG" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="VGT" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="PXT" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent2()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="EMN" style="width: 95px" type="number"><br>
+</div>
+</buq>
+
+<h3 id="seq">Sell Quantity</h3>
+<seq>
+<div class="cont2">
+
+<a>Quantity</a><br>
+<input id="MNB" value="" style="width: 95px" type="number"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="ZHV" value="" style="width: 95px" type="number1"><br>
+
+<b>SubTotal</b><br>
+<input id="CRL" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="KXR" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="GDI" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="PID" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent3()" type="button"></div>
+</div>
+</seq>
+</div>
+
+<!-- 3 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="squ">Sell Quantity</h3>
+<squ>
+<div class="cont5">
+
+<b>Quantity</b><br>
+<input id="EZU" style="width: 95px" type="number"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="BCS" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="LOE" style="width: 95px" type="number1"><br>
+
+<b>Fee</b><br>
+<input id="SHK" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="XTR" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="QZO" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent4()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="FNH" style="width: 95px" type="number"><br>
+</div>
+</squ>
+
+<h3 id="btu">Buy Total</h3>
+<btu>
+<div class="cont5">
+
+<a>Quantity</a><br>
+<input id="WJV" value="" style="width: 95px" type="number1"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="OSP" value="" style="width: 95px" type="number1"><br>
+
+<b>SubTotal</b><br>
+<input id="TLO" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="BDI" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="SCR" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="DXR" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent5()" type="button"></div>
+</div>
+</btu>
+</div>
+
+<!-- 4 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="btt">Buy Total</h3>
+<btt>
+<div class="cont4">
+
+<b>Quantity</b><br>
+<input id="PRZ" style="width: 95px" type="number1"><br>
+
+<b>Buy Bid Price</b><br>
+<input id="LGT" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="HDC" style="width: 95px" type="number1"><br>
+
+<b>Fee</b><br>
+<input id="MYA" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="WKL" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="LBE" style="width: 95px" type="number"><br>
+
+<input value="Clear" onclick="clearContent6()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="VWI" style="width: 95px" type="number"><br>
+</div>
+</btt>
+
+<h3 id="slt">Sell Total</h3>
+<slt>
+<div class="cont4">
+
+<a>Quantity</a><br>
+<input id="DAB" value="" style="width: 95px" type="number1"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="ERH" value="" style="width: 95px" type="number1"><br>
+
+<b>SubTotal</b><br>
+<input id="DFN" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="OGA" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="MQW" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="LIZ" style="width: 95px" type="number"><br>
+
+<input value="Clear" onclick="clearContent7()" type="button"></div>
+</div>
+</slt>
+</div>
+
+<!-- 5 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="tse">Sell Total</h3>
+<tse>
+<div class="cont6">
+
+<a>Quantity</a><br>
+<input id="SHR" value="" style="width: 95px" type="number1"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="PUZ" value="" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="YTR" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="POI" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="LUF" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="RDS" style="width: 95px" type="number"><br>
+
+<input value="Clear" onclick="clearContent8()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="RDR" style="width: 95px" type="number"><br>
+</div>
+</tse>
+
+<h3 id="bnq">Buy Quantity</h3>
+<bnq>
+<div class="cont6">
+
+<b>Quantity</b><br>
+<input id="AEI" style="width: 95px" type="number1"><br>
+
+<b>Buy Bid Price</b><br>
+<input id="ULO" style="width: 95px" type="number1"><br>
+
+<b>SubTotal</b><br>
+<input id="TDH" style="width: 95px" type="number"><br>
+
+<b>Fee</b><br>
+<input id="VBK" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="EHE" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="DEA" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent9()" type="button"></div>
+</bnq>
+</div>
+
+<!-- 6 -->
+<div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
+<h3 id="qiy">Buy Quantity</h3>
+<qiy>
+<div class="cont7">
+
+<b>Quantity</b><br>
+<input id="BGF" style="width: 95px" type="number"><br>
+
+<b>Buy Bid Price</b><br>
+<input id="UHN" style="width: 95px" type="number"><br>
+
+<b>SubTotal</b><br>
+<input id="FVC" style="width: 95px" type="number1"><br>
+
+<b>Fee</b><br>
+<input id="WRS" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="BXI" style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<input id="LOL" style="width: 95px" type="number1"><br>
+
+<input value="Clear" onclick="clearContent10()" type="button"></div>
+
+<div class="cont8">
+<a>Price difference by %</a><br>
+<input id="NQG" style="width: 95px" type="number"><br>
+</qiy>
+</div>
+
+<h3 id="tso">Sell Total</h3>
+<tso>
+<div class="cont7">
+
+<a>Quantity</a><br>
+<input id="SDR" value="" style="width: 95px" type="number1"><br>
+
+<b>Sell Ask Price</b><br>
+<input id="KUX" value="" style="width: 95px" type="number1"><br>
+
+<b>SubTotal</b><br>
+<input id="VJR" value="" style="width: 95px" type="number1"><br>
+
+<a>Fee</a><br>
+<input id="ZXO" style="width: 95px" type="number"><br>
+
+<b>Commision</b><br>
+<input id="KIF"  style="width: 95px" type="number1"><br>
+
+<b>Total</b><br>
+<!-- auto or custom -->
+<input id="LOF" style="width: 95px" type="number"><br>
+
+<input value="Clear" onclick="clearContent11()" type="button">
+</tso>
+</div>
+</div>
+<!-- end-->
+
+<!-- side bar navigation menu -->
+<bt id="bton" style="position:fixed; bottom:150px; right:0px;">
+<input value="Clear All"
+onclick="clearContent0(),clearContent1(),clearContent2(),clearContent3(),clearContent4(),
+clearContent5(),clearContent6(),clearContent7(),clearContent8(),clearContent9(),
+clearContent10(),clearContent11()"
+type="button"><br><br>
+<input value="Refresh" onclick="window.location.reload()" type="button">
+<br>
+<input type="button" value="Home" onclick="window.location.href='https://myprofit.github.io/'" /><br>
+<input type="button" value="Play" onclick="window.location.href='https://myprofit.github.io/play.html'" />
+</bt>
+</body>
+</html>
