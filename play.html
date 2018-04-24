@@ -310,16 +310,18 @@ e("PXT").value = f("LUT") + f("VGT");
 e("ZHV").value = ((f("RIF") * f("EMN")) / 100) + f("RIF");
 
 //Quantitiy
-//auto or custom
-e("MNB").value = f("CRL") / f("ZHV");
+//auto or user input
+//e("MNB").value = f("CRL") / f("ZHV");
+//e("MNB").value = f("PXT");
 
 //SubTotal
-e("CRL").value = f("GDI") + f("PID");
+e("CRL").value = f("ZHV") * f("MNB");
 
 //Commision
-e("GDI").value = f("PID") * ( f("KXR") / 100);
+e("GDI").value = f("CRL") * ( f("KXR") / 100);
+
 //Total
-e("PID").value = f("PXT");
+e("PID").value = f("CRL") - f("GDI");
 
 //Buy below
 e("WFO").value = (((-f("RIF")* f("EMN")))/100)+f("RIF")
