@@ -82,7 +82,8 @@ text-align: center;
 margin-top: 2px;
 padding-top: 0px;
 margin-left: 2px;
-margin-right: 2px;
+margin-right: 0px;
+margin-bottom: 2px;
 }
 .fleft{
 float: left;
@@ -122,6 +123,10 @@ background-color: #c516cc;
 .cont8{
 background-color: #ff009c;
 }
+.cont9{
+background-color:#ADD8E6;
+}
+
 .coinhive-miner{
 background-color: #ADFF2F;
 width: 280px;
@@ -285,7 +290,11 @@ e("DWE").value = f("NARD") * f("DAS");
 //Commision
 e("FRZ").value = f("DWE") * ( f("DTZ") / 100);
 //Total
-e("NIQ").value = f("DWE") - f("FRZ");
+e("NIQ").value = f("DWE") + f("FRZ");
+
+//Buy below
+e("VHU").value = (((-f("PURCP")* f("BO")))/100)+f("PURCP")
+
 
 ////////////// 2 buy Q
 //subtotal
@@ -293,17 +302,27 @@ e("LUT").value = f("NLN") * f("RIF");
 //Commision
 e("VGT").value = f("LUT") * ( f("WFG") / 100);
 //Total
-e("PXT").value = f("LUT") + f("WFG");
+e("PXT").value = f("LUT") + f("VGT");
 
 // 2 sell Q
+
 //Sell Ask
-e("ZHV").value = ((f("RIF") * f("EMN")) / 100);
+e("ZHV").value = ((f("RIF") * f("EMN")) / 100) + f("RIF");
+
+//Quantitiy
+e("MNB").value = f("CRL") / f("ZHV");
+
 //SubTotal
-e("CRL").value = f("MNB") * f("ZHV");
+e("CRL").value = f("GDI") + f("PID");
+
 //Commision
-e("GDI").value = f("CRL") * ( f("KXR") / 100);
+e("GDI").value = f("PID") * ( f("KXR") / 100);
 //Total
-e("PID").value = f("CRL") - f("KXR");
+e("PID").value = f("PXT");
+
+//Buy below
+e("WFO").value = (((-f("RIF")* f("EMN")))/100)+f("RIF")
+
 
 ////////////// 3 SELL q
 //SubTotal
@@ -325,6 +344,9 @@ e("SCR").value = (f("DXR") * ( f("BDI") / 100));
 //Total
 e("DXR").value = f("QZO");
 
+//Sell above
+e("ECX").value = (f("OSP") * f("FNH")) / 100 + f("OSP");
+
 ////////////// 4 BUY TOTAL
 //Quantity
 e("PRZ").value = (f("LBE") - f("WKL")) / f("LGT");
@@ -342,6 +364,10 @@ e("ERH").value = ((f("LGT") * f("VWI")) / 100) + f("LGT");
 e("DFN").value = f("LIZ") + f("MQW");
 //Commision
 e("MQW").value = (f("LIZ") * ( f("OGA") / 100));
+
+//Buy below
+e("JZU").value = (((-f("LGT")* f("VWI")))/100)+f("LGT")
+
 
 
 ////////////// 5 Sell T
@@ -364,6 +390,8 @@ e("EHE").value = (f("TDH") * ( f("VBK") / 100));
 //Total
 e("DEA").value = f("TDH") + f("EHE");
 
+//Sell above
+e("UGE").value = (f("PUZ") * f("RDR")) / 100 + f("PUZ");
 
 ////////////// 6 BUY quantitiy
 //SubTotal
@@ -385,6 +413,9 @@ e("KUX").value = ((f("UHN") * f("NQG")) / 100) + f("UHN");
 e("VJR").value = f("LOF") + f("KIF");
 //Quantity
 e("SDR").value = f("VJR") / f("KUX");
+
+//Buy below
+e("RFN").value = (((-f("UHN")* f("NQG")))/100)+f("UHN")
 
 }</script>
 </head>
@@ -422,8 +453,8 @@ $("tse").toggle(300);
 $("#bnq").click(function(){
 $("bnq").toggle(300);
 });
-$("#qiy").click(function(){
-$("qiy").toggle(300);
+$("#spu").click(function(){
+$("spu").toggle(300);
 });
 $("#tso").click(function(){
 $("tso").toggle(300);
@@ -436,7 +467,7 @@ $("tso").toggle(300);
 <buy>
 <div class="cont1">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="INV" readonly="true" value="" style="width: 95px" type="number1"><br>
 
 <a>Buy Bid Price</a><br>
@@ -446,7 +477,7 @@ $("tso").toggle(300);
 <input id="CURP" readonly="true" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="DIFF" style="width: 95px" type="number"><br>
+<input id="DIFF" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="QUA" readonly="true" style="width: 95px" type="number1"><br>
@@ -457,7 +488,7 @@ $("tso").toggle(300);
 <input value="Clear" onclick="clearContent0()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="BO" value="0.55" style="width: 95px" type="number"><br>
 </div>
 </buy>
@@ -469,23 +500,29 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="NARD" value="" style="width: 95px" type="number"><br>
 
-<b>Sell Ask Price</b><br>
-<input id="DAS" readonly="true" value="" style="width: 95px" type="number"><br>
+<a>Sell Ask Price</a><br>
+<input id="DAS" readonly="true" value="" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
 <input id="DWE" readonly="true" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="DTZ" style="width: 95px" type="number"><br>
+<input id="DTZ" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="FRZ" readonly="true" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="NIQ" readonly="true" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent1()" type="button">
 </div>
+
+<div class="cont9">
+<b>Buy below</b><br>
+<input id="VHU" style="width: 95px" type="number1"><br>
+</div>
+
 </sell>
 </div>
 
@@ -495,28 +532,28 @@ $("tso").toggle(300);
 <buq>
 <div class="cont2">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="NLN" style="width: 95px" type="number"><br>
 
-<b>Buy Bid Price</b><br>
+<a>Buy Bid Price</a><br>
 <input id="RIF" style="width: 95px" type="number"><br>
 
 <b>SubTotal</b><br>
 <input id="LUT" style="width: 95px" type="number1"><br>
 
-<b>Fee</b><br>
-<input id="WFG" style="width: 95px" type="number"><br>
+<a>Fee</a><br>
+<input id="WFG" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="VGT" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="PXT" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent2()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="EMN" value="0.55" style="width: 95px" type="number"><br>
 </div>
 </buq>
@@ -528,22 +565,26 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="MNB" value="" style="width: 95px" type="number"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="ZHV" value="" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
 <input id="CRL" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="KXR" style="width: 95px" type="number"><br>
+<input id="KXR" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="GDI" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="PID" style="width: 95px" type="number1"><br>
-
 <input value="Clear" onclick="clearContent3()" type="button"></div>
+
+<div class="cont9">
+<b>Buy below</b><br>
+<input id="WFO" style="width: 95px" type="number1"><br>
+</div>
 </div>
 </seq>
 </div>
@@ -554,28 +595,28 @@ $("tso").toggle(300);
 <squ>
 <div class="cont5">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="EZU" style="width: 95px" type="number"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="BCS" style="width: 95px" type="number"><br>
 
 <b>SubTotal</b><br>
 <input id="LOE" style="width: 95px" type="number1"><br>
 
-<b>Fee</b><br>
-<input id="SHK" style="width: 95px" type="number"><br>
+<a>Fee</a><br>
+<input id="SHK" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="XTR" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="QZO" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent4()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="FNH" value="0.55" style="width: 95px" type="number"><br>
 </div>
 </squ>
@@ -587,22 +628,27 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="WJV" value="" style="width: 95px" type="number1"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="OSP" value="" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
 <input id="TLO" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="BDI" style="width: 95px" type="number"><br>
+<input id="BDI" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="SCR" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="DXR" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent5()" type="button"></div>
+
+<div class="cont4">
+<b>Sell above</b><br>
+<input id="ECX" style="width: 95px" type="number1"><br>
+</div>
 </div>
 </btu>
 </div>
@@ -613,28 +659,28 @@ $("tso").toggle(300);
 <btt>
 <div class="cont4">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="PRZ" style="width: 95px" type="number1"><br>
 
-<b>Buy Bid Price</b><br>
+<a>Buy Bid Price</a><br>
 <input id="LGT" style="width: 95px" type="number"><br>
 
 <b>SubTotal</b><br>
 <input id="HDC" style="width: 95px" type="number1"><br>
 
-<b>Fee</b><br>
-<input id="MYA" style="width: 95px" type="number"><br>
+<a>Fee</a><br>
+<input id="MYA" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="WKL" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="LBE" style="width: 95px" type="number"><br>
 
 <input value="Clear" onclick="clearContent6()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="VWI" value="0.55" style="width: 95px" type="number"><br>
 </div>
 </btt>
@@ -646,23 +692,28 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="DAB" value="" style="width: 95px" type="number1"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="ERH" value="" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
 <input id="DFN" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="OGA" style="width: 95px" type="number"><br>
+<input id="OGA" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="MQW" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="LIZ" style="width: 95px" type="number"><br>
 
 <input value="Clear" onclick="clearContent7()" type="button"></div>
+<div class="cont9">
+<b>Buy below</b><br>
+<input id="JZU" style="width: 95px" type="number1"><br>
 </div>
+</div>
+
 </slt>
 </div>
 
@@ -675,25 +726,25 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="SHR" value="" style="width: 95px" type="number1"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="PUZ" value="" style="width: 95px" type="number"><br>
 
 <b>SubTotal</b><br>
 <input id="YTR" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="POI" style="width: 95px" type="number"><br>
+<input id="POI" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="LUF" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="RDS" style="width: 95px" type="number"><br>
 
 <input value="Clear" onclick="clearContent8()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="RDR" value="0.55" style="width: 95px" type="number"><br>
 </div>
 </tse>
@@ -702,60 +753,66 @@ $("tso").toggle(300);
 <bnq>
 <div class="cont6">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="AEI" style="width: 95px" type="number1"><br>
 
-<b>Buy Bid Price</b><br>
+<a>Buy Bid Price</a><br>
 <input id="ULO" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
-<input id="TDH" style="width: 95px" type="number"><br>
+<input id="TDH" style="width: 95px" type="number1"><br>
 
-<b>Fee</b><br>
-<input id="VBK" style="width: 95px" type="number"><br>
+<a>Fee</a><br>
+<input id="VBK" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="EHE" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="DEA" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent9()" type="button"></div>
+
+<div class="cont4">
+<b>Sell above</b><br>
+<input id="UGE" style="width: 95px" type="number1"><br>
+</div>
+
+
 </bnq>
 </div>
 
 <!-- 6 -->
 <div id="" class="fleft cont0" onkeyup="updateResult()" style="width: auto; text-align: justify">
-<h3 id="qiy">Buy Quantity</h3>
-<qiy>
+<h3 id="spu">Buy Quantity</h3>
+<spu>
 <div class="cont7">
 
-<b>Quantity</b><br>
+<a>Quantity</a><br>
 <input id="BGF" style="width: 95px" type="number"><br>
 
-<b>Buy Bid Price</b><br>
+<a>Buy Bid Price</a><br>
 <input id="UHN" style="width: 95px" type="number"><br>
 
 <b>SubTotal</b><br>
 <input id="FVC" style="width: 95px" type="number1"><br>
 
-<b>Fee</b><br>
-<input id="WRS" style="width: 95px" type="number"><br>
+<a>Fee</a><br>
+<input id="WRS" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="BXI" style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <input id="LOL" style="width: 95px" type="number1"><br>
 
 <input value="Clear" onclick="clearContent10()" type="button"></div>
 
 <div class="cont8">
-<a>Price difference by %</a><br>
+<a>Price diff. by %</a><br>
 <input id="NQG" value="0.55" style="width: 95px" type="number"><br>
-</qiy>
 </div>
-
+</spu>
 <h3 id="tso">Sell Total</h3>
 <tso>
 <div class="cont7">
@@ -763,24 +820,29 @@ $("tso").toggle(300);
 <a>Quantity</a><br>
 <input id="SDR" value="" style="width: 95px" type="number1"><br>
 
-<b>Sell Ask Price</b><br>
+<a>Sell Ask Price</a><br>
 <input id="KUX" value="" style="width: 95px" type="number1"><br>
 
 <b>SubTotal</b><br>
 <input id="VJR" value="" style="width: 95px" type="number1"><br>
 
 <a>Fee</a><br>
-<input id="ZXO" style="width: 95px" type="number"><br>
+<input id="ZXO" value="0.25" style="width: 95px" type="number"><br>
 
 <b>Commision</b><br>
 <input id="KIF"  style="width: 95px" type="number1"><br>
 
-<b>Total</b><br>
+<a>Total</a><br>
 <!-- auto or custom -->
 <input id="LOF" style="width: 95px" type="number"><br>
 
 <input value="Clear" onclick="clearContent11()" type="button">
+
 </tso>
+</div>
+<div class="cont9">
+<b>Buy below</b><br>
+<input id="RFN" style="width: 95px" type="number1"><br>
 </div>
 </div>
 <!-- end-->
