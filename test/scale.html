@@ -1,0 +1,262 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="Javascript">
+
+<!-- Hide JavaScript from non-supportive browsers
+
+  function fclear(form)
+  {
+     form.expr.value = ""
+     form.nmiles.value = ""
+     form.smiles.value = ""
+     form.ninches.value = ""
+     form.sinches.value = ""
+     form.finch.value = ""
+     form.nmiles2.value = ""
+     form.smiles2.value = ""
+     form.smiles3.value = ""
+     form.nmiles3.value = ""
+  }
+
+  function compute(obj)
+  {
+     obj.nmiles.value = obj.expr.value/72913.39
+     obj.smiles.value = obj.expr.value/63360
+     obj.ninches.value= 72913.39/obj.expr.value
+     obj.sinches.value = 63360/obj.expr.value
+     obj.finch.value = obj.smiles.value*5280
+  }
+  function compute2(obj)
+  {
+     obj.smiles2.value = obj.nmiles2.value*1.15077945
+  }
+  function compute3(obj)
+  {
+     obj.nmiles3.value = obj.smiles3.value*0.86897624
+  }
+<!-- end hide Javascript from non-supportive browsers -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Natural and Numerical Chart Scales
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td colspan="3">Given the Scale, Compute Nautical Miles, Statute Miles and Feet</td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Scale:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="expr" id="expr" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Results:
+		</td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Nautical Miles Per Inch:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="nmiles" id="nmiles" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Statute Miles Per Inch: 
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="smiles" id="smiles" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Inches Per Nautical Mile:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="ninches" id="ninches" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>	
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Inches Per Statute Mile:  
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="sinches" id="sinches" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Feet Per Inch:  
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="finch" id="finch" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>	
+</table>
+
+<br><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Natural and Numerical Chart Scales
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td colspan="3">Convert Nautical Miles to Statute Miles
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Nautical Miles:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="nmiles2" id="nmiles2" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute2(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Statute Miles:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="smiles2" id="smiles2" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+<br><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Natural and Numerical Chart Scales
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td colspan="3">Convert Statute Miles to Nautical Miles
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Statute Miles:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="smiles3" id="smiles3" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute3(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Nautical Miles:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="nmiles3" id="nmiles3" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+
+</form>

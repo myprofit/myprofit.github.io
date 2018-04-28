@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE=JavaScript>
+<!-- Hide JavaScript from non-supportive browsers
+
+  function fclear(form)
+   {
+     form.timesec.value = ""
+     form.speedmile.value = ""
+   }
+
+  function fclear2(form)
+   {
+     form.speed.value = ""
+     form.minute.value = ""
+     form.speedmile.value =""
+   }
+
+  function speedcomp(obj)
+ {
+     obj.speedmile.value = 3600/obj.timesec.value
+  }
+  function distcomp(obj)
+  {
+     if (obj.speed.value == "") 
+	obj.speed.value = (60*obj.distance.value)/obj.minute.value;
+     else if (obj.distance.value == "")
+	obj.distance.value = (obj.speed.value*obj.minute.value)/60;
+     else if (obj.minute.value == "")
+	obj.minute.value = (60*obj.distance.value)/obj.speed.value;
+  }
+// End Hide -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Speed for Measured Mile
+		</td>
+	</tr>
+</table>
+
+<br><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Speed for a Measured Mile <br>
+			Given the Time in Seconds, Compute the Speed in Knots 
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Elapsed time in seconds:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="timesec" id="timesec" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="speedcomp(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Speed in knots:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="speedmile" id="speedmile" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+<br><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Speed, Time and Distance <br>
+			Given Two Values, Compute the Third: 
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Speed in knots:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="speed" id="speed" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Elapsed time in minutes:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="minute" id="minute" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance in nautical miles:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="distance" id="distance" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="distcomp(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+</form>

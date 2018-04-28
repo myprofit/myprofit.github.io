@@ -1,0 +1,432 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- hide JavaScript from non-supportive browsers
+
+function dm2dd(deg_in, min_in, sign_in)
+  {
+	deg = parseFloat(Math.abs(deg_in));
+	min = parseFloat(Math.abs(min_in));
+	if (isNaN(deg))
+		deg = 0;
+	if (isNaN(min))
+		min = 0;
+
+	angle = deg + (min/60.);
+
+      sign = 1;
+
+	if (sign_in == "South" || sign_in == "West")
+		{sign = -1};
+
+	angle = angle * sign
+
+	return(angle);
+  }
+
+
+function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+function rad2deg(rad)
+  {
+	conv_factor = 360.0/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+
+function log10(val)
+  {
+      return(Math.LOG10E * Math.log(val));
+  }
+
+function valid(input, min, max, msg)
+  {
+      msg = msg + "field contains invalid data: " + input.value;
+      floatValue = parseFloat(input.value);
+      if (input.value == null || input.value.length == 0)
+         {
+           input.value = 0;
+           floatValue = 0;
+           return true;
+         }    
+      in_string = input.value;
+      for (i = 0; i < in_string.length; i++)
+         {
+           ch = in_string.charAt(i)
+           if ((ch < "0" || ch > "9") && ch != ".")    
+      
+            {
+              alert(msg);
+              return false;
+            }
+         }
+      if (floatValue < min || floatValue > max)
+         {
+           alert(msg + " not within range [" + min + ".." + max + "]");
+           return false;
+         }
+     
+      return true;
+  }
+
+function swapsign(sign_in, latlon)
+  {
+      if (latlon.value == "1")
+      {
+	if (sign_in.value == "North")
+		sign_in.value = "South";
+	else 
+		sign_in.value = "North";
+      }
+      else
+      {
+	if (sign_in.value == "East")
+		sign_in.value = "West";
+	else 
+            sign_in.value = "East" ;
+      }
+      return sign_in.value;
+  }
+
+
+function next(form)
+{
+    form.lat1_deg.value=form.lat2_deg.value
+    form.lat1_min.value=form.lat2_min.value
+    form.mp1.value=""
+    form.lat1_sign.value=form.lat2_sign.value
+    form.lon1_deg.value=form.lon2_deg.value
+    form.lon1_min.value=form.lon2_min.value
+    form.lon1_sign.value=form.lon2_sign.value
+    form.lat2_deg.value=""
+    form.lat2_min.value=""
+    form.mp2.value=""
+    form.lat2_sign.value="North"
+    form.lon2_deg.value=""
+    form.lon2_min.value=""
+    form.lon2_sign.value="East"
+    form.course.value=""
+    form.dist.value=""
+}
+
+function fclear(form)
+  {
+      form.course.value = ""
+      form.lat1_deg.value = ""
+      form.lat1_min.value = ""
+      form.lat1_sign.value = "North"
+      form.lon1_deg.value = ""
+      form.lon1_min.value = ""
+      form.lon1_sign.value = "East"
+      form.lat2_deg.value = ""
+      form.lat2_min.value = ""
+      form.lat2_sign.value = "North"
+      form.lon2_deg.value = ""
+      form.lon2_min.value = ""
+      form.lon2_sign.value = "East"
+      form.dist.value = ""
+      form.tdist.value = ""
+  }
+
+
+
+	function mparts(indegree, inminute, outmp)
+  	{
+  
+      M = 0;
+      if (!valid(indegree, 0,89,"Latitude degree "))
+            {outmp.value = "Invalid Entries"; return M;}
+      if (!valid(inminute, 0, 59.9999999,"Latitude minute "))
+            {outmp.value = "Invalid Entries"; return M;}
+      lat_deg = parseFloat(indegree.value);
+      lat_min = parseFloat(inminute.value)
+      lat = deg2rad(dm2dd(lat_deg, lat_min, "North"));
+      a = 21600/(2 * Math.PI);
+      e = .081819191;
+      M = (a * Math.log(10) * log10((Math.tan(deg2rad(45) + 
+        (lat/2.0))))) - 
+        (a * (
+               ((Math.pow(e,2)) * Math.sin(lat)) +
+               ((Math.pow(e,4) / 3.0) * Math.pow(Math.sin(lat), 3)) +
+               ((Math.pow(e,6) / 5.0) * Math.pow(Math.sin(lat), 5))
+              )
+         );
+      outmp.value = M;      
+      return M;
+  }
+
+// Main function for computing Mercator Sailing course and distance
+function msail(form)
+{
+	// Get input values, parse them for float values and check validity
+
+if (!valid(form.lat1_deg,0,89,"Initial Latitude degree "))
+          {form.dist.value = "Error"; return;}      
+   if (!valid(form.lat1_min,0,59.9999999,"Initial Latitude minute "))
+          {form.dist.value = "Error"; return;} 
+   if (!valid(form.lon1_deg,0,180,"Initial Longitude degree "))
+          {form.dist.value = "Error"; return;}
+   if (!valid(form.lon1_min,0,59.9999999,"Initial Longitude minute ")) 
+          {form.dist.value = "Error"; return;}
+   if (!valid(form.lat2_deg,0,89,"Final Latitude degree ")) 
+          {form.dist.value = "Error"; return;}
+   if (!valid(form.lat2_min,0,59.9999999,"Final Latitude minute "))
+          {form.dist.value = "Error"; return;}
+   if (!valid(form.lon2_deg,0,180,"Final Longitude degree ")) 
+          {form.dist.value = "Error"; return;}
+   if (!valid(form.lon2_min,0,59.9999999,"Final Longitude minute "))
+          {form.dist.value = "Error"; return;}
+   lat1_deg = parseFloat(form.lat1_deg.value);
+   lat1_min = parseFloat(form.lat1_min.value);
+   lon1_deg = parseFloat(form.lon1_deg.value);
+   lon1_min = parseFloat(form.lon1_min.value);
+   lat2_deg = parseFloat(form.lat2_deg.value);
+   lat2_min = parseFloat(form.lat2_min.value);
+   lon2_deg = parseFloat(form.lon2_deg.value);
+   lon2_min = parseFloat(form.lon2_min.value);
+   lat1_sign = form.lat1_sign.value;
+   lat2_sign = form.lat2_sign.value;
+   lon1_sign = form.lon1_sign.value;
+   lon2_sign = form.lon2_sign.value;
+   if ((lat1_sign != "North" && lat1_sign != "South") ||
+       (lat2_sign != "North" && lat2_sign != "South") ||
+       (lon1_sign != "East" && lon1_sign != "West") ||
+       (lon2_sign != "East" && lon2_sign != "West") )
+        {
+           alert("Check hemisphere value");
+           form.dist.value = "Error";
+           return;
+        }
+
+   // Get angles 
+   lat1 = dm2dd(lat1_deg, lat1_min, lat1_sign);
+   lat2 = dm2dd(lat2_deg, lat2_min, lat2_sign);
+   lon1 = dm2dd(lon1_deg, lon1_min, lon1_sign);
+   lon2 = dm2dd(lon2_deg, lon2_min, lon2_sign);
+
+   dlon = lon2 - lon1;
+   if (dlon > 180)
+   	dlon = dlon - 360;
+   if (dlon < -180)
+   	dlon = dlon + 360;
+   dlon = dlon * 60;
+
+   // Reduce to parallel sailing if latitudes are the same
+   if (lat2 == lat1)
+      {dist = Math.abs(dlon*Math.cos(deg2rad(lat1)));
+       if (dlon < 0) course = 270;
+       if (dlon > 0) course = 90;
+       if (dlon == 0) course = 0;
+       form.course.value = course;
+       form.dist.value = dist;
+       sumdist = parseFloat(form.tdist.value);
+       if (isNaN(sumdist))
+           sumdist = 0;
+       sumdist = sumdist + dist;
+       form.tdist.value = sumdist;
+       return;
+      }
+
+   // Get Meridional Parts
+   mp1 = mparts(form.lat1_deg, form.lat1_min, form.mp1)
+   if (lat1_sign == "South") mp1 = -mp1;
+   mp2 = mparts(form.lat2_deg, form.lat2_min, form.mp2)
+   if (lat2_sign == "South") mp2 = -mp2;
+
+   // Calculate course and distance
+   dmp = mp2 - mp1;
+   dlat = (lat2 - lat1) * 60;
+   course = Math.atan(dlon/dmp);
+   dist = Math.abs(dlat/Math.cos(course));
+   course = rad2deg(course);   
+
+   if (dlat > 0)
+      course = course + 360;
+   if (dlat < 0)
+      course = course + 180;
+   if (course >= 360)
+      course = course - 360;
+
+   form.course.value = course;
+   form.dist.value = dist;
+   sumdist = parseFloat(form.tdist.value);
+   if (isNaN(sumdist))
+      sumdist = 0;
+   sumdist = sumdist + dist;
+   form.tdist.value = sumdist;
+
+
+}
+
+<!-- end hide JavaScript from non-supportive browsers -->
+
+</SCRIPT>
+
+<form name="evalForm">
+
+  <input type="hidden" name="one" value="1">
+  <input type="hidden" name="two" value="2">
+
+<table border="0" cellpadding="0" cellspacing="0" width="600">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Mercator Sailing
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="600" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td colspan="3" class="nga-queryLabel" align="left" valign="middle">
+			Origin (Initial Position) 
+		</td>	
+		<td width="3"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat1_deg" id="lat1_deg" size="5" maxlength="10" value=""> degrees
+						<input type="text" name="lat1_min" id="lat1_min" size="5" maxlength="10" value=""> minutes
+						<input type="text" name="lat1_sign" id="lat1_sign" size="5" maxlength="10" value="North">
+						<input type="button" value="N/S" onclick="swapsign(form.lat1_sign, form.one)">
+						<input type="button" value="M.P." onclick="mparts(form.lat1_deg, form.lat1_min, form.mp1)">
+						<input type="text" name="mp1" size="5">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Longitude:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lon1_deg" id="lon1_deg" size="5" maxlength="10" value=""> degrees
+						<input type="text" name="lon1_min" id="lon1_min" size="5" maxlength="10" value=""> minutes
+						<input type="text" name="lon1_sign" id="lon1_sign" size="5" maxlength="10" value="East">
+						<input type="button" value="E/W" onclick="swapsign(form.lon1_sign, form.two)">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+		<tr>
+		<td colspan="3" class="nga-queryLabel" align="left" valign="middle">
+			Destination (Final Position) 
+		</td>	
+		<td width="3"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat2_deg" id="lat2_deg" size="5" maxlength="10" value=""> degrees
+						<input type="text" name="lat2_min" id="lat2_min" size="5" maxlength="10" value=""> minutes
+						<input type="text" name="lat2_sign" id="lat2_sign" size="5" maxlength="10" value="North">
+						<input type="button" value="N/S" onclick="swapsign(form.lat2_sign, form.one)">
+						<input type="button" value="M.P." onclick="mparts(form.lat2_deg, form.lat2_min, form.mp2)">
+						<input type="text" name="mp2" size="5">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Longitude:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lon2_deg" id="lon2_deg" size="5" maxlength="10" value=""> degrees
+						<input type="text" name="lon2_min" id="lon2_min" size="5" maxlength="10" value=""> minutes
+						<input type="text" name="lon2_sign" id="lon2_sign" size="5" maxlength="10" value="East">
+						<input type="button" value="E/W" onclick="swapsign(form.lon2_sign, form.two)">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table width="600" border="0" cellpadding="0" cellspacing="0" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="msail(document.evalForm)">
+		</td>
+		<td align="center">
+			<input type="button" value="Next Leg" onClick="next(document.evalForm)">
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">
+		</td>
+	</tr>
+</table>
+
+<table width="600" border="0" cellpadding="0" cellspacing="0" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Results :
+		</td>	
+		<td width="3"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Course to make :
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="course" id="course" size="10" maxlength="10" value=""> degrees true
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance to make :
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dist" id="dist" size="10" maxlength="10" value=""> nautical miles
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Culmulative Distnace :
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="tdist" id="tdist" size="10" maxlength="10" value=""> nautical miles
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+
+</form>

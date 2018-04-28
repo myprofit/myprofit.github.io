@@ -1,0 +1,208 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.lat.value = ""
+        form.lat_sign.value = "North"
+        form.dec.value = ""
+        form.dec_sign.value = "North"
+        form.riseorset.value = "Rising"
+        form.bearing.value = ""
+  }
+  function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+  
+  function swapsign(sign_in)
+  {
+	if (sign_in.value == "North")
+		sign_in.value = "South";
+	else 
+		sign_in.value = "North";
+      
+      return sign_in.value;
+  }
+
+function swaprise(rise_in)
+  {
+	if (rise_in.value == "Rising")
+		rise_in.value = "Setting";
+	else 
+		rise_in.value = "Rising";
+      
+      return rise_in.value;
+  }
+
+	function compute(obj)
+	{
+		
+
+		// Convert inputs to radians
+		lat = deg2rad(obj.lat.value);
+            if (obj.lat_sign.value == "South") lat = -lat;
+		dec = deg2rad(obj.dec.value);
+            if (obj.dec_sign.value == "South") dec = -dec;
+
+		// Compute the result
+ 
+		result = Math.asin((1/Math.cos(lat)) * Math.sin(dec));
+            result = Math.round(rad2deg(result)* 100)/100;
+            obj.amp.value = result;
+            obj.amp_sign.value = "North";
+            if (obj.amp.value < 0) 
+                {obj.amp.value = Math.abs(obj.amp.value);
+                 obj.amp_sign.value = "South";}
+            if (obj.riseorset.value == "Rising")
+                 obj.amp_dir.value = "East";
+            if (obj.riseorset.value == "Setting")
+                 obj.amp_dir.value = "West";
+
+            if (obj.amp_dir.value == "East")
+                 obj.az.value = 90 - result;
+            if (obj.amp_dir.value == "West")
+                 obj.az.value = 270 + result;
+
+            obj.compass_error.value =(obj.bearing.value - obj.az.value)
+            if (obj.compass_error.value < 0)
+                 obj.error_sign.value = "East";
+            if (obj.compass_error.value > 0)
+                 obj.error_sign.value = "West";
+            if (obj.compass_error.value == 0)
+                 obj.error_sign.value = "    ";
+            obj.compass_error.value = Math.abs(obj.compass_error.value)
+            obj.compass_error.value = (Math.round(obj.compass_error.value * 10))/10
+
+     
+	}
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Compass Error from Amplitudes Observed on the Celestial Horizon
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			 Latitude of the Observer:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat" id="lat" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="lat_sign" id="lat_sign" size="5" maxlength="10" value="North">
+						<input type="button" value="N/S" onClick="swapsign(form.lat_sign,form.one)"> 
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+		<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			 Declination of the Celestial Body: <br>(Sun, Star or Planet)
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="dec" id="dec" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="dec_sign" id="dec_sign" size="5" maxlength="10" value="North">
+						<input type="button" value="N/S" onClick="swapsign(form.dec_sign)">
+						<input type="text" name="riseorset" value="Rising" size="10" maxlength="10">
+						<input type="button" value="Rising/Setting" onClick="swaprise(form.riseorset)"> 
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+		<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			 Compass Bearing:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="bearing" id="bearing" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Amplitude:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="amp_dir" size="5" maxlength="10" value="">
+			<input type="text" name="amp" id="amp" size="10" maxlength="10" value=""> (degrees)
+			<input type="text" name="amp_sign" size="5" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Azimuth (Zn):
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="az" size="10" maxlength="10" value=""> (degrees)
+		</td>
+		<td width="2"></td>
+	</tr>
+		<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Compass Error:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="compass_error" id="compass_error" size="10" maxlength="10" value=""> (degrees)
+			<input type="text" name="error_sign" id="error_sign" size="5" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

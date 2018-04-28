@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<!-- Distance in Nautical Miles and Statute Miles of the visible
+	sea horizon for various heights of eye in feet
+	
+	D = Square Root( (2 * r0 * hf)/(6076.1 * B0) )
+
+	D is the distance to the horizon in nautical miles
+	r0 is the mean radius of the earth (3440.1 nautical miles)
+	hf is the height of eye in feet
+	B0 (0.8279) accounts for terrestrial refraction.
+
+	Formula simplifies to:
+
+	Distance in Nautical Miles: 1.169 * Square Root(hf)
+	Distance in Statute Miles:  1.346 * Square Root(hf)
+-->
+<br>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Hide script from non-supportive browsers
+
+  function fclear(form)
+ {
+        form.units[0].checked = true
+        form.height.value = ""
+        form.nautical.value = ""
+        form.statute.value = ""
+ }
+
+  function compute(obj)
+ {
+	val = obj.height.value;
+
+	// Convert meters to feet if necessary
+	if (obj.units[1].checked)
+		val = val * 3.2808399;
+    obj.nautical.value = 1.169 * (Math.sqrt(val))
+    obj.statute.value  = 1.346 * (Math.sqrt(val))
+  }
+// End hide script -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Distance of the Horizon
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			Given the Height of Eye, Compute the Distance to the Horizon
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of eye (specify units): 
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="height" id="height" size="10" maxlength="10" value="">
+						<input type=radio name="units" value="feet" checked> feet
+						<input type=radio name="units" value="meters"> meters
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance to the Horizon:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<table>
+				<tr>
+					<td>
+						<input type="text" name="nautical" id="nautical" size="10" maxlength="10" value=""> (Nautical Miles)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="statute" id="statute" size="10" maxlength="10" value=""> (Statute Miles)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

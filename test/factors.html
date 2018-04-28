@@ -1,0 +1,250 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.lat.value = ""
+        form.dec.value = ""
+        form.factor.value = ""
+        form.factor2.value = ""
+        form.meridian.value = ""
+        form.delta.value = ""
+        form.transit[0].checked = true
+  }
+
+  function deg2rad(deg)
+  {
+        conv_factor = (2.0 * Math.PI)/360.0;
+        return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+        conv_factor = 360/(2.0 * Math.PI);
+        return(rad * conv_factor);
+  }
+
+  function swapsign(sign_in)
+  {
+        if (sign_in.value == "North")
+                sign_in.value = "South";
+        else 
+                sign_in.value = "North";
+      return sign_in.value;
+  }
+
+
+	function compute(obj)
+  	{  		
+        // Set up constants
+        sec_const = 1.9635;             // seconds of arc
+
+        // Convert inputs to radians
+        lat = deg2rad(obj.lat.value);
+      	if (obj.lat_sign.value == "South") lat = -lat;
+        	dec = deg2rad(obj.dec.value);
+      	if (obj.dec_sign.value == "South") dec = -dec;
+      	if (obj.transit[1].checked) dec = -dec;
+
+        // Compute the result
+        result = Math.cos(lat) * Math.cos(dec) * ( 1 / Math.sin(lat - dec));
+      	result = Math.abs(sec_const * result);
+
+        // The above calculation is wrong the operator between lat & dec in the
+        // sin calculation is in question
+
+        // Place result in output of this form and input of next form
+        obj.factor2.value = result;
+        obj.factor.value = result;
+	}
+
+  function compute2(obj)
+  {
+
+        // Compute the result
+        result = obj.factor2.value * Math.pow(obj.meridian.value, 2) / 60;
+
+        // Place result in output
+        obj.delta.value = result;
+  }
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Altitude Factors and Change of Altitude in a Given Time from Meridian Transit
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			Altitude Factors: This form calculates the change in the altitude 
+			of a celestial body in one miute of time from meridian transit.  
+			The values are accurate if the altitude is between 6&deg; and 
+			86&deg;, the lattitude is not more than 60&deg;, and the 
+			declination is not more than 63&deg;.  The result is used as 
+			input to the following form.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude of the Observer:
+		</td>	
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat" id="lat" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="lat_sign" id="lat_sign" value="North" size="5" maxlength="10">
+						<input type="button" value="N/S" onClick="swapsign(form.lat_sign)">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Declination of the Celestial Body:
+		</td>	
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="dec" id="dec" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="dec_sign" id="dec_sign" value="North" size="5" maxlength="10">
+						<input type="button" value="N/S" onClick="swapsign(form.dec_sign)">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Transit:
+		</td>	
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="radio" name="transit" id="transit" value="upper" checked> Upper Transit &nbsp&nbsp;
+						<input type="radio" name="transit" id="transit" value="lower"> Lower Transit
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Altitude Factor:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="factor" id="factor" size="10" maxlength="10" value=""> (seconds of arc)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+<br><br><br>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Change of Altitude in Given Time from Meridian Transit
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Altitude Factor: <br> (from above)
+		</td>	
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="factor2" id="factor2" size="10" maxlength="10" value=""> (seconds of arc)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Meridian Angle:
+		</td>	
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="meridian" id="meridian" size="10" maxlength="10" value=""> (minutes of time)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="compute2(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Change of Altitude:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="delta" id="delta" size="10" maxlength="10" value=""> (minutes of arc)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+
+</form>

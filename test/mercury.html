@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE=JavaScript>
+<!-- Hide JavaScript from unsupportive browsers
+
+  function fclear(form)
+  {
+        form.meas[0].checked = true
+        form.mb.value = ""
+        form.inch.value = ""
+        form.mm.value = ""
+  }
+
+  function in2mm(inch)
+  {
+	return(inch / 0.03937);
+  }
+
+  function in2mb(inch)
+  {
+	return(inch / 0.0295300);
+  }
+
+  function mm2in(mm)
+  {
+	return(mm * 0.03937);
+  }
+
+  function mb2in(mb)
+  {
+	return(mb * 0.0295300);
+  }
+
+
+	function compute(obj) {
+		
+		// Setup constants
+		mb = 0;		// millibars index
+		inch = 1;	// inches index
+		mm = 2;		// millimeters index
+
+		if (obj.meas[mb].checked) {
+			// Convert from millibars
+			obj.inch.value = mb2in(obj.mb.value);
+			obj.mm.value = in2mm(obj.inch.value);
+		} else if (obj.meas[inch].checked) {
+			// Convert from inches
+			obj.mb.value = in2mb(obj.inch.value);
+			obj.mm.value = in2mm(obj.inch.value);
+		} else	/* obj.meas[mm].checked */ {
+			// Convert from millimeters
+			obj.inch.value = mm2in(obj.mm.value);
+			obj.mb.value = in2mb(obj.inch.value);
+		}
+
+	}
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Barometer Measurement Conversions
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This form allows conversion from one barometer measurement scale to the others.
+			Indicate value you are supplying by selecting the appropriate radio button.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+					Millibars:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=radio name="meas" checked>
+						<input type="text" name="mb" id="mb" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+					Inches:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=radio name="meas">
+						<input type="text" name="inch" id="inch" size="10" maxlength="10" value="">	
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+					Millimeters:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=radio name="meas">
+						<input type="text" name="mm" id="mm" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+</form>

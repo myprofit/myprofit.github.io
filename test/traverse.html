@@ -1,0 +1,345 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from unsupportive browsers
+
+  function fclear(form)
+  {
+        form.angle_deg.value = ""
+        form.angle_min.value = ""
+        form.dlat_deg.value = ""
+        form.dlat_min.value = ""
+        form.dep.value = ""
+        form.dist.value = ""
+  }
+
+  function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+
+  function compute(obj)
+  {
+	// Get angle & convert to radians
+	deg = parseFloat(obj.angle_deg.value);
+	min = parseFloat(obj.angle_min.value);
+
+	if ((isNaN(deg)) && (isNaN(min)))
+	{
+		angle = Number.NaN;
+	}
+	else
+	{
+		deg = deg2rad(obj.angle_deg.value);
+		min = deg2rad(obj.angle_min.value/60);
+
+		// Handle negative angles
+		if ((deg < 0) && (min >= 0))
+			min *= -1;
+
+		angle = deg + min;
+
+		// adjust angle to be in first quadrant
+		if (angle > (2 * Math.PI))
+			angle = (angle % (2 * Math.PI));
+			//angle = (2 * Math.PI) * (angle % (2 * Math.PI));
+		//alert(angle);
+		if ((angle > (Math.PI / 2)) && (angle <= Math.PI))
+			angle = Math.PI - angle;
+		else if ((angle > Math.PI) && (angle <= ((3 * Math.PI) / 2)))
+			angle = angle - Math.PI;
+		else if ((angle > ((3 * Math.PI) / 2)) && (angle <= (2 * Math.PI)))
+			angle = (2 * Math.PI) - angle;
+	}
+
+	// Get Difference of Latitude and convert to arc minutes
+	deg = parseFloat(obj.dlat_deg.value);
+	min = parseFloat(obj.dlat_min.value);
+
+	if ((isNaN(deg)) && (isNaN(min)))
+	{
+		dlat = Number.NaN;
+	}
+	else
+	{
+		if (isNaN(deg))
+			deg = 0;
+		if (isNaN(min))
+			min = 0;
+
+		dlat = (deg * 60) + min;
+	}
+	
+	// Get Departure and Distance
+	dep = parseFloat(obj.dep.value);
+	dist = parseFloat(obj.dist.value);
+
+
+	// Find out which values to calculate and calculate them
+	if (obj.anglecb.checked)	// calculate angle
+	{
+		if (((isNaN(dep)) || (isNaN(dlat))) && !((isNaN(dep)) && (isNaN(dlat))))
+		{
+			if (isNaN(dist))
+			{
+				alert("Insufficient data given to calculate Course Angle.  " +
+					  "Computations cancelled.");
+				return;
+			}
+			else if (isNaN(dep))
+			{
+				cos_angle = dlat/dist;
+				result = rad2deg(Math.acos(cos_angle));
+			}
+			else // (isNan(dlat))
+			{
+				sin_angle = dep/dist;
+				result = rad2deg(Math.asin(sin_angle));
+			}
+		}
+		else if ((isNaN(dep)) && (isNaN(dlat)))
+		{
+			alert("Insufficient data given to calculate Course Angle.  " +
+				  "Computations cancelled.");
+			return;
+		}
+		else
+		{
+			tan_angle = dep/dlat;
+			result = rad2deg(Math.atan(tan_angle));
+		}
+
+		deg = Math.floor(result);
+		min = 60 * (parseFloat(result) - parseFloat(deg));
+		obj.angle_deg.value = deg;
+		obj.angle_min.value = min;
+
+	} // end calculate angle
+
+	if (obj.dlatcb.checked)		// calculate Difference of Latitude
+	{
+		if (((isNaN(dist)) || (isNaN(angle))) && 
+				!((isNaN(dist)) && (isNaN(angle))))
+		{
+			if (isNaN(dep))
+			{
+				alert("Insufficient data given to calculate Difference of " +
+					  "Latitude.  Computations cancelled.");
+				return;
+			}
+			else if (isNaN(dist))
+			{
+				result = dep/Math.tan(angle);
+			}
+			else // (isNan(angle))
+			{
+				dlat_sq = Math.pow(dist, 2) - Math.pow(dep, 2);
+				result = Math.sqrt(dlat_sq);
+			}
+		}
+		else if ((isNaN(dist)) && (isNaN(angle)))
+		{
+			alert("Insufficient data given to calculate Difference of " +
+				  "Latitude.  Computations cancelled.");
+			return;
+		}
+		else
+		{
+			result = dist * Math.cos(angle);
+		}
+
+		// result is in arc minutes
+		result /= 60;	// convert to degrees
+		deg = Math.floor(result);
+		min = 60 * (parseFloat(result) - parseFloat(deg));
+		obj.dlat_deg.value = Math.abs(deg);
+		obj.dlat_min.value = Math.abs(min);
+
+	} // end calculate Difference of Latitude
+
+	if (obj.depcb.checked)		// calculate Departure
+	{
+		if (((isNaN(dist)) || (isNaN(angle))) && 
+				!((isNaN(dist)) && (isNaN(angle))))
+		{
+			if (isNaN(dlat))
+			{
+				alert("Insufficient data given to calculate Departure.  " +
+					  "Computations cancelled.");
+				return;
+			}
+			else if (isNaN(dist))
+			{
+				result = dlat * Math.tan(angle);
+			}
+			else // (isNan(angle))
+			{
+				dep_sq = Math.pow(dist, 2) - Math.pow(dlat, 2);
+				result = Math.sqrt(dep_sq);
+			}
+		}
+		else if ((isNaN(dist)) && (isNaN(angle)))
+		{
+			alert("Insufficient data given to calculate Departure.  " +
+				  "Computations cancelled.");
+			return;
+		}
+		else
+		{
+			result = dist * Math.sin(angle);
+		}
+
+		obj.dep.value = Math.abs(result);
+
+	} // end calculate Departure
+
+	if (obj.distcb.checked)		// calculate Distance
+	{
+		if (((isNaN(dep)) || (isNaN(dlat))) && !((isNaN(dep)) && (isNaN(dlat))))
+		{
+			if (isNaN(angle))
+			{
+				alert("Insufficient data given to calculate Distance.  " +
+					  "Computations cancelled.");
+				return;
+			}
+			else if (isNaN(dep))
+			{
+				result= dlat * (1/Math.cos(angle));
+			}
+			else // (isNan(dlat))
+			{
+				result = dep / Math.sin(angle);
+			}
+		}
+		else if ((isNaN(dep)) && (isNaN(dlat)))
+		{
+			alert("Insufficient data given to calculate Distance.  " +
+				  "Computations cancelled.");
+			return;
+		}
+		else
+		{
+			dist_sq = Math.pow(dep, 2) + Math.pow(dlat, 2);
+			result = Math.sqrt(dist_sq);
+		}
+
+		obj.dist.value = Math.abs(result);
+
+	} // end calculate Departure
+  }
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Traverse
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This page allows calculation of the data in the Traverse table. 
+			Enter known data in the appropriate fields. Place checkmarks 
+			next to the fields you want calculated. (Note: At least two of 
+			the four values must be provided.) 
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Course Angle:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="checkbox" name="anglecb" onclick="if (this.checked) {evalForm.angle_deg.value = ''; evalForm.angle_min.value = '';}">
+						<input type="text" name="angle_deg" id="angle_deg" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="angle_min" id="angle_min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Difference of Latitude:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="checkbox" name="dlatcb" onclick="if (this.checked) {evalForm.dlat_deg.value = ''; evalForm.dlat_min.value = '';}">
+						<input type="text" name="dlat_deg" id="dlat_deg" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="dlat_min" id="dlat_min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Departure:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="checkbox" name="depcb" onclick="if (this.checked) {evalForm.dep.value = '';}">
+						<input type="text" name="dep" id="dep" size="10" maxlength="10" value=""> (Nautical Miles)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance:
+		</td>	
+		<td align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="checkbox" name="distcb" onclick="if (this.checked) {evalForm.dep.value = '';}">
+						<input type="text" name="dist" id="dist" size="10" maxlength="10" value=""> (Nautical Miles)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+</form>

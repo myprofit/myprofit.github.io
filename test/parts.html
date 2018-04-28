@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT>
+
+<!-- hide JavaScript from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.deg.value = ""
+        form.min.value = ""
+        form.parts.value = ""
+  }
+
+  function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+
+	function log10(val)  // calculate the log base 10 of val
+	{ return(Math.LOG10E * Math.log(val)); }
+
+	function compute(obj) // Compute meridional parts
+	{
+		// Convert latitude to radians
+		lat = deg2rad(obj.deg.value) + deg2rad(obj.min.value/60);
+
+		// Set up "Constants" (as specified in Bowditch, page 552)
+		// (a) Equatorial radius of earth in minutes of arc of the equator
+		a = 21600/(2 * Math.PI);
+		// (f) Earth's flattening
+		f = 1/298.26;
+		// (e) Eccentricity of the Earth
+		e = Math.sqrt((2 * f) - Math.pow(f, 2));
+
+		// Compute the result
+		// Compute first 4 terms of result
+		M = (a * Math.log(10) * log10((Math.tan(deg2rad(45) + (lat/2.0))))) -
+			(a * (
+				  ((Math.pow(e,2)) * Math.sin(lat)) +
+				  ((Math.pow(e,4) / 3.0) * Math.pow(Math.sin(lat), 3)) +
+				  ((Math.pow(e,6) / 5.0) * Math.pow(Math.sin(lat), 5))
+				 )
+			);
+		
+		obj.parts.value = M;
+	}
+<!-- end of hide of Javascript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Meridional Parts
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This page allows calculation of the meridional parts used in the 
+			construction of Mercator charts and in Mercator sailing for each 
+			minute of latitude from the equator to the poles. <br><br>
+			Enter the latitude for which the meridional part is desired. 
+			Latitudes may either be entered as decimal degrees by only 
+			filling in the degrees field or as degrees and minutes by 
+			entering the values in the appropriate fields.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="deg" id="deg" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="text" name="min" id="min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Calculated Meridional Parts:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="parts" id="parts" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

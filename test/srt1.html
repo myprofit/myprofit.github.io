@@ -1,0 +1,260 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Hide JavaScript from unsupportive browsers
+
+function fclear(form)
+  {
+        form.lat_deg.value = ""
+        form.lat_min.value = ""
+        form.dec_deg.value = ""
+        form.dec_min.value = ""
+        form.lha_deg.value = ""
+        form.lha_min.value = ""
+        form.orient[0].checked = true
+  }
+
+function dm2dd(deg_in, min_in)
+  {
+	deg = parseFloat(deg_in);
+	min = parseFloat(min_in);
+	if (isNaN(deg))
+		deg = 0;
+	if (isNaN(min))
+		min = 0;
+
+	// Handle negative angles
+	if ((deg < 0) && (min >= 0))
+		min *= -1;
+
+	angle = deg + (min/60);
+
+	return(angle);
+  }
+
+
+function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+
+function myParseFloat(value)
+  {
+	floatValue = parseFloat(value);
+	if (isNaN(floatValue))
+		floatValue = 0;
+	return floatValue;
+  }
+
+
+
+  function compute(obj)
+  {
+   // Get input values, parse them for float values and redisplay floats
+   lat_deg = myParseFloat(obj.lat_deg.value);
+   lat_min = myParseFloat(obj.lat_min.value);
+   dec_deg = myParseFloat(obj.dec_deg.value);
+   dec_min = myParseFloat(obj.dec_min.value);
+   lha_deg = myParseFloat(obj.lha_deg.value);
+   lha_min = myParseFloat(obj.lha_min.value);
+   obj.lat_deg.value = lat_deg;
+   obj.lat_min.value = lat_min;
+   obj.dec_deg.value = dec_deg;
+   obj.dec_min.value = dec_min;
+   obj.lha_deg.value = lha_deg;
+   obj.lha_min.value = lha_min;
+
+	// Get angles & convert to radians
+	lat = deg2rad(dm2dd(lat_deg, lat_min));
+	dec = deg2rad(dm2dd(dec_deg, dec_min));
+	lha = deg2rad(dm2dd(lha_deg, lha_min));
+
+	if (obj.orient[1].checked)
+		lat *= -1;
+
+        // NSSdr03363 VLL  Deviation for Pub 229 calculator. Modified the label Azimuth to read as Azimuth Angle.  
+	// Calculate Altitude (Hc) and Azimuth Angle (Z)
+	s = Math.sin(dec);
+	c = Math.cos(dec) * Math.cos(lha);
+	result = Math.asin((s * Math.sin(lat)) + (c * Math.cos(lat)));
+	x = (s * (Math.cos(lat)) - (c * Math.sin(lat))) / Math.cos(result);
+	if (x > 1)
+		x = 1;
+	else if (x < -1)
+		x = -1;
+	a = Math.acos(x);
+
+	if (obj.orient[1].checked)
+		a = Math.PI - a;
+
+	dd = rad2deg(result);
+	al_deg = parseInt(dd);
+	al_min = ((dd - al_deg) * 60);
+
+	az = rad2deg(a);
+	az_deg = parseInt(az);
+	az_min = ((az - az_deg) * 60);
+
+
+	obj.hc_deg.value = al_deg;
+	obj.hc_min.value = Math.abs(al_min);
+	obj.az_deg.value = az_deg;
+	obj.az_min.value = Math.abs(az_min);
+  }
+// End hide JavaScript -->
+
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Pub 229
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This page allows calculation of the data in the Sight Reduction 
+			Tables for Marine Navigation (Pub. No. 229). <br><br>
+			The main purpose of this calculator is to facilitate the practice 
+			of celestial navigation at sea.&nbsp; A secondary purpose is to 
+			provide the solutions of a spherical triangle of which two sides 
+			and the included angle are known and it is necessary to find the 
+			values of the third side and adjacent angle.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat_deg" id="lat_deg" size="10" maxlength="10" value=""> (degrees)
+					</td>
+					<td align="left" nowrap>
+						<input type="radio" name="orient" value="same" checked> Same name as declination
+					</td>
+				</tr>
+				<tr>
+					<td align="left">						
+						<input type="text" name="lat_min" id="lat_min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+					<td align="left" nowrap>
+						<input type="radio" name="orient" value="cont"> Contrary name as declination
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Declination:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="dec_deg" id="dec_deg" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">						
+						<input type="text" name="dec_min" id="dec_min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Local Hour Angle (LHA):
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lha_deg" id="lha_deg" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">						
+						<input type="text" name="lha_min" id="lha_min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(document.evalForm)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Altitude (Hc):
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="hc_deg" id="hc_deg" size="10" maxlength="10" value=""> (degrees)
+		</td>
+		<td width="2"></td>
+	</tr>
+		<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="hc_min" id="hc_min" size="10" maxlength="10" value=""> (minutes)
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Azimuth (Z):
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="az_deg" id="az_deg" size="10" maxlength="10" value=""> (degrees)
+		</td>
+		<td width="2"></td>
+	</tr>
+		<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="az_min" id="az_min" size="10" maxlength="10" value=""> (minutes)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

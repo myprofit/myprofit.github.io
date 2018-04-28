@@ -1,0 +1,207 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Hide JavaScript from non-supportive browsers
+
+        function fclear(form)
+        {
+         form.trig[0].checked = true 
+         form.expr.value = ""
+         form.result.value = ""
+        }
+
+	function deg2rad(deg)  // convert degrees to radians
+	{ return(deg * ((2.0 * Math.PI)/360.0)); }
+
+	function rad2deg(rad)  // convert radians to degrees
+	{ return(rad * (360/(2.0 * Math.PI))); }
+
+	function cot(val)  // compute the cotangent of val
+	{ return(Math.cos(val)/Math.sin(val)); }
+
+	function sec(val)  // compute the secant of val
+	{ return(1/Math.cos(val)); }
+
+	function csc(val)  // compute the cosecant of val
+	{ return(1/Math.sin(val)); }
+
+	function log10(val) // compute the base 10 log of val
+	{ return(Math.LOG10E * Math.log(val)); }
+
+	function checkNaN(val) // convert NaN to +/- Infinity
+	{
+		if (isNaN(val))
+		{
+			if (val < 0)
+				return(Number.NEGATIVE_INFINITY);
+			else
+				return(Number.POSITIVE_INFINITY);
+		}
+		else
+			return(val);
+	}
+
+	function compute(obj)
+	{
+		// Evaluate the expression entered by the user.
+		if (obj.expr.value == "" && obj.trig[0].checked)
+                 {
+			val = 0;
+                 }
+		else
+                 {
+			val = parseFloat(obj.expr.value);
+
+		// If a trig function is being applied, convert value to radians.
+		// (we assume the value entered was in degrees)
+		if (!obj.trig[0].checked) // The "none" radio button is not checked
+			val = deg2rad(val);
+
+		// Apply any trig functions.  The function to be applied is coded in the
+		// name of the radio button selected so we just tack on "()" to the end
+		// of it and put the value in between the parentheses.  We then evaluate
+		// the resulting string to get the desired result.
+		len = obj.trig.length;
+		for (i = 0; i < len; i++)
+			if (obj.trig[i].checked)
+				expr = obj.trig[i].value + "(" + val + ")";
+			
+		// Evaluate the expression to obtain the result.
+		val = checkNaN(eval(expr));
+
+		// Apply log10 function if requested
+		if (obj.log.checked)
+			val = checkNaN(log10(val));
+
+		// Place the result in the text field
+                 }
+		obj.result.value = val;
+
+	} // end function compute
+
+// End hide JavaScript from non-supportive browsers -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Logarithmic and Trigonometric Functions Calculator
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This calculator will calculate logarithms, trigonometric 
+			functions, and the logarithms of trigonometric functions.<br><br>
+			Enter the value you want to apply the function to in the field 
+			on the right. To calculate the logarithm of the value, check the 
+			logarithm box. To calculate the trigonometric function on the 
+			value, select the desired function from the list. To calculate 
+			the logarithm of a trigonometric function applied to the value, 
+			check the logarithm box and choose a trigonometric function. 
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Check to compute the logarithm:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="checkbox" name="log"></font> log<sub>10</sub>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Choose a trigonometric function (or none):
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="radio" name="trig" value="eval" checked> none
+					</td>
+					<td align="left">
+						<input type="radio" name="trig" value="Math.sin"> sine
+					</td>
+					<td align="left">
+						<input type="radio" name="trig" value="Math.cos"> cosine
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="radio" name="trig" value="Math.tan"> tangent
+					</td>
+					<td align="left">
+						<input type="radio" name="trig" value="cot"> cotangent
+					</td>
+					<td align="left">
+						<input type="radio" name="trig" value="sec"> secant
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="radio" name="trig" value="csc"> cosecant
+					</td>
+					<td colspan="2"></td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Enter a value:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=text size="10" name="expr"> (Enter all angles in decimal degrees)  
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Result:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="result" id="result" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

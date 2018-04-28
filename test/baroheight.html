@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE=JavaScript>
+<!-- Hide JavaScript from unsupportive browsers
+
+  function fclear(form)
+  {
+        form.temp.value = ""
+        form.height.value = ""
+        form.correction.value = ""
+  }
+
+  function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+  }
+
+  function compute(obj)
+  {
+	// Get height of barometer
+	height = parseFloat(obj.height.value);
+	if (isNaN(height))
+	{
+		alert("Please supply a valid value for Height of the Barometer above Sea Level");
+		return;
+	}
+
+	// Get temperature
+	temp = parseFloat(obj.temp.value);
+	if (isNaN(temp))
+	{
+		alert("Please supply a valid value for Temperature");
+		return;
+	}
+
+	// Convert temperature to Rankine scale
+	temp += 459.67;
+
+	// Calculate correction
+	result = 29.92126 * (1 - (1 / Math.pow(10, ((0.0081350 * height) /
+												(temp + (0.00178308 * height))
+												))));
+
+	// Put result in output field
+	obj.correction.value = result;
+
+  }
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Correction of Barometer Reading for Height Above Sea Level
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of the Barometer Above Sea Level:
+
+		</td>
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="height" id="height" size="10" maxlength="10" value=""> (feet)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+			<td class="nga-queryLabel" align="left" valign="middle">
+				Outside Temperature:
+
+			</td>
+			<td width="300" align="center" class="nga-queryValueCell">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td align="left">
+							<input type="text" name="temp" id="temp" size="10" maxlength="10" value=""> (° F)
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Barometer Correction:
+		</td>
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="correction" id="correction" size="10" maxlength="10" value=""> (inches of mercury)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

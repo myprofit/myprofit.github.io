@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Hide script from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.units[0].checked = true
+        form.eye.value = ""
+        form.obstruct.value = ""
+        form.dip.value = ""
+  }
+
+  function dipcomp(obj)
+  {
+	eye = obj.eye.value;
+	obstruct = obj.obstruct.value;
+
+	// Convert meters to feet if necessary
+	if (obj.units[1].checked)
+		eye = eye * 3.2808399;
+
+	// Account for normal dip, the visible horizon being between the observer
+	// and the obstruction.
+	if (eye <= 5)
+		obstruct = Math.min(2.6, obstruct);
+	else if (eye <= 10)
+		obstruct = Math.min(3.6, obstruct);
+	else if (eye <= 15)
+		obstruct = Math.min(4.4, obstruct);
+	else if (eye <= 20)
+		obstruct = Math.min(5.0, obstruct);
+	else if (eye <= 25)
+		obstruct = Math.min(5.5, obstruct);
+	else if (eye <= 30)
+		obstruct = Math.min(6.0, obstruct);
+	else if (eye <= 35)
+		obstruct = Math.min(6.5, obstruct);
+	else if (eye <= 40)
+		obstruct = Math.min(7.0, obstruct);
+	else if (eye <= 45)
+		obstruct = Math.min(7.5, obstruct);
+	else if (eye <= 50)
+		obstruct = Math.min(8.0, obstruct);
+	else if (eye <= 60)
+		obstruct = Math.min(8.5, obstruct);
+	else if (eye <= 65)
+		obstruct = Math.min(9.0, obstruct);
+	else if (eye <= 75)
+		obstruct = Math.min(9.5, obstruct);
+
+     obj.dip.value = 60 * (Math.atan((eye / (6076.1 * obstruct) +
+										(0.8321 * obstruct) / (2 * 3440.1)
+										)) * (360 / (2 * Math.PI)))
+  }
+// End hide script -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Dip of the Sea Short of the Horizon
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of Eye of the Observer Above Sea Level (specify units): 
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="eye" id="eye" size="10" maxlength="10" value="">
+						<input type=radio name="units" value="feet" checked> feet
+						<input type=radio name="units" value="meters"> meters
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance to the Waterline of the Obstruction: 
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="obstruct" id="obstruct" size="10" maxlength="10" value=""> (Nautical Miles)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="dipcomp(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Dip short of the Sea Horizon:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dip" id="dip" size="10" maxlength="10" value=""> (Minutes of Arc)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

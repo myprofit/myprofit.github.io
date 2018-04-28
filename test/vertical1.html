@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Hide script from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.units1[0].checked = true
+        form.units2[0].checked = true
+        form.deg.value = ""
+        form.min.value = ""
+        form.object.value = ""
+        form.eye.value = ""
+        form.dist.value = ""
+  }
+
+  function deg2rad(deg)
+  {
+        conv_factor = (2.0 * Math.PI)/360.0;
+        return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+        conv_factor = 360/(2.0 * Math.PI);
+        return(rad * conv_factor);
+  }
+
+	function compute(obj)
+	{
+		// Set up constants (for terrestrial refraction)
+		t1 = 0.0002419;
+		t2 = 0.7349;
+
+		// Get Angle and convert to radians
+		deg = obj.deg.value;
+		min = obj.min.value;
+
+		if (deg < 0)
+			min *= -1;
+
+		alpha = deg2rad(deg) + deg2rad(min/60);
+
+		// Capture heights and convert to feet if necessary
+		H = obj.object.value;
+		h = obj.eye.value;
+
+        if (obj.units1[1].checked)
+                H = H * 3.2808399;
+        if (obj.units2[1].checked)
+                h = h * 3.2808399;
+
+		diff = H - h;
+
+		// Get tangent of the angle
+		tan_a = Math.tan(alpha);
+
+		// Compute the distance in nautical miles
+		obj.dist.value = Math.sqrt(Math.pow((tan_a/t1),2) + (diff/t2)) -
+							(tan_a/t1);
+
+	} // end function compute
+// End hide script -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			Distance by Vertical Angle Measured Between Sea Horizon and Top of Object Beyond Sea Horizon
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Corrected Vertical Angle:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="deg" id="deg" size="10" maxlength="10" value=""> (degrees)
+						<input type="text" name="min" id="min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of Object Above Horizon (specify units):
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="object" id="object" size="10" maxlength="10" value="">
+						<input type="radio" name="units1" value="feet" checked> feet
+						<input type="radio" name="units1" value="meters"> meters
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of the Eye of the Observer (specify units): 
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="eye" id="eye" size="10" maxlength="10" value="">
+						<input type="radio" name="units2" value="feet" checked> feet
+						<input type="radio" name="units2" value="meters"> meters
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dist" id="dist" size="10" maxlength="10" value=""> (Nautical Miles)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

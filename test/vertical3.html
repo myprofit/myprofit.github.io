@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- // Hide script from non-supportive browsers
+
+function fclear(form)
+  {
+        form.units[0].checked = true
+        form.deg.value = ""
+        form.min.value = ""
+        form.eye.value = ""
+        form.dist.value = ""
+  }
+
+function F2C(F)
+  {
+	return((5/9) * (parseFloat(F) - 32));
+  }
+
+function myParseFloat(value)
+  {
+	floatValue = parseFloat(value);
+	if (isNaN(floatValue))
+		floatValue = 0;
+	return floatValue;
+  }
+
+
+function deg2rad(deg)
+  {
+	conv_factor = (2.0 * Math.PI)/360.0;
+	return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+	conv_factor = 360/(2.0 * Math.PI);
+	return(rad * conv_factor);
+}
+
+
+	function compute(obj)
+	{
+		// Set up constants
+		beta = 0.8279	// terrestrial refraction
+		rho = 3440.1	// mean radius of earth in nautical miles
+
+		// Get Angle and convert to radians
+		deg = obj.deg.value;
+		min = obj.min.value;
+
+		if (deg < 0)
+			min *= -1;
+
+		alpha = deg2rad(deg) + deg2rad(min/60);
+
+		// Capture height and convert to feet if necessary
+		h = obj.eye.value;
+
+        	if (obj.units[1].checked)
+                h *= 3.2808399;
+
+		//  Then convert to nautical miles
+		h = h / 6076.1154;
+
+		// Get tangent of the angle
+		tan_a = Math.tan(alpha);
+
+		// Calculate equation components
+		B = Math.sqrt(2*beta*(h/rho))
+		A = (tan_a + B)*(1 - tan_a * B)
+
+		// Compute the distance in yards              
+		
+		obj.dist.value = 2025.3718 *(A*rho - Math.sqrt(Math.pow(A*rho,2) - 								2*h*rho*beta))/beta ;
+	} // end function compute
+// End hide script -->
+</SCRIPT>
+
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Distance by Vertical Angle Measured Between Waterline at Object and Sea Horizon Beyond Object
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Corrected Vertical Angle:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="deg" id="deg" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="text" name="min" id="min" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Height of the Eye of the Observer (specify units): 
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="eye" id="eye" size="10" maxlength="10" value="">
+						<input type="radio" name="units" value="feet" checked> feet
+						<input type="radio" name="units" value="meters"> meters
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance in Yards:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dist" id="dist" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

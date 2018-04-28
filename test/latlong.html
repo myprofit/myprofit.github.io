@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaSript from non-supportive browsers
+
+  function fclear(form)
+  {
+     form.lat.value = ""
+     form.azimuth.value = ""
+     form.latitude.value = ""
+     form.longitude.value = ""
+  }
+
+  function compute(obj)
+  {
+     obj.latitude.value = Math.cos( (obj.lat.value * Math.PI)/180 ) *
+							Math.tan( (obj.azimuth.value * Math.PI)/180 );
+     
+     obj.longitude.value = (1/Math.cos((obj.lat.value*Math.PI)/180)) *
+							(1/Math.tan((obj.azimuth.value*Math.PI)/180));
+  }
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Latitude and Longitude Factors
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Latitude:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="lat" id="lat" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Azimuth:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="azimuth" id="azimuth" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="right">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			The Change of Latitude for a Unit Change in Longitude:
+		</td>	
+		<td align="left" class="nga-queryValueCell">
+			<input type="text" name="latitude" id="latitude" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			The Change of Longitude for a Unit Change in Latitude:
+		</td>	
+		<td align="left" class="nga-queryValueCell">
+			<input type="text" name="longitude" id="longitude" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

@@ -1,0 +1,153 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from unsupportive browsers
+
+  function fclear(form)
+  {
+        form.temp[0].checked = true
+        form.F.value = ""
+        form.C.value = ""
+        form.K.value = ""
+  }
+
+  function C2K(C)
+  {
+	return(parseFloat(C) + 273.15);
+  }
+
+  function C2F(C)
+  {
+	return((9/5) * C) + 32;
+  }
+
+  function K2C(K)
+  {
+	return(parseFloat(K) - 273.15);
+  }
+
+  function F2C(F)
+  {
+	return((5/9) * (parseFloat(F) - 32));
+  }
+
+
+  function compute(obj)
+  {
+	// Setup constants
+	F = 0;		// Fahrenheit index
+	C = 1;		// Celcius index
+	K = 2;		// Kelvin index
+
+	if (obj.temp[F].checked)
+	{
+		// Convert from Fahrenheit
+               if (obj.F.value=="") obj.F.value=0;
+		obj.C.value = F2C(obj.F.value);
+		obj.K.value = C2K(obj.C.value);
+	}
+	else if (obj.temp[C].checked)
+	{
+		// Convert from Celcius
+                if (obj.C.value=="") obj.C.value=0;
+		obj.F.value = C2F(obj.C.value);
+		obj.K.value = C2K(obj.C.value);
+	}
+	else	// obj.temp[K].checked
+	{
+		// Convert from Kelvin
+                if(obj.K.value=="") obj.K.value=0;
+		obj.C.value = K2C(obj.K.value);
+		obj.F.value = C2F(obj.C.value);
+	}
+
+  }
+// End hide JavaScript -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Temperature Conversions
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This form allows conversion from one temperature scale to the others.
+			Indicate which scale you are supplying the value for by selecting the appropriate radio button.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+				Fahrenheit Temp:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="radio" name="temp" checked>
+						<input type="text" name="F" id="F" size="10" maxlength="10" value=""> (degrees)	
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+					Celsius Temp:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=radio name="temp">
+						<input type="text" name="C" id="C" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+					Kelvin Temp:
+		</td>
+		<td width="300" align="" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type=radio name="temp">
+						<input type="text" name="K" id="K" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+
+</form>

@@ -1,0 +1,227 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Hide script from non-supportive browsers
+
+  function fclear(form)
+  {
+        form.deg1.value = ""
+        form.min1.value = ""
+        form.deg2.value = ""
+        form.min2.value = ""
+        form.distbb.value = ""
+        form.dist_b2.value = ""
+        form.dist_abeam.value = ""
+  }
+
+  function deg2rad(deg)
+  {
+        conv_factor = (2.0 * Math.PI)/360.0;
+        return(deg * conv_factor);
+  }
+
+  function rad2deg(rad)
+  {
+        conv_factor = 360/(2.0 * Math.PI);
+        return(rad * conv_factor);
+  }
+
+
+
+
+	function compute(obj)
+	{
+
+	// This function calculates the distance from ship to an object given
+	// measurements at two bearings.  The results tell the distance at the
+	// second reading and when the object will be abeam.  This assumes a
+	// steady course in direction and speed.
+	//
+	// The following diagram shows the geometry of the problem.  This problem
+	// requires solving of right triangles given a mix of angles and lengths.
+	//
+	//                 X
+	//	   *----------------------^     LEGEND:
+	//		\` 2                3L|       ^ = ship
+	//		 \2`                  |       * = object
+	//		  \  `                |       X = ship to object distance when abeam
+	//		   \   `     T3       |
+	//		    \    `            |       (Right angles are marked as best
+	//		     \     `          |        as could be [> and L])
+	//		      \      `        |
+	//		       \  T2   `      |       Triangles and angles are numbered.
+	//		        \        `    |       Angles T1A1 and T3A1 are given.
+	//		         \         ` 1|
+	//		          \        3.`^-!
+	//		           \      .  3| !
+	//		            \ 1 .     | !
+	//		  ^          \.       | !
+	//		  N           \>2 T1  | !
+	//		 /|\           \      | !
+	//		W-*-E           \     | D = distance between bearings (given)
+	//		 \|/             \    | !
+	//		  S               \   | !
+	//		                   \  | !
+	//		                    \1| !
+	//							 \| !
+	//							  ^-!
+
+		// Set up constants
+		deg_90 = Math.PI/2;
+		deg_180 = Math.PI;
+
+		// Get given angles and convert to decimal degrees
+		deg1 = obj.deg1.value;
+		min1 = obj.min1.value;
+		deg2 = obj.deg2.value;
+		min2 = obj.min2.value;
+
+		if (deg1 < 0) min1 *= -1;
+		if (deg2 < 0) min2 *= -1;
+
+		theta1 = deg2rad(deg1) + deg2rad(min1/60);
+		theta2 = deg2rad(deg2) + deg2rad(min2/60);
+
+		// Get given distance between bearings
+		D = obj.distbb.value;
+
+		// Get all angles
+		t1a1 = theta1;					// given
+		t1a2 = deg_90;					// right angle
+		t1a3 = deg_180 - (t1a1 + t1a2);
+
+		t2a1 = deg_90;					// right angle
+		t2a3 = deg_180 - (t1a3 + theta2);
+		t2a2 = deg_180 - (t2a1 + t2a3);
+
+		t3a1 = theta2;					// given
+		t3a3 = deg_90;					// right angle
+		t3a2 = deg_180 - (t3a1 + t3a3);
+
+		// Calculate length of line dividing T1 from T2
+		cos_t1a3 = Math.cos(t1a3);
+		t1_23 = D * cos_t1a3;
+
+		// Calculate length of line dividing T2 from T3
+		cos_t2a3 = Math.cos(t2a3);
+		t2_23 = t1_23 / cos_t2a3;
+
+		// Calculate distance from ship to object when abeam
+		cos_t3a2 = Math.cos(t3a2);
+		t3_23 = t2_23 * cos_t3a2;
+
+		// Place distances into the form fields
+		obj.dist_b2.value = t2_23;
+		obj.dist_abeam.value = t3_23;
+
+	} // end function compute
+// End hide script -->
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Distance of an Object by Two Bearings
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			First Bearings to Object:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="deg1" id="deg1" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="text" name="min1" id="min1" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Second Bearings to Object:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="deg2" id="deg2" size="10" maxlength="10" value=""> (degrees)
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="text" name="min2" id="min2" size="10" maxlength="10" value=""> (minutes)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance between Bearings:
+		</td>	
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="distbb" id="distbb" size="10" maxlength="10" value="">
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance to Object at Bearing 2:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dist_b2" id="dist_b2" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Distance to Object When Abeam:
+		</td>	
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dist_abeam" id="dist_abeam" size="10" maxlength="10" value="">
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>

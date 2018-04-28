@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="formcatalog.css" type="text/css">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+<!-- Hide JavaScript from unsupportive browsers
+
+function fclear(form)
+  {
+        form.drytemp.value = ""
+        form.wettemp.value = ""
+        form.relhumid.value = ""
+        form.dewpoint.value = ""
+  }
+
+function myParseFloat(value)
+  {
+	floatValue = parseFloat(value);
+	if (isNaN(floatValue))
+		floatValue = 0;
+	return floatValue;
+  }
+
+
+function F2C(F)
+  {
+	return((5/9) * (parseFloat(F) - 32));
+  }
+function C2F(C)
+  {
+	return((9/5) * C) + 32;
+  }
+
+
+  function compute(obj)
+  {
+	// Convert Fahrenheit temperatures to Celcius
+	dry = F2C(myParseFloat(obj.drytemp.value));
+	wet = F2C(myParseFloat(obj.wettemp.value));
+
+	// Determine saturation vapor pressures
+	Es = 6.108 * (Math.pow(Math.E, ((17.27 * dry) / (237.3 + dry))));
+	Ew = 6.108 * (Math.pow(Math.E, ((17.27 * wet) / (237.3 + wet))));
+	E  = Ew - (0.00066 * (1 + 0.00115 * wet) * (dry - wet) * 1013);
+
+	// Relative Humidity
+	obj.relhumid.value = 100 * (E / Es);
+
+	// Dew Point
+	B = Math.log(E / 6.108) / 17.27;
+	obj.dewpoint.value = C2F((237.3 * B) / (1 - B));
+
+  }
+// End hide JavaScript -->
+
+</SCRIPT>
+
+<form name="evalForm">
+
+<table border="0" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px" nowrap>
+			Relative Humidity and Dew Point
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 2px solid #cccccc; background-color: #eeeeee; padding: 5px">
+			This form will compute the relative humidity given the dry and wet-bulb temperatures.
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" height="100" class="nga-queryRow">
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Dry-Bulb Temperature:
+		</td>
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="drytemp" id="drytemp" size="10" maxlength="10" value=""> (&deg; F)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Wet-Bulb Temperature:
+		</td>
+		<td width="300" align="center" class="nga-queryValueCell">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td align="left">
+						<input type="text" name="wettemp" id="wettemp" size="10" maxlength="10" value=""> (&deg; F)
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td colspan="3" height="10"></td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-querySubmitRow">
+	<tr>
+		<td align="center">
+			<input type="button" value="Calculate" onclick="compute(this.form)">&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			<input type="reset" value="Reset" onclick="fclear(document.evalForm)">&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="500" class="nga-queryRow">
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Relative Humidity:
+		</td>
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="relhumid" id="relhumid" size="10" maxlength="10" value=""> %
+		</td>
+		<td width="2"></td>
+	</tr>
+	<tr>
+		<td class="nga-queryLabel" align="left" valign="middle">
+			Dew Point:
+		</td>
+		<td width="300" align="left" class="nga-queryValueCell">
+			<input type="text" name="dewpoint" id="dewpoint" size="10" maxlength="10" value=""> (&deg; F)
+		</td>
+		<td width="2"></td>
+	</tr>
+</table>
+
+</form>
