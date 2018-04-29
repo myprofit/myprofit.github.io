@@ -1,0 +1,149 @@
+  #header{
+  width: 100%;
+  background-color: #cccccc;
+  min-height: 25px;
+  text-align: center;
+  border: 0px;
+  padding: 0px;
+  }
+  #container{
+  width: auto;
+  background-color: #8EC919;
+  margin: auto;
+  border: 1px solid green;
+  margin: 1px;
+  }
+  #first{
+  width: 100px;
+  float: left;
+  height: ;
+  background-color: #8BB133;
+  }
+  #second{
+  width: 100px;
+  float: left;
+  background-color: #cddc39;
+  }
+  #third{
+  width: 100px;
+  float: left;
+  background-color: #FF4500;
+  }
+  #clear{
+  clear: both;
+  background-color:#FFD700;
+  }
+  #bton{
+  background-color: Gold;
+  border: 2px solid orange;
+  padding: 0px;
+  margin: 8px;
+  border-radius:6px;
+  width: auto;
+  text-align: center;
+  }
+  input[type=text1]{
+  color: red;
+  background-color: lightgrey;
+  }
+  input[type=text]{
+  color: red;
+  background-color: lightgrey;
+  }
+  input[type=number1]{
+  color: red;
+  background-color: lightgrey;
+  }
+  input:hover{
+  border: 2px solid DeepPink;
+  border-radius:2px;
+  }
+
+  body{
+  background-color: #cccccc;
+  }
+  div{
+  margin: 0px;
+  width: 120px;
+  border: 1px solid green;
+  padding: 2px;
+  border-radius:8px;
+  text-align: center;
+  margin-top: 2px;
+  padding-top: 0px;
+  margin-left: 2px;
+  margin-right: 0px;
+  margin-bottom: 2px;
+  }
+  .fleft{
+  float: left;
+  height: auto;
+  margin-right: 0px;
+  }
+  .fright{
+  float: right;
+  height: auto;
+  margin-right: 0px;
+  }
+
+  .cont0{
+  background-color: Gold;
+  }
+  .cont1{
+  background-color: #fe0000;
+  }
+  .cont2{
+  background-color: #ff9c00;
+  }
+  .cont3{
+  background-color: ##f5ff00;
+  }
+  .cont4{
+  background-color: #3cf10e;
+  }
+  .cont5{
+  background-color: #01ffe5;
+  }
+  .cont6{
+  background-color: #3366ff;
+  }
+  .cont7{
+  background-color: #c516cc;
+  }
+  .cont8{
+  background-color: #ff009c;
+  }
+  .cont9{
+  background-color:#ADD8E6;
+  }
+  .cont10{
+  background-color: #32CD32;
+  }
+  .cont11{
+  background-color: #00BFFF;
+  }
+  .cont12{
+  background-color: #ADFF2F;
+  }
+  .coinhive-miner{
+  background-color: #ADFF2F;
+  width: 280px;
+  height: 150px;
+  border-radius:6px;
+  padding: 2px;
+  }
+  h1,h2,h3,h4,h5,h6{
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  bottom: 0px;
+  margin-bottom: 0px;
+  top: 0px;
+  text-align: center;
+  color:#191970;
+  }
+  .qr{
+  background-color:#FFD700;
+  border:1px solid green;
+  }
