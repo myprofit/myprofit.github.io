@@ -7,151 +7,7 @@
     <meta name="keywords" content="My Crypto profit calculator,Profit tool,Sell tool,MPC,MCPC,CPC,Crypto profit calculator,Profit calculator,Crypto calculator, My profit calculator,">
     <meta name="author" content="My ProFit">
     <title>Crypto profit only</title>
-    <style>
-      #header{
-      width: 100%;
-      background-color: #cccccc;
-      min-height: 25px;
-      text-align: center;
-      border: 0px;
-      padding: 0px;
-      }
-      #container{
-      width: auto;
-      background-color: #8EC919;
-      margin: auto;
-      border: 1px solid green;
-      margin: 1px;
-      }
-      #first{
-      width: 100px;
-      float: left;
-      height: ;
-      background-color: #8BB133;
-      }
-      #second{
-      width: 100px;
-      float: left;
-      background-color: #cddc39;
-      }
-      #third{
-      width: 100px;
-      float: left;
-      background-color: #FF4500;
-      }
-      #clear{
-      clear: both;
-      background-color:#FFD700;
-      }
-      #bton{
-      background-color: Gold;
-      border: 2px solid orange;
-      padding: 0px;
-      margin: 8px;
-      border-radius:6px;
-      width: auto;
-      text-align: center;
-      }
-      input[type=text1]{
-      color: red;
-      background-color: lightgrey;
-      }
-      input[type=text]{
-      color: red;
-      background-color: lightgrey;
-      }
-      input[type=number1]{
-      color: red;
-      background-color: lightgrey;
-      }
-      input:hover{
-      border: 2px solid DeepPink;
-      border-radius:2px;
-      }
-    </style>
-    <style>
-      body{
-      background-color: #cccccc;
-      }
-      div{
-      margin: 0px;
-      width: 120px;
-      border: 1px solid green;
-      padding: 2px;
-      border-radius:8px;
-      text-align: center;
-      margin-top: 2px;
-      padding-top: 0px;
-      margin-left: 2px;
-      margin-right: 0px;
-      margin-bottom: 2px;
-      }
-      .fleft{
-      float: left;
-      height: auto;
-      margin-right: 0px;
-      }
-      .fright{
-      float: right;
-      height: auto;
-      margin-right: 0px;
-      }
-
-      .cont0{
-      background-color: Gold;
-      }
-      .cont1{
-      background-color: #fe0000;
-      }
-      .cont2{
-      background-color: #ff9c00;
-      }
-      .cont3{
-      background-color: ##f5ff00;
-      }
-      .cont4{
-      background-color: #3cf10e;
-      }
-      .cont5{
-      background-color: #01ffe5;
-      }
-      .cont6{
-      background-color: #3366ff;
-      }
-      .cont7{
-      background-color: #c516cc;
-      }
-      .cont8{
-      background-color: #ff009c;
-      }
-      .cont9{
-      background-color:#ADD8E6;
-      }
-
-      .coinhive-miner{
-      background-color: #ADFF2F;
-      width: 280px;
-      height: 150px;
-      border-radius:6px;
-      padding: 2px;
-      }
-      h1,h2,h3,h4,h5,h6{
-      margin-bottom: 0px;
-      margin-top: 0px;
-      padding-bottom: 0px;
-      padding-top: 0px;
-      bottom: 0px;
-      margin-bottom: 0px;
-      top: 0px;
-      text-align: center;
-      color:#191970;
-      }
-      .qr{
-      background-color:#FFD700;
-      border:1px solid green;
-      }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
  <script>
 function clearContent0(){
@@ -160,7 +16,7 @@ function clearContent0(){
     document.getElementById("RGJ").value='';
     document.getElementById("NAR").value='0.55';
     document.getElementById("BHQ").value='';
-    document.getElementById("CUV").value='0.55';
+    document.getElementById("CVU").value='0.55';
     document.getElementById("TZR").value='';
 }
 function clearContent1(){
@@ -173,19 +29,32 @@ function clearContent1(){
     document.getElementById("MNF").value='';
 }
 function clearContent2(){
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
+    document.getElementById("XRN").value='';
+    document.getElementById("AWC").value='0.55';
+    document.getElementById("GCO").value='';
+    document.getElementById("LMG").value='0.55';
+    document.getElementById("RTS").value='';
+    document.getElementById("IEW").value='0.55';
+    document.getElementById("OXF").value='';
+}
+function clearContent3(){
+    document.getElementById("TGV").value='';
+    document.getElementById("DRN").value='0.55';
+    document.getElementById("HUZ").value='';
+    document.getElementById("MXF").value='0.55';
+    document.getElementById("AMS").value='';
+    document.getElementById("ZTZ").value='0.55';
+    document.getElementById("RSD").value='';
+}
+//Percentage
+function clearContent4(){
+    document.getElementById("PURC").value='';
+    document.getElementById("PERid").value='20';
+    document.getElementById("DIFFP").value='';
+    document.getElementById("CURR").value='';
 }
 
-
-
 </script>
-
 <script>
   function e(element)
   {
@@ -198,7 +67,7 @@ function clearContent2(){
   function updateResult()
   {
 //1.1
-// sell ask = buy * deff % / 100 + buy
+// sell ask = buy * diff % / 100 + buy
     e("RGJ").value = (f("BWO") * f("NTZ") / 100) + f("BWO");
 // Buy
     e("BHQ").value = (f("RGJ") * f("NAR") / 100) - f("RGJ");
@@ -212,7 +81,6 @@ function clearContent2(){
     e("EVI").value = (f("DHD") * f("NHJ") / 100) - f("DHD");
 // sell
     e("MNF").value = (f("EVI") * f("ZKS") / 100) + f("EVI");
-
 
 // 2.1
 //bUY
@@ -230,8 +98,12 @@ function clearContent2(){
 // Buy
       e("RSD").value = (-f("AMS") * f("ZTZ") / 100) + f("AMS");
 
-
-
+//Percentage
+      e("MKM").value = f("ZUZ") * f("SELLP");
+      e("PRCDI").value = (f("SELLP") / f("BYPP")-1)*100;
+      e("DFIP").value = f("SELLP") - f("BYPP");
+      e("CURR").value = ((f("PURC") * f("PERid")) /100) + f("PURC");
+      e("DIFFP").value = f("CURR") - f("PURC");
       }
     </script>
 
@@ -244,6 +116,16 @@ function clearContent2(){
             $("#tnt").click(function(){
                 $("tnt").toggle(300);
             })
+            $("#piod").click(function(){
+                $("piod").toggle(300);
+            })
+            $("#difp").click(function(){
+                $("difp").toggle(300);
+            })
+            $("#axa").click(function(){
+                $("axa").toggle(300);
+            })
+
         });
     </script>
 
@@ -260,20 +142,20 @@ function clearContent2(){
         <b>Buy Price</b><br>
       <input id="BWO" value="" style="width: 95px" type="number"><br>
 
-        <a>Diff % </a><br>
-        <input id="NTZ" value="" style="width: 95px" type="number"><br>
+        <a>Difference in % </a><br>
+        <input id="NTZ" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="RGJ" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="NAR" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="NAR" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="BHQ" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="CVU" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="CVU" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="TZR" value="" style="width: 95px" type="number1"><br>
@@ -285,30 +167,28 @@ function clearContent2(){
         <b>Buy price</b><br>
         <input id="LUT" value="" style="width: 95px" type="number"><br>
 
-        <a>Diff %</a><br>
-        <input id="KWO" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="KWO" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="DHD" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="NHJ" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="NHJ" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="EVI" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff % 5</a><br>
-        <input id="ZKS" value="" style="width: 95px" type="number"><br>
+        <a>Difference in % 5</a><br>
+        <input id="ZKS" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="MNF" value="" style="width: 95px" type="number1"><br>
 
       <input value="Clear" onclick="clearContent1()" type="button">
-
 </div>
     </tnt>
       </div>
-
 
 <!-- sELL -->
 
@@ -322,49 +202,46 @@ function clearContent2(){
         <b>Sell price</b><br>
         <input id="XRN" value="" style="width: 95px" type="number"><br>
 
-        <a>Diff %</a><br>
-        <input id="AWC" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="AWC" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="GCO" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="LMG" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="LMG" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="RTS" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="IEW" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="IEW" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="OXF" value="" style="width: 95px" type="number1"><br>
-
-
 
       <input value="Clear" onclick="clearContent2()" type="button">
       </div>
 
       <div class="cont1" >
 
-
         <b>Sell price</b><br>
         <input id="TGV" value="" style="width: 95px" type="number"><br>
 
-        <a>Diff %</a><br>
-        <input id="DRN" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="DRN" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="HUZ" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="MXF" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="MXF" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Sell price</b><br>
         <input id="AMS" value="" style="width: 95px" type="number1"><br>
 
-        <a>Diff %</a><br>
-        <input id="ZTZ" value="" style="width: 95px" type="number"><br>
+        <a>Difference in %</a><br>
+        <input id="ZTZ" value="0.55" style="width: 95px" type="number"><br>
 
         <b>Buy price</b><br>
         <input id="RSD" value="" style="width: 95px" type="number1"><br>
@@ -374,19 +251,58 @@ function clearContent2(){
     </gxg>
 </div>
 
+<div class="fleft cont10" onkeyup="updateResult()" style="width: auto" align="justify">
+      <h3 id="piod">Percentage</h3>
+      <piod>
+        <div class="cont0">Price in FIAT<br>
+          <input id="PURC" value="" style="width: 95px" type="number"><br>
+          Percentage<br>
+          <div class="cont12" style="width: 110px">
+            <samp>Use minus <br>
+              for decrees</samp></div>
+          <input id="PERid" value="20" style="width: 95px" type="text2"><br>
+          <b>Price difference</b><br>
+          <input id="DIFFP" value="" style="width: 95px" type="text"><br>
+          <b>Price + percentage</b><br>
+          <input id="CURR" value="" style="width: 95px" type="text"><br>
+          <input value="Clear" onclick="clearContent4()" type="button"> </div>
+      </piod>
+      <h3 id="difp">Difference in %</h3>
+      <difp>
+        <div class="cont0">Purchasing price<br>
+          <input id="BYPP" value="" style="width: 95px" type="number"><br>
+          Selling price<br>
+          <input id="SELLP" value="" style="width: 95px" type="number"><br>
+          <b>Price difference</b><br>
+          <input id="DFIP" value="" style="width: 95px" type="text"><br>
+          <b>Difference in %</b><br>
+          <input id="PRCDI" value="" style="width: 95px" type="text"><br>
+          Sell quantity<br>
+          <input id="ZUZ" value="" style="width: 95px" type="number"><br>
+          <b>Income</b><br>
+          <input id="MKM" value="" style="width: 95px" type="text"><br>
+          <input value="Clear" onclick="clearContent5()" type="button"></div>
+      </difp></div>
 
       <!-- side bar navigation menu -->
-      <bt id="bton" style="position:fixed; bottom:150px; right:0px;">
+      <bt id="bton" style="position:fixed; bottom:66px; right:-5px;">
+        <label class="switch">
+          <input type="checkbox" checked>
+          <span id="axa" class="slider round"></span>
+        </label><br>
+        <axa>
       <input value="Clear All"
       onclick="clearContent0(),clearContent1(),clearContent2(),clearContent3(),clearContent4(),
       clearContent5(),clearContent6(),clearContent7(),clearContent8(),clearContent9(),
-      clearContent10(),clearContent11()"
+      clearContent10(),clearContent11(),clearContent12(),clearContent13()"
       type="button"><br><br>
       <input value="Refresh" onclick="window.location.reload()" type="button">
       <br>
       <input type="button" value="Home" onclick="window.location.href='https://myprofit.github.io/'" /><br>
       <input type="button" value="Play" onclick="window.location.href='https://myprofit.github.io/play.html'" /><br>
       <input type="button" value="What %" onclick="window.location.href='https://myprofit.github.io/percentage.html'" />
+      </axa>
       </bt>
+
   </body>
 </html>
